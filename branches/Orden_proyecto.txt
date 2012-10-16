@@ -1,0 +1,16 @@
+1. Estado
+2. Rol
+3. Persona
+----
+4. Proyecto ->  Linda
+5. Productbacklog ->  Linda
+6. Equipo ->  Ludwing 
+7. Tarea ->  Luis
+8. Sprint ->  Linda
+9. SpritProductBacklog ->  Ludwing
+10. Historialchat ->  Luis
+11. Cambios ->  Ludwing	
+12. Reunion ->  Mario
+13. Link ->  Luis
+
+* Login ->  Mario
