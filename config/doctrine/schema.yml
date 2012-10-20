@@ -1,0 +1,449 @@
+---
+detect_relations: true
+options:
+  collate: latin1_spanish_ci
+  charset: latin1
+  type: InnoDB
+
+Tarea:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      notnull: true
+      autoincrement: true
+    Persona_id:
+      type: integer(4)
+      notnull: true
+    ProductBacklog_id:
+      type: integer(4)
+      notnull: true
+    Estado_id:
+      type: integer(4)
+      notnull: true
+    Nombre:
+      type: string(45)
+    Descripcion:
+      type: clob(65535)
+    TiempoEstimado:
+      type: integer(4)
+  relations:
+    Estado:
+      class: Estado
+      local: Estado_id
+      foreign: id
+      foreignAlias: Tareas
+    Persona:
+      class: Persona
+      local: Persona_id
+      foreign: id
+      foreignAlias: Tareas
+    ProductBacklog:
+      class: ProductBacklog
+      local: ProductBacklog_id
+      foreign: id
+      foreignAlias: Tareas
+  indexes:
+    fk_Tarea_Estado2:
+      fields: [Estado_id]
+    fk_Tarea_Persona1:
+      fields: [Persona_id]
+    fk_Tarea_ProductBacklog1:
+      fields: [ProductBacklog_id]
+
+Sprint:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      notnull: true
+      autoincrement: true
+    Proyecto_id:
+      type: integer(4)
+      notnull: true
+    Persona_id:
+      type: integer(4)
+      notnull: true
+    Estado_id:
+      type: integer(4)
+      notnull: true
+    Nombre:
+      type: string(45)
+    Descripcion:
+      type: clob(65535)
+    FechaInicio:
+      type: timestamp
+    FechaFin:
+      type: timestamp
+    DiasDisponibles:
+      type: integer(2)
+  relations:
+    Estado:
+      class: Estado
+      local: Estado_id
+      foreign: id
+      foreignAlias: Sprints
+    Proyecto:
+      class: Proyecto
+      local: Proyecto_id
+      foreign: id
+      foreignAlias: Sprints
+    Persona:
+      class: Persona
+      local: Persona_id
+      foreign: id
+      foreignAlias: Sprints
+  indexes:
+    fk_Sprint_Estado1:
+      fields: [Estado_id]
+    fk_Sprint_Proyecto1:
+      fields: [Proyecto_id]
+    fk_Sprint_Persona1:
+      fields: [Persona_id]
+
+ProductBacklog:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      notnull: true
+      autoincrement: true
+    Proyecto_id:
+      type: integer(4)
+      notnull: true
+    Persona_id:
+      type: integer(4)
+      notnull: true
+    Nombre:
+      type: string(45)
+      notnull: true
+    Descripcion:
+      type: clob(65535)
+    Prioridad:
+      type: integer(1)
+    Duracion:
+      type: integer(2)
+    Activo:
+      type: boolean
+  relations:
+    Proyecto:
+      class: Proyecto
+      local: Proyecto_id
+      foreign: id
+      foreignAlias: ProductBacklogs
+    Persona:
+      class: Persona
+      local: Persona_id
+      foreign: id
+      foreignAlias: ProductBacklogs
+  indexes:
+    fk_ProductBacklog_Proyecto2:
+      fields: [Proyecto_id]
+    fk_ProductBacklog_Persona1:
+      fields: [Persona_id]
+
+Estado:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      notnull: true
+      autoincrement: true
+    Nombre:
+      type: string(45)
+    Descripcion:
+      type: clob(65535)
+
+Proyecto:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      notnull: true
+      autoincrement: true
+    Persona_id:
+      type: integer(4)
+      notnull: true
+    Nombre:
+      type: string(45)
+      unique: true
+      notnull: true
+    Descripcion:
+      type: clob(65535)
+    Comentarios:
+      type: clob(65535)
+    created_at:
+      type: timestamp
+    updated_at:
+      type: timestamp
+    expires_at:
+      type: timestamp
+    Activo:
+      type: boolean
+  relations:
+    Persona:
+      class: Persona
+      local: Persona_id
+      foreign: id
+      foreignAlias: Proyectoes
+  indexes:
+    fk_Proyecto_Persona1:
+      fields: [Persona_id]
+
+Persona:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      notnull: true
+      autoincrement: true
+    idFacebook:
+      type: string(18)
+      fixed: true
+    Nombre:
+      type: string(100)
+      notnull: true
+    Email:
+      type: string(45)
+    Telefono:
+      type: string(15)
+      fixed: true
+    Activo:
+      type: boolean
+
+Rol:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      notnull: true
+      autoincrement: true
+    Nombre:
+      type: string(45)
+      notnull: true
+    Descripcion:
+      type: clob(65535)
+    Activo:
+      type: boolean
+
+SprintProductBacklog:
+  columns:
+    Sprint_id:
+      type: integer(4)
+      primary: true
+      notnull: true
+    ProductBacklog_id:
+      type: integer(4)
+      primary: true
+      notnull: true
+  relations:
+    Sprint:
+      class: Sprint
+      local: Sprint_id
+      foreign: id
+      foreignAlias: SprintProductBacklogs
+    ProductBacklog:
+      class: ProductBacklog
+      local: ProductBacklog_id
+      foreign: id
+      foreignAlias: SprintProductBacklogs
+  indexes:
+    fk_SprintProductBacklog_Sprint1:
+      fields: [Sprint_id]
+    fk_SprintProductBacklog_ProductBacklog1:
+      fields: [ProductBacklog_id]
+
+Equipo:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      notnull: true
+      autoincrement: true
+    Proyecto_id:
+      type: integer(4)
+      notnull: true
+    Persona_id:
+      type: integer(4)
+      notnull: true
+    Rol_id:
+      type: integer(4)
+      notnull: true
+    Nombre:
+      type: string(45)
+    Activo:
+      type: boolean
+  relations:
+    Rol:
+      class: Rol
+      local: Rol_id
+      foreign: id
+      foreignAlias: Equipoes
+    Persona:
+      class: Persona
+      local: Persona_id
+      foreign: id
+      foreignAlias: Equipoes
+    Proyecto:
+      class: Proyecto
+      local: Proyecto_id
+      foreign: id
+      foreignAlias: Equipoes
+  indexes:
+    fk_Equipo_Rol1:
+      fields: [Rol_id]
+    fk_Equipo_Persona1:
+      fields: [Persona_id]
+    fk_Equipo_Proyecto1:
+      fields: [Proyecto_id]
+
+Reunion:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      notnull: true
+      autoincrement: true
+    Proyecto_id:
+      type: integer(4)
+      notnull: true
+    Persona_id:
+      type: integer(4)
+      notnull: true
+    Titulo:
+      type: string(45)
+    Descripcion:
+      type: clob(65535)
+    Anotaciones:
+      type: clob(65535)
+    Fecha:
+      type: timestamp
+    Duracion:
+      type: integer(1)
+    Activo:
+      type: boolean
+  relations:
+    Proyecto:
+      class: Proyecto
+      local: Proyecto_id
+      foreign: id
+      foreignAlias: Reunions
+    Persona:
+      class: Persona
+      local: Persona_id
+      foreign: id
+      foreignAlias: Reunions
+  indexes:
+    fk_Reunion_Proyecto1:
+      fields: [Proyecto_id]
+    fk_Reunion_Persona1:
+      fields: [Persona_id]
+
+HistorialChat:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      notnull: true
+      autoincrement: true
+    Proyecto_id:
+      type: integer(4)
+      notnull: true
+    Persona_id:
+      type: integer(4)
+      notnull: true
+    Mensaje:
+      type: clob(65535)
+    created_at:
+      type: timestamp
+    Activo:
+      type: boolean
+  relations:
+    Proyecto:
+      class: Proyecto
+      local: Proyecto_id
+      foreign: id
+      foreignAlias: HistorialChats
+    Persona:
+      class: Persona
+      local: Persona_id
+      foreign: id
+      foreignAlias: HistorialChats
+  indexes:
+    fk_HistorialChat_Proyecto1:
+      fields: [Proyecto_id]
+    fk_HistorialChat_Persona2:
+      fields: [Persona_id]
+
+Link:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      notnull: true
+      autoincrement: true
+    Proyecto_id:
+      type: integer(4)
+      notnull: true
+    Persona_id:
+      type: integer(4)
+      notnull: true
+    Direccion:
+      type: clob(65535)
+      notnull: true
+    Descripcion:
+      type: clob(65535)
+    created_at:
+      type: timestamp
+  relations:
+    Proyecto:
+      class: Proyecto
+      local: Proyecto_id
+      foreign: id
+      foreignAlias: Links
+    Persona:
+      class: Persona
+      local: Persona_id
+      foreign: id
+      foreignAlias: Links
+  indexes:
+    fk_Link_Proyecto1:
+      fields: [Proyecto_id]
+    fk_Link_Persona1:
+      fields: [Persona_id]
+
+Cambio:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      notnull: true
+      autoincrement: true
+    Proyecto_id:
+      type: integer(4)
+      notnull: true
+    Persona_id:
+      type: integer(4)
+      notnull: true
+    Descripcion:
+      type: string(150)
+    Fecha:
+      type: timestamp
+  relations:
+    Persona:
+      class: Persona
+      local: Persona_id
+      foreign: id
+      foreignAlias: Cambioes
+    Proyecto:
+      class: Proyecto
+      local: Proyecto_id
+      foreign: id
+      foreignAlias: Cambioes
+  indexes:
+    fk_Cambios_Persona2:
+      fields: [Persona_id]
+    fk_Cambios_Proyecto2:
+      fields: [Proyecto_id]
+
+
