@@ -16,4 +16,10 @@ class ProyectoTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Proyecto');
     }
+	
+	/*
+	public function getProyectos()
+	{
+		return self::
+	}*/
 }

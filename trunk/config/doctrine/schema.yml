@@ -1,416 +1,735 @@
----
-detect_relations: true
-options:
-  collate: latin1_spanish_ci
-  charset: latin1
-  type: InnoDB
-
-Tarea:
+Cambios:
+  connection: doctrine
+  tableName: cambios
   columns:
-    idTarea:
+    idcambios:
       type: integer(4)
+      fixed: false
+      unsigned: false
       primary: true
-      notnull: true
       autoincrement: true
-    Nombre:
-      type: string(45)
-    Descripcion:
-      type: string(45)
-    TiempoEstimado:
+    descripcion:
+      type: string(150)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    fecha:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    proyecto_idproyecto:
       type: integer(4)
-    idProductBacklog:
-      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
       notnull: true
-    idEstado:
+      autoincrement: false
+    persona_idpersona:
       type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
       notnull: true
-    idPersona:
-      type: integer(4)
-      notnull: true
+      autoincrement: false
   relations:
-    idProductBacklog:
-      class: ProductBacklog
-      local: idProductBacklog
-      foreign: idProductBacklog
-      foreignAlias: Tareas
-    idEstado:
-      class: Estado
-      local: idEstado
-      foreign: idEstado
-      foreignAlias: Tareas
-    idPersona:
-      class: Persona
-      local: idPersona
-      foreign: idPersona
-      foreignAlias: Tareas
-  indexes:
-    fk_Tarea_ProductBacklog_idx:
-      fields: [idProductBacklog]
-    fk_Tarea_Estado1_idx:
-      fields: [idEstado]
-    fk_Tarea_Persona1_idx:
-      fields: [idPersona]
-
-Sprint:
+    Proyecto:
+      local: proyecto_idproyecto
+      foreign: idproyecto
+      type: one
+    Persona:
+      local: persona_idpersona
+      foreign: idpersona
+      type: one
+Equipo:
+  connection: doctrine
+  tableName: equipo
   columns:
-    idSprint:
+    idequipo:
       type: integer(4)
+      fixed: false
+      unsigned: false
       primary: true
-      notnull: true
       autoincrement: true
-    Nombre:
-      type: string(45)
-    Descripcion:
-      type: string(100)
-    FechaInicio:
-      type: timestamp
-    FechaFin:
-      type: timestamp
-    DiasDisponibles:
-      type: integer(2)
-    idEstado:
+    idrol:
       type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
       notnull: true
-  relations:
-    idEstado:
-      class: Estado
-      local: idEstado
-      foreign: idEstado
-      foreignAlias: Sprints
-  indexes:
-    fk_Sprint_Estado1_idx:
-      fields: [idEstado]
-
-ProductBacklog:
-  columns:
-    idProductBacklog:
+      autoincrement: false
+    idpersona:
       type: integer(4)
-      primary: true
+      fixed: false
+      unsigned: false
+      primary: false
       notnull: true
-      autoincrement: true
-    Nombre:
+      autoincrement: false
+    idproyecto:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    nombre:
       type: string(45)
-    Descripcion:
-      type: string(100)
-    Prioridad:
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    activo:
       type: integer(1)
-    Duracion:
-      type: integer(2)
-    idProyecto:
-      type: integer(4)
-      notnull: true
-    idPersona:
-      type: integer(4)
-      notnull: true
-    Activo:
-      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
   relations:
-    idProyecto:
-      class: Proyecto
-      local: idProyecto
-      foreign: idProyecto
-      foreignAlias: ProductBacklogs
-    idPersona:
-      class: Persona
-      local: idPersona
-      foreign: idPersona
-      foreignAlias: ProductBacklogs
-  indexes:
-    fk_ProductBacklog_Proyecto1_idx:
-      fields: [idProyecto]
-    fk_ProductBacklog_Persona1_idx:
-      fields: [idPersona]
-
+    Rol:
+      local: idrol
+      foreign: idrol
+      type: one
+    Persona:
+      local: idpersona
+      foreign: idpersona
+      type: one
+    Proyecto:
+      local: idproyecto
+      foreign: idproyecto
+      type: one
 Estado:
+  connection: doctrine
+  tableName: estado
   columns:
-    idEstado:
+    idestado:
       type: integer(4)
+      fixed: false
+      unsigned: false
       primary: true
-      notnull: true
       autoincrement: true
-    Nombre:
+    nombre:
       type: string(45)
-    Descripcion:
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    descripcion:
       type: string(45)
-
-Proyecto:
-  columns:
-    idProyecto:
-      type: integer(4)
-      primary: true
-      notnull: true
-      autoincrement: true
-    idAdministrador:
-      type: integer(4)
-      notnull: true
-    Nombre:
-      type: string(45)
-    Descripcion:
-      type: string(100)
-    Comentarios:
-      type: string(100)
-    FCreacion:
-      type: timestamp
-    FModificacion:
-      type: timestamp
-    FFinalizacion:
-      type: timestamp
-    Activo:
-      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
   relations:
-    idAdministrador:
-      class: Persona
-      local: idAdministrador
-      foreign: idPersona
-      foreignAlias: Proyectoes
-  indexes:
-    fk_Proyecto_Persona1_idx:
-      fields: [idAdministrador]
-
-Persona:
+    Sprint:
+      local: idestado
+      foreign: idestado
+      type: many
+    Tarea:
+      local: idestado
+      foreign: idestado
+      type: many
+Historialchat:
+  connection: doctrine
+  tableName: historialchat
   columns:
-    idPersona:
+    idhistorialchat:
       type: integer(4)
+      fixed: false
+      unsigned: false
       primary: true
-      notnull: true
       autoincrement: true
-    Nombre:
+    idpersona:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    idproyecto:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    mensaje:
+      type: string(300)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    fecha:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    activo:
+      type: integer(1)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+  relations:
+    Persona:
+      local: idpersona
+      foreign: idpersona
+      type: one
+    Proyecto:
+      local: idproyecto
+      foreign: idproyecto
+      type: one
+Link:
+  connection: doctrine
+  tableName: link
+  columns:
+    idlink:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    direccion:
+      type: string(200)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    descripcion:
+      type: string(200)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    idproyecto:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    Proyecto:
+      local: idproyecto
+      foreign: idproyecto
+      type: one
+Persona:
+  connection: doctrine
+  tableName: persona
+  columns:
+    idpersona:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    nombre:
       type: string(100)
+      fixed: false
+      unsigned: false
+      primary: false
       notnull: true
-    Email:
+      autoincrement: false
+    email:
       type: string(45)
-      unique: true
+      fixed: false
+      unsigned: false
+      primary: false
       notnull: true
-    Telefono:
+      autoincrement: false
+    telefono:
       type: string(15)
       fixed: true
-    Contrase√±a:
-      type: blob(65535)(20)
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    contrase„±a:
+      type: blob()
+      fixed: false
+      unsigned: false
+      primary: false
       notnull: true
-    Activo:
-      type: boolean
-
-Rol:
-  columns:
-    idRol:
-      type: integer(4)
-      primary: true
-      notnull: true
-      autoincrement: true
-    Nombre:
-      type: string(45)
-      notnull: true
-    Descripcion:
-      type: string(100)
-    Activo:
-      type: boolean
-
-SprintProductBacklog:
-  columns:
-    idSprint:
-      type: integer(4)
-      primary: true
-      notnull: true
-    idProductBacklog:
-      type: integer(4)
-      primary: true
-      notnull: true
-  relations:
-    idSprint:
-      class: Sprint
-      local: idSprint
-      foreign: idSprint
-      foreignAlias: SprintProductBacklogs
-    idProductBacklog:
-      class: ProductBacklog
-      local: idProductBacklog
-      foreign: idProductBacklog
-      foreignAlias: SprintProductBacklogs
-  indexes:
-    fk_Sprint_has_ProductBacklog_ProductBacklog1_idx:
-      fields: [idProductBacklog]
-    fk_Sprint_has_ProductBacklog_Sprint1_idx:
-      fields: [idSprint]
-
-Equipo:
-  columns:
-    idEquipo:
-      type: integer(4)
-      primary: true
-      notnull: true
-      autoincrement: true
-    idRol:
-      type: integer(4)
-      notnull: true
-    idPersona:
-      type: integer(4)
-      notnull: true
-    idProyecto:
-      type: integer(4)
-      notnull: true
-    Nombre:
-      type: string(45)
-    Activo:
-      type: boolean
-  relations:
-    idRol:
-      class: Rol
-      local: idRol
-      foreign: idRol
-      foreignAlias: Equipoes
-    idPersona:
-      class: Persona
-      local: idPersona
-      foreign: idPersona
-      foreignAlias: Equipoes
-    idProyecto:
-      class: Proyecto
-      local: idProyecto
-      foreign: idProyecto
-      foreignAlias: Equipoes
-  indexes:
-    fk_Equipo_Rol1_idx:
-      fields: [idRol]
-    fk_Equipo_Persona1_idx:
-      fields: [idPersona]
-    fk_Equipo_Proyecto1_idx:
-      fields: [idProyecto]
-
-Reunion:
-  columns:
-    idReunion:
-      type: integer(4)
-      primary: true
-      notnull: true
-      autoincrement: true
-    Titulo:
-      type: string(45)
-    Descripcion:
-      type: string(45)
-    Anotaciones:
-      type: string(45)
-    Fecha:
-      type: timestamp
-    Duracion:
+      autoincrement: false
+    activo:
       type: integer(1)
-    idProyecto:
-      type: integer(4)
-      notnull: true
-    idPersona:
-      type: integer(4)
-      notnull: true
-    Activo:
-      type: boolean
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
   relations:
-    idProyecto:
-      class: Proyecto
-      local: idProyecto
-      foreign: idProyecto
-      foreignAlias: Reunions
-    idPersona:
-      class: Persona
-      local: idPersona
-      foreign: idPersona
-      foreignAlias: Reunions
-  indexes:
-    fk_Reunion_Proyecto1_idx:
-      fields: [idProyecto]
-    fk_Reunion_Persona1_idx:
-      fields: [idPersona]
-
-HistorialChat:
+    Cambios:
+      local: idpersona
+      foreign: persona_idpersona
+      type: many
+    Equipo:
+      local: idpersona
+      foreign: idpersona
+      type: many
+    Historialchat:
+      local: idpersona
+      foreign: idpersona
+      type: many
+    Productbacklog:
+      local: idpersona
+      foreign: idpersona
+      type: many
+    Proyecto:
+      local: idpersona
+      foreign: idadministrador
+      type: many
+    Reunion:
+      local: idpersona
+      foreign: idpersona
+      type: many
+    Tarea:
+      local: idpersona
+      foreign: idpersona
+      type: many
+Productbacklog:
+  connection: doctrine
+  tableName: productbacklog
   columns:
-    idHistorialChat:
+    idproductbacklog:
       type: integer(4)
+      fixed: false
+      unsigned: false
       primary: true
-      notnull: true
       autoincrement: true
-    idPersona:
+    nombre:
+      type: string(45)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    descripcion:
+      type: string(100)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    prioridad:
+      type: integer(1)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    duracion:
+      type: integer(2)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    idproyecto:
       type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
       notnull: true
-    idProyecto:
+      autoincrement: false
+    idpersona:
       type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
       notnull: true
-    Mensaje:
-      type: string(300)
-    Fecha:
-      type: timestamp
-    Activo:
-      type: boolean
+      autoincrement: false
+    activo:
+      type: integer(1)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
   relations:
-    idPersona:
-      class: Persona
-      local: idPersona
-      foreign: idPersona
-      foreignAlias: HistorialChats
-    idProyecto:
-      class: Proyecto
-      local: idProyecto
-      foreign: idProyecto
-      foreignAlias: HistorialChats
-  indexes:
-    fk_HistorialChat_Persona1_idx:
-      fields: [idPersona]
-    fk_HistorialChat_Proyecto1_idx:
-      fields: [idProyecto]
-
-Link:
+    Proyecto:
+      local: idproyecto
+      foreign: idproyecto
+      type: one
+    Persona:
+      local: idpersona
+      foreign: idpersona
+      type: one
+    Sprintproductbacklog:
+      local: idproductbacklog
+      foreign: idproductbacklog
+      type: many
+    Tarea:
+      local: idproductbacklog
+      foreign: idproductbacklog
+      type: many
+Proyecto:
+  connection: doctrine
+  tableName: proyecto
   columns:
-    idLink:
+    idproyecto:
       type: integer(4)
+      fixed: false
+      unsigned: false
       primary: true
-      notnull: true
       autoincrement: true
-    Direccion:
-      type: string(200)
-    Descripcion:
-      type: string(200)
-    idProyecto:
+    idadministrador:
       type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
       notnull: true
+      autoincrement: false
+    nombre:
+      type: string(45)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    descripcion:
+      type: string(100)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    comentarios:
+      type: string(100)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    fcreacion:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    fmodificacion:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    ffinalizacion:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    activo:
+      type: integer(1)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
   relations:
-    idProyecto:
-      class: Proyecto
-      local: idProyecto
-      foreign: idProyecto
-      foreignAlias: Links
-  indexes:
-    fk_Link_Proyecto1_idx:
-      fields: [idProyecto]
-
-Cambio:
-  tableName: Cambios
+    Persona:
+      local: idadministrador
+      foreign: idpersona
+      type: one
+    Cambios:
+      local: idproyecto
+      foreign: proyecto_idproyecto
+      type: many
+    Equipo:
+      local: idproyecto
+      foreign: idproyecto
+      type: many
+    Historialchat:
+      local: idproyecto
+      foreign: idproyecto
+      type: many
+    Link:
+      local: idproyecto
+      foreign: idproyecto
+      type: many
+    Productbacklog:
+      local: idproyecto
+      foreign: idproyecto
+      type: many
+    Reunion:
+      local: idproyecto
+      foreign: idproyecto
+      type: many
+Reunion:
+  connection: doctrine
+  tableName: reunion
   columns:
-    idCambios:
+    idreunion:
       type: integer(4)
+      fixed: false
+      unsigned: false
       primary: true
-      notnull: true
       autoincrement: true
-    Descripcion:
-      type: string(150)
-    Fecha:
-      type: timestamp
-    Proyecto_idProyecto:
+    titulo:
+      type: string(45)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    descripcion:
+      type: string(45)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    anotaciones:
+      type: string(45)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    fecha:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    duracion:
+      type: integer(1)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    idproyecto:
       type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
       notnull: true
-    Persona_idPersona:
+      autoincrement: false
+    idpersona:
       type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
       notnull: true
+      autoincrement: false
+    activo:
+      type: integer(1)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
   relations:
-    ProyectoIdProyecto:
-      class: Proyecto
-      local: Proyecto_idProyecto
-      foreign: idProyecto
-      foreignAlias: Cambios
-    PersonaIdPersona:
-      class: Persona
-      local: Persona_idPersona
-      foreign: idPersona
-      foreignAlias: Cambios
-  indexes:
-    fk_Cambios_Proyecto1:
-      fields: [Proyecto_idProyecto]
-    fk_Cambios_Persona1:
-      fields: [Persona_idPersona]
-
-
+    Proyecto:
+      local: idproyecto
+      foreign: idproyecto
+      type: one
+    Persona:
+      local: idpersona
+      foreign: idpersona
+      type: one
+Rol:
+  connection: doctrine
+  tableName: rol
+  columns:
+    idrol:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    nombre:
+      type: string(45)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    descripcion:
+      type: string(100)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    activo:
+      type: integer(1)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+  relations:
+    Equipo:
+      local: idrol
+      foreign: idrol
+      type: many
+Sprint:
+  connection: doctrine
+  tableName: sprint
+  columns:
+    idsprint:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    nombre:
+      type: string(45)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    descripcion:
+      type: string(100)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    fechainicio:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    fechafin:
+      type: timestamp(25)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    diasdisponibles:
+      type: integer(2)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    idestado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    Estado:
+      local: idestado
+      foreign: idestado
+      type: one
+    Sprintproductbacklog:
+      local: idsprint
+      foreign: idsprint
+      type: many
+Sprintproductbacklog:
+  connection: doctrine
+  tableName: sprintproductbacklog
+  columns:
+    idsprint:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: false
+    idproductbacklog:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: false
+  relations:
+    Sprint:
+      local: idsprint
+      foreign: idsprint
+      type: one
+    Productbacklog:
+      local: idproductbacklog
+      foreign: idproductbacklog
+      type: one
+Tarea:
+  connection: doctrine
+  tableName: tarea
+  columns:
+    idtarea:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: true
+      autoincrement: true
+    nombre:
+      type: string(45)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    descripcion:
+      type: string(45)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    tiempoestimado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: false
+      autoincrement: false
+    idproductbacklog:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    idestado:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+    idpersona:
+      type: integer(4)
+      fixed: false
+      unsigned: false
+      primary: false
+      notnull: true
+      autoincrement: false
+  relations:
+    Productbacklog:
+      local: idproductbacklog
+      foreign: idproductbacklog
+      type: one
+    Estado:
+      local: idestado
+      foreign: idestado
+      type: one
+    Persona:
+      local: idpersona
+      foreign: idpersona
+      type: one

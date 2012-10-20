@@ -12,9 +12,14 @@ class reunionActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->reunions = Doctrine_Core::getTable('reunion')
+   /* $this->reunions = Doctrine_Core::getTable('reunion')
       ->createQuery('a')
-      ->execute();
+      ->execute();*/
+	$q=Doctrine_Query::create()
+		->from('reunion')
+		->where('Activo=1');
+	$this->reunions=$q->execute();
+		
   }
 
   public function executeShow(sfWebRequest $request)

@@ -12,5 +12,13 @@ class ReunionForm extends BaseReunionForm
 {
   public function configure()
   {
+	unset(
+		$this['Activo']
+	);
+	$this->widgetSchema->setLabels(array(
+		'idProyecto'=>'Proyecto',
+		'idPersona'=>'Responsable'
+	));
+	//$this->widgetSchema->setHelp('idProyecto','Seleccione el proyecto a quien se le asignará la reunión');
   }
 }

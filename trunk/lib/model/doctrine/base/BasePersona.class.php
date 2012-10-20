@@ -23,7 +23,7 @@
  * @method string              getNombre()          Returns the current record's "Nombre" value
  * @method string              getEmail()           Returns the current record's "Email" value
  * @method string              getTelefono()        Returns the current record's "Telefono" value
- * @method blob                getContrase()        Returns the current record's "Contrase" value
+ * @method blob                getContrase√()       Returns the current record's "Contrase√" value
  * @method boolean             getActivo()          Returns the current record's "Activo" value
  * @method Doctrine_Collection getTareas()          Returns the current record's "Tareas" collection
  * @method Doctrine_Collection getProductBacklogs() Returns the current record's "ProductBacklogs" collection
@@ -36,7 +36,7 @@
  * @method Persona             setNombre()          Sets the current record's "Nombre" value
  * @method Persona             setEmail()           Sets the current record's "Email" value
  * @method Persona             setTelefono()        Sets the current record's "Telefono" value
- * @method Persona             setContrase()        Sets the current record's "Contrase" value
+ * @method Persona             setContrase√()       Sets the current record's "Contrase√" value
  * @method Persona             setActivo()          Sets the current record's "Activo" value
  * @method Persona             setTareas()          Sets the current record's "Tareas" collection
  * @method Persona             setProductBacklogs() Sets the current record's "ProductBacklogs" collection
