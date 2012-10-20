@@ -12,4 +12,8 @@
  */
 class Persona extends BasePersona
 {
+	public function __toString()
+	{
+		return sprintf($this->getNombre());
+	}
 }

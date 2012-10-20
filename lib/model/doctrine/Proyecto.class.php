@@ -12,4 +12,8 @@
  */
 class Proyecto extends BaseProyecto
 {
+	public function __toString()
+	{
+		return sprintf($this->getNombre());
+	}
 }
