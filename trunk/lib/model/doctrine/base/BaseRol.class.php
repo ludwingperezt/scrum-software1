@@ -64,5 +64,8 @@ abstract class BaseRol extends sfDoctrineRecord
         $this->hasMany('Equipo as Equipoes', array(
              'local' => 'id',
              'foreign' => 'Rol_id'));
+
+        $timestampable0 = new Doctrine_Template_Timestampable();
+        $this->actAs($timestampable0);
     }
 }

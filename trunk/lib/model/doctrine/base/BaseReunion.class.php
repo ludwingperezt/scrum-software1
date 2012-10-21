@@ -119,5 +119,8 @@ abstract class BaseReunion extends sfDoctrineRecord
         $this->hasOne('Persona', array(
              'local' => 'Persona_id',
              'foreign' => 'id'));
+
+        $timestampable0 = new Doctrine_Template_Timestampable();
+        $this->actAs($timestampable0);
     }
 }

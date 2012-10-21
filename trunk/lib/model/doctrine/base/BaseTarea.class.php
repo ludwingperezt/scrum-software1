@@ -119,5 +119,8 @@ abstract class BaseTarea extends sfDoctrineRecord
         $this->hasOne('ProductBacklog', array(
              'local' => 'ProductBacklog_id',
              'foreign' => 'id'));
+
+        $timestampable0 = new Doctrine_Template_Timestampable();
+        $this->actAs($timestampable0);
     }
 }

@@ -136,5 +136,8 @@ abstract class BasePersona extends sfDoctrineRecord
         $this->hasMany('Cambio as Cambioes', array(
              'local' => 'id',
              'foreign' => 'Persona_id'));
+
+        $timestampable0 = new Doctrine_Template_Timestampable();
+        $this->actAs($timestampable0);
     }
 }

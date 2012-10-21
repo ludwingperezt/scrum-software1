@@ -157,5 +157,8 @@ abstract class BaseProyecto extends sfDoctrineRecord
         $this->hasMany('Cambio as Cambioes', array(
              'local' => 'id',
              'foreign' => 'Proyecto_id'));
+
+        $timestampable0 = new Doctrine_Template_Timestampable();
+        $this->actAs($timestampable0);
     }
 }

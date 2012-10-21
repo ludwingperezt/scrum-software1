@@ -36,6 +36,14 @@
       <th>Dias disponibles:</th>
       <td><?php echo $sprint->getDiasDisponibles() ?></td>
     </tr>
+    <tr>
+      <th>Created at:</th>
+      <td><?php echo $sprint->getCreatedAt() ?></td>
+    </tr>
+    <tr>
+      <th>Updated at:</th>
+      <td><?php echo $sprint->getUpdatedAt() ?></td>
+    </tr>
   </tbody>
 </table>
 

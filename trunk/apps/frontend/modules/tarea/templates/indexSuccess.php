@@ -10,6 +10,8 @@
       <th>Nombre</th>
       <th>Descripcion</th>
       <th>Tiempo estimado</th>
+      <th>Created at</th>
+      <th>Updated at</th>
     </tr>
   </thead>
   <tbody>
@@ -22,6 +24,8 @@
       <td><?php echo $tarea->getNombre() ?></td>
       <td><?php echo $tarea->getDescripcion() ?></td>
       <td><?php echo $tarea->getTiempoEstimado() ?></td>
+      <td><?php echo $tarea->getCreatedAt() ?></td>
+      <td><?php echo $tarea->getUpdatedAt() ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>

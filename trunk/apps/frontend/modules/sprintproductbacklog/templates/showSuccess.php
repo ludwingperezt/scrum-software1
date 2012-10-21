@@ -8,6 +8,14 @@
       <th>Product backlog:</th>
       <td><?php echo $sprintproductbacklog->getProductBacklogId() ?></td>
     </tr>
+    <tr>
+      <th>Created at:</th>
+      <td><?php echo $sprintproductbacklog->getCreatedAt() ?></td>
+    </tr>
+    <tr>
+      <th>Updated at:</th>
+      <td><?php echo $sprintproductbacklog->getUpdatedAt() ?></td>
+    </tr>
   </tbody>
 </table>
 

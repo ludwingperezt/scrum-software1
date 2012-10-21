@@ -36,6 +36,14 @@
       <th>Is activated:</th>
       <td><?php echo $reunion->getIsActivated() ?></td>
     </tr>
+    <tr>
+      <th>Created at:</th>
+      <td><?php echo $reunion->getCreatedAt() ?></td>
+    </tr>
+    <tr>
+      <th>Updated at:</th>
+      <td><?php echo $reunion->getUpdatedAt() ?></td>
+    </tr>
   </tbody>
 </table>
 

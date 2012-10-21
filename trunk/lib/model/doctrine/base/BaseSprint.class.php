@@ -138,5 +138,8 @@ abstract class BaseSprint extends sfDoctrineRecord
         $this->hasMany('SprintProductBacklog as SprintProductBacklogs', array(
              'local' => 'id',
              'foreign' => 'Sprint_id'));
+
+        $timestampable0 = new Doctrine_Template_Timestampable();
+        $this->actAs($timestampable0);
     }
 }

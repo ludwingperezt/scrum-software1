@@ -24,6 +24,8 @@ abstract class BaseSprintForm extends BaseFormDoctrine
       'FechaInicio'     => new sfWidgetFormDateTime(),
       'FechaFin'        => new sfWidgetFormDateTime(),
       'DiasDisponibles' => new sfWidgetFormInputText(),
+      'created_at'      => new sfWidgetFormDateTime(),
+      'updated_at'      => new sfWidgetFormDateTime(),
     ));
 
     $this->setValidators(array(
@@ -36,6 +38,8 @@ abstract class BaseSprintForm extends BaseFormDoctrine
       'FechaInicio'     => new sfValidatorDateTime(array('required' => false)),
       'FechaFin'        => new sfValidatorDateTime(array('required' => false)),
       'DiasDisponibles' => new sfValidatorInteger(array('required' => false)),
+      'created_at'      => new sfValidatorDateTime(),
+      'updated_at'      => new sfValidatorDateTime(),
     ));
 
     $this->widgetSchema->setNameFormat('sprint[%s]');

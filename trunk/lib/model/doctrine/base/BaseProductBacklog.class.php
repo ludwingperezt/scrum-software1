@@ -12,7 +12,7 @@
  * @property clob $Descripcion
  * @property integer $Prioridad
  * @property integer $Duracion
- * @property boolean $Activo
+ * @property boolean $is_activated
  * @property Proyecto $Proyecto
  * @property Persona $Persona
  * @property Doctrine_Collection $Tareas
@@ -25,7 +25,7 @@
  * @method clob                getDescripcion()           Returns the current record's "Descripcion" value
  * @method integer             getPrioridad()             Returns the current record's "Prioridad" value
  * @method integer             getDuracion()              Returns the current record's "Duracion" value
- * @method boolean             getActivo()                Returns the current record's "Activo" value
+ * @method boolean             getIsActivated()           Returns the current record's "is_activated" value
  * @method Proyecto            getProyecto()              Returns the current record's "Proyecto" value
  * @method Persona             getPersona()               Returns the current record's "Persona" value
  * @method Doctrine_Collection getTareas()                Returns the current record's "Tareas" collection
@@ -37,7 +37,7 @@
  * @method ProductBacklog      setDescripcion()           Sets the current record's "Descripcion" value
  * @method ProductBacklog      setPrioridad()             Sets the current record's "Prioridad" value
  * @method ProductBacklog      setDuracion()              Sets the current record's "Duracion" value
- * @method ProductBacklog      setActivo()                Sets the current record's "Activo" value
+ * @method ProductBacklog      setIsActivated()           Sets the current record's "is_activated" value
  * @method ProductBacklog      setProyecto()              Sets the current record's "Proyecto" value
  * @method ProductBacklog      setPersona()               Sets the current record's "Persona" value
  * @method ProductBacklog      setTareas()                Sets the current record's "Tareas" collection
@@ -86,8 +86,10 @@ abstract class BaseProductBacklog extends sfDoctrineRecord
              'type' => 'integer',
              'length' => 2,
              ));
-        $this->hasColumn('Activo', 'boolean', null, array(
+        $this->hasColumn('is_activated', 'boolean', null, array(
              'type' => 'boolean',
+             'notnull' => true,
+             'default' => 1,
              ));
 
 
@@ -126,5 +128,8 @@ abstract class BaseProductBacklog extends sfDoctrineRecord
         $this->hasMany('SprintProductBacklog as SprintProductBacklogs', array(
              'local' => 'id',
              'foreign' => 'ProductBacklog_id'));
+
+        $timestampable0 = new Doctrine_Template_Timestampable();
+        $this->actAs($timestampable0);
     }
 }

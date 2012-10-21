@@ -8,6 +8,8 @@
       <th>Persona</th>
       <th>Descripcion</th>
       <th>Fecha</th>
+      <th>Created at</th>
+      <th>Updated at</th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +20,8 @@
       <td><?php echo $cambio->getPersonaId() ?></td>
       <td><?php echo $cambio->getDescripcion() ?></td>
       <td><?php echo $cambio->getFecha() ?></td>
+      <td><?php echo $cambio->getCreatedAt() ?></td>
+      <td><?php echo $cambio->getUpdatedAt() ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>

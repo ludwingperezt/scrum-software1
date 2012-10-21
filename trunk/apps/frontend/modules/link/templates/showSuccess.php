@@ -24,6 +24,10 @@
       <th>Created at:</th>
       <td><?php echo $link->getCreatedAt() ?></td>
     </tr>
+    <tr>
+      <th>Updated at:</th>
+      <td><?php echo $link->getUpdatedAt() ?></td>
+    </tr>
   </tbody>
 </table>
 

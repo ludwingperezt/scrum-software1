@@ -12,6 +12,8 @@
       <th>Fecha</th>
       <th>Duracion</th>
       <th>Is activated</th>
+      <th>Created at</th>
+      <th>Updated at</th>
     </tr>
   </thead>
   <tbody>
@@ -26,6 +28,8 @@
       <td><?php echo $reunion->getFecha() ?></td>
       <td><?php echo $reunion->getDuracion() ?></td>
       <td><?php echo $reunion->getIsActivated() ?></td>
+      <td><?php echo $reunion->getCreatedAt() ?></td>
+      <td><?php echo $reunion->getUpdatedAt() ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>

@@ -18,6 +18,7 @@ abstract class BaseHistorialChatFormFilter extends BaseFormFilterDoctrine
       'Mensaje'      => new sfWidgetFormFilterInput(),
       'created_at'   => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'is_activated' => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
+      'updated_at'   => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
     ));
 
     $this->setValidators(array(
@@ -26,6 +27,7 @@ abstract class BaseHistorialChatFormFilter extends BaseFormFilterDoctrine
       'Mensaje'      => new sfValidatorPass(array('required' => false)),
       'created_at'   => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'is_activated' => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
+      'updated_at'   => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
     ));
 
     $this->widgetSchema->setNameFormat('historial_chat_filters[%s]');
@@ -51,6 +53,7 @@ abstract class BaseHistorialChatFormFilter extends BaseFormFilterDoctrine
       'Mensaje'      => 'Text',
       'created_at'   => 'Date',
       'is_activated' => 'Boolean',
+      'updated_at'   => 'Date',
     );
   }
 }

@@ -9,6 +9,8 @@
       <th>Rol</th>
       <th>Nombre</th>
       <th>Is activated</th>
+      <th>Created at</th>
+      <th>Updated at</th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +22,8 @@
       <td><?php echo $equipo->getRolId() ?></td>
       <td><?php echo $equipo->getNombre() ?></td>
       <td><?php echo $equipo->getIsActivated() ?></td>
+      <td><?php echo $equipo->getCreatedAt() ?></td>
+      <td><?php echo $equipo->getUpdatedAt() ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>

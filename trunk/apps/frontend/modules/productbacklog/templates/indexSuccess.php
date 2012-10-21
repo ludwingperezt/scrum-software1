@@ -10,7 +10,9 @@
       <th>Descripcion</th>
       <th>Prioridad</th>
       <th>Duracion</th>
-      <th>Activo</th>
+      <th>Is activated</th>
+      <th>Created at</th>
+      <th>Updated at</th>
     </tr>
   </thead>
   <tbody>
@@ -23,7 +25,9 @@
       <td><?php echo $productbacklog->getDescripcion() ?></td>
       <td><?php echo $productbacklog->getPrioridad() ?></td>
       <td><?php echo $productbacklog->getDuracion() ?></td>
-      <td><?php echo $productbacklog->getActivo() ?></td>
+      <td><?php echo $productbacklog->getIsActivated() ?></td>
+      <td><?php echo $productbacklog->getCreatedAt() ?></td>
+      <td><?php echo $productbacklog->getUpdatedAt() ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>

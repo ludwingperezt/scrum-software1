@@ -20,6 +20,14 @@
       <th>Fecha:</th>
       <td><?php echo $cambio->getFecha() ?></td>
     </tr>
+    <tr>
+      <th>Created at:</th>
+      <td><?php echo $cambio->getCreatedAt() ?></td>
+    </tr>
+    <tr>
+      <th>Updated at:</th>
+      <td><?php echo $cambio->getUpdatedAt() ?></td>
+    </tr>
   </tbody>
 </table>
 

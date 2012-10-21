@@ -12,6 +12,8 @@
       <th>Fecha inicio</th>
       <th>Fecha fin</th>
       <th>Dias disponibles</th>
+      <th>Created at</th>
+      <th>Updated at</th>
     </tr>
   </thead>
   <tbody>
@@ -26,6 +28,8 @@
       <td><?php echo $sprint->getFechaInicio() ?></td>
       <td><?php echo $sprint->getFechaFin() ?></td>
       <td><?php echo $sprint->getDiasDisponibles() ?></td>
+      <td><?php echo $sprint->getCreatedAt() ?></td>
+      <td><?php echo $sprint->getUpdatedAt() ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>
