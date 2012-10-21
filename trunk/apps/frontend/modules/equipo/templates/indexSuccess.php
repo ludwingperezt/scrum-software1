@@ -8,7 +8,7 @@
       <th>Persona</th>
       <th>Rol</th>
       <th>Nombre</th>
-      <th>Activo</th>
+      <th>Is activated</th>
     </tr>
   </thead>
   <tbody>
@@ -19,7 +19,7 @@
       <td><?php echo $equipo->getPersonaId() ?></td>
       <td><?php echo $equipo->getRolId() ?></td>
       <td><?php echo $equipo->getNombre() ?></td>
-      <td><?php echo $equipo->getActivo() ?></td>
+      <td><?php echo $equipo->getIsActivated() ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>

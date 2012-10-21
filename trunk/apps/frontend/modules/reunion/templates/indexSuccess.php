@@ -11,7 +11,7 @@
       <th>Anotaciones</th>
       <th>Fecha</th>
       <th>Duracion</th>
-      <th>Activo</th>
+      <th>Is activated</th>
     </tr>
   </thead>
   <tbody>
@@ -25,7 +25,7 @@
       <td><?php echo $reunion->getAnotaciones() ?></td>
       <td><?php echo $reunion->getFecha() ?></td>
       <td><?php echo $reunion->getDuracion() ?></td>
-      <td><?php echo $reunion->getActivo() ?></td>
+      <td><?php echo $reunion->getIsActivated() ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>

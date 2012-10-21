@@ -13,15 +13,15 @@ abstract class BaseRolFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'Nombre'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'Descripcion' => new sfWidgetFormFilterInput(),
-      'Activo'      => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
+      'Nombre'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'Descripcion'  => new sfWidgetFormFilterInput(),
+      'is_activated' => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
     ));
 
     $this->setValidators(array(
-      'Nombre'      => new sfValidatorPass(array('required' => false)),
-      'Descripcion' => new sfValidatorPass(array('required' => false)),
-      'Activo'      => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
+      'Nombre'       => new sfValidatorPass(array('required' => false)),
+      'Descripcion'  => new sfValidatorPass(array('required' => false)),
+      'is_activated' => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
     ));
 
     $this->widgetSchema->setNameFormat('rol_filters[%s]');
@@ -41,10 +41,10 @@ abstract class BaseRolFormFilter extends BaseFormFilterDoctrine
   public function getFields()
   {
     return array(
-      'id'          => 'Number',
-      'Nombre'      => 'Text',
-      'Descripcion' => 'Text',
-      'Activo'      => 'Boolean',
+      'id'           => 'Number',
+      'Nombre'       => 'Text',
+      'Descripcion'  => 'Text',
+      'is_activated' => 'Boolean',
     );
   }
 }

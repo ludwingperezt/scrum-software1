@@ -33,8 +33,8 @@
       <td><?php echo $proyecto->getExpiresAt() ?></td>
     </tr>
     <tr>
-      <th>Activo:</th>
-      <td><?php echo $proyecto->getActivo() ?></td>
+      <th>Is activated:</th>
+      <td><?php echo $proyecto->getIsActivated() ?></td>
     </tr>
   </tbody>
 </table>

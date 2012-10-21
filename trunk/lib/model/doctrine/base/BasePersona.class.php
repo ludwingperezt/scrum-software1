@@ -10,7 +10,7 @@
  * @property string $Nombre
  * @property string $Email
  * @property string $Telefono
- * @property boolean $Activo
+ * @property boolean $is_activated
  * @property Doctrine_Collection $Tareas
  * @property Doctrine_Collection $Sprints
  * @property Doctrine_Collection $ProductBacklogs
@@ -26,7 +26,7 @@
  * @method string              getNombre()          Returns the current record's "Nombre" value
  * @method string              getEmail()           Returns the current record's "Email" value
  * @method string              getTelefono()        Returns the current record's "Telefono" value
- * @method boolean             getActivo()          Returns the current record's "Activo" value
+ * @method boolean             getIsActivated()     Returns the current record's "is_activated" value
  * @method Doctrine_Collection getTareas()          Returns the current record's "Tareas" collection
  * @method Doctrine_Collection getSprints()         Returns the current record's "Sprints" collection
  * @method Doctrine_Collection getProductBacklogs() Returns the current record's "ProductBacklogs" collection
@@ -41,7 +41,7 @@
  * @method Persona             setNombre()          Sets the current record's "Nombre" value
  * @method Persona             setEmail()           Sets the current record's "Email" value
  * @method Persona             setTelefono()        Sets the current record's "Telefono" value
- * @method Persona             setActivo()          Sets the current record's "Activo" value
+ * @method Persona             setIsActivated()     Sets the current record's "is_activated" value
  * @method Persona             setTareas()          Sets the current record's "Tareas" collection
  * @method Persona             setSprints()         Sets the current record's "Sprints" collection
  * @method Persona             setProductBacklogs() Sets the current record's "ProductBacklogs" collection
@@ -87,8 +87,10 @@ abstract class BasePersona extends sfDoctrineRecord
              'fixed' => 1,
              'length' => 15,
              ));
-        $this->hasColumn('Activo', 'boolean', null, array(
+        $this->hasColumn('is_activated', 'boolean', null, array(
              'type' => 'boolean',
+             'notnull' => true,
+             'default' => 1,
              ));
 
         $this->option('collate', 'latin1_spanish_ci');

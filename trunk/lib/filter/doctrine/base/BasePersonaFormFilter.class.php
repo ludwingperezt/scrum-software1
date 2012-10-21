@@ -13,19 +13,19 @@ abstract class BasePersonaFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'idFacebook' => new sfWidgetFormFilterInput(),
-      'Nombre'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'Email'      => new sfWidgetFormFilterInput(),
-      'Telefono'   => new sfWidgetFormFilterInput(),
-      'Activo'     => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
+      'idFacebook'   => new sfWidgetFormFilterInput(),
+      'Nombre'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'Email'        => new sfWidgetFormFilterInput(),
+      'Telefono'     => new sfWidgetFormFilterInput(),
+      'is_activated' => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
     ));
 
     $this->setValidators(array(
-      'idFacebook' => new sfValidatorPass(array('required' => false)),
-      'Nombre'     => new sfValidatorPass(array('required' => false)),
-      'Email'      => new sfValidatorPass(array('required' => false)),
-      'Telefono'   => new sfValidatorPass(array('required' => false)),
-      'Activo'     => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
+      'idFacebook'   => new sfValidatorPass(array('required' => false)),
+      'Nombre'       => new sfValidatorPass(array('required' => false)),
+      'Email'        => new sfValidatorPass(array('required' => false)),
+      'Telefono'     => new sfValidatorPass(array('required' => false)),
+      'is_activated' => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
     ));
 
     $this->widgetSchema->setNameFormat('persona_filters[%s]');
@@ -45,12 +45,12 @@ abstract class BasePersonaFormFilter extends BaseFormFilterDoctrine
   public function getFields()
   {
     return array(
-      'id'         => 'Number',
-      'idFacebook' => 'Text',
-      'Nombre'     => 'Text',
-      'Email'      => 'Text',
-      'Telefono'   => 'Text',
-      'Activo'     => 'Boolean',
+      'id'           => 'Number',
+      'idFacebook'   => 'Text',
+      'Nombre'       => 'Text',
+      'Email'        => 'Text',
+      'Telefono'     => 'Text',
+      'is_activated' => 'Boolean',
     );
   }
 }

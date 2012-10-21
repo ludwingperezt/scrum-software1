@@ -10,26 +10,26 @@
  * @property integer $Persona_id
  * @property clob $Mensaje
  * @property timestamp $created_at
- * @property boolean $Activo
+ * @property boolean $is_activated
  * @property Proyecto $Proyecto
  * @property Persona $Persona
  * 
- * @method integer       getId()          Returns the current record's "id" value
- * @method integer       getProyectoId()  Returns the current record's "Proyecto_id" value
- * @method integer       getPersonaId()   Returns the current record's "Persona_id" value
- * @method clob          getMensaje()     Returns the current record's "Mensaje" value
- * @method timestamp     getCreatedAt()   Returns the current record's "created_at" value
- * @method boolean       getActivo()      Returns the current record's "Activo" value
- * @method Proyecto      getProyecto()    Returns the current record's "Proyecto" value
- * @method Persona       getPersona()     Returns the current record's "Persona" value
- * @method HistorialChat setId()          Sets the current record's "id" value
- * @method HistorialChat setProyectoId()  Sets the current record's "Proyecto_id" value
- * @method HistorialChat setPersonaId()   Sets the current record's "Persona_id" value
- * @method HistorialChat setMensaje()     Sets the current record's "Mensaje" value
- * @method HistorialChat setCreatedAt()   Sets the current record's "created_at" value
- * @method HistorialChat setActivo()      Sets the current record's "Activo" value
- * @method HistorialChat setProyecto()    Sets the current record's "Proyecto" value
- * @method HistorialChat setPersona()     Sets the current record's "Persona" value
+ * @method integer       getId()           Returns the current record's "id" value
+ * @method integer       getProyectoId()   Returns the current record's "Proyecto_id" value
+ * @method integer       getPersonaId()    Returns the current record's "Persona_id" value
+ * @method clob          getMensaje()      Returns the current record's "Mensaje" value
+ * @method timestamp     getCreatedAt()    Returns the current record's "created_at" value
+ * @method boolean       getIsActivated()  Returns the current record's "is_activated" value
+ * @method Proyecto      getProyecto()     Returns the current record's "Proyecto" value
+ * @method Persona       getPersona()      Returns the current record's "Persona" value
+ * @method HistorialChat setId()           Sets the current record's "id" value
+ * @method HistorialChat setProyectoId()   Sets the current record's "Proyecto_id" value
+ * @method HistorialChat setPersonaId()    Sets the current record's "Persona_id" value
+ * @method HistorialChat setMensaje()      Sets the current record's "Mensaje" value
+ * @method HistorialChat setCreatedAt()    Sets the current record's "created_at" value
+ * @method HistorialChat setIsActivated()  Sets the current record's "is_activated" value
+ * @method HistorialChat setProyecto()     Sets the current record's "Proyecto" value
+ * @method HistorialChat setPersona()      Sets the current record's "Persona" value
  * 
  * @package    scrum
  * @subpackage model
@@ -63,9 +63,12 @@ abstract class BaseHistorialChat extends sfDoctrineRecord
              ));
         $this->hasColumn('created_at', 'timestamp', null, array(
              'type' => 'timestamp',
+             'notnull' => true,
              ));
-        $this->hasColumn('Activo', 'boolean', null, array(
+        $this->hasColumn('is_activated', 'boolean', null, array(
              'type' => 'boolean',
+             'notnull' => true,
+             'default' => 1,
              ));
 
 

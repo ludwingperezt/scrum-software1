@@ -174,12 +174,17 @@ Proyecto:
       type: clob(65535)
     created_at:
       type: timestamp
+      notnull: true
     updated_at:
       type: timestamp
+      notnull: true
     expires_at:
       type: timestamp
-    Activo:
+      notnull: true
+    is_activated:
       type: boolean
+      notnull: true
+      default: 1
   relations:
     Persona:
       class: Persona
@@ -208,8 +213,10 @@ Persona:
     Telefono:
       type: string(15)
       fixed: true
-    Activo:
+    is_activated:
       type: boolean
+      notnull: true
+      default: 1
 
 Rol:
   columns:
@@ -223,8 +230,10 @@ Rol:
       notnull: true
     Descripcion:
       type: clob(65535)
-    Activo:
+    is_activated:
       type: boolean
+      notnull: true
+      default: 1
 
 SprintProductBacklog:
   columns:
@@ -271,8 +280,10 @@ Equipo:
       notnull: true
     Nombre:
       type: string(45)
-    Activo:
+    is_activated:
       type: boolean
+      notnull: true
+      default: 1
   relations:
     Rol:
       class: Rol
@@ -320,8 +331,10 @@ Reunion:
       type: timestamp
     Duracion:
       type: integer(1)
-    Activo:
+    is_activated:
       type: boolean
+      notnull: true
+      default: 1
   relations:
     Proyecto:
       class: Proyecto
@@ -356,8 +369,11 @@ HistorialChat:
       type: clob(65535)
     created_at:
       type: timestamp
-    Activo:
+      notnull: true
+    is_activated:
       type: boolean
+      notnull: true
+      default: 1
   relations:
     Proyecto:
       class: Proyecto
@@ -395,6 +411,7 @@ Link:
       type: clob(65535)
     created_at:
       type: timestamp
+      notnull: true
   relations:
     Proyecto:
       class: Proyecto
@@ -445,5 +462,4 @@ Cambio:
       fields: [Persona_id]
     fk_Cambios_Proyecto2:
       fields: [Proyecto_id]
-
 

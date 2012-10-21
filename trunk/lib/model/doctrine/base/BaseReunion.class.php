@@ -13,32 +13,32 @@
  * @property clob $Anotaciones
  * @property timestamp $Fecha
  * @property integer $Duracion
- * @property boolean $Activo
+ * @property boolean $is_activated
  * @property Proyecto $Proyecto
  * @property Persona $Persona
  * 
- * @method integer   getId()          Returns the current record's "id" value
- * @method integer   getProyectoId()  Returns the current record's "Proyecto_id" value
- * @method integer   getPersonaId()   Returns the current record's "Persona_id" value
- * @method string    getTitulo()      Returns the current record's "Titulo" value
- * @method clob      getDescripcion() Returns the current record's "Descripcion" value
- * @method clob      getAnotaciones() Returns the current record's "Anotaciones" value
- * @method timestamp getFecha()       Returns the current record's "Fecha" value
- * @method integer   getDuracion()    Returns the current record's "Duracion" value
- * @method boolean   getActivo()      Returns the current record's "Activo" value
- * @method Proyecto  getProyecto()    Returns the current record's "Proyecto" value
- * @method Persona   getPersona()     Returns the current record's "Persona" value
- * @method Reunion   setId()          Sets the current record's "id" value
- * @method Reunion   setProyectoId()  Sets the current record's "Proyecto_id" value
- * @method Reunion   setPersonaId()   Sets the current record's "Persona_id" value
- * @method Reunion   setTitulo()      Sets the current record's "Titulo" value
- * @method Reunion   setDescripcion() Sets the current record's "Descripcion" value
- * @method Reunion   setAnotaciones() Sets the current record's "Anotaciones" value
- * @method Reunion   setFecha()       Sets the current record's "Fecha" value
- * @method Reunion   setDuracion()    Sets the current record's "Duracion" value
- * @method Reunion   setActivo()      Sets the current record's "Activo" value
- * @method Reunion   setProyecto()    Sets the current record's "Proyecto" value
- * @method Reunion   setPersona()     Sets the current record's "Persona" value
+ * @method integer   getId()           Returns the current record's "id" value
+ * @method integer   getProyectoId()   Returns the current record's "Proyecto_id" value
+ * @method integer   getPersonaId()    Returns the current record's "Persona_id" value
+ * @method string    getTitulo()       Returns the current record's "Titulo" value
+ * @method clob      getDescripcion()  Returns the current record's "Descripcion" value
+ * @method clob      getAnotaciones()  Returns the current record's "Anotaciones" value
+ * @method timestamp getFecha()        Returns the current record's "Fecha" value
+ * @method integer   getDuracion()     Returns the current record's "Duracion" value
+ * @method boolean   getIsActivated()  Returns the current record's "is_activated" value
+ * @method Proyecto  getProyecto()     Returns the current record's "Proyecto" value
+ * @method Persona   getPersona()      Returns the current record's "Persona" value
+ * @method Reunion   setId()           Sets the current record's "id" value
+ * @method Reunion   setProyectoId()   Sets the current record's "Proyecto_id" value
+ * @method Reunion   setPersonaId()    Sets the current record's "Persona_id" value
+ * @method Reunion   setTitulo()       Sets the current record's "Titulo" value
+ * @method Reunion   setDescripcion()  Sets the current record's "Descripcion" value
+ * @method Reunion   setAnotaciones()  Sets the current record's "Anotaciones" value
+ * @method Reunion   setFecha()        Sets the current record's "Fecha" value
+ * @method Reunion   setDuracion()     Sets the current record's "Duracion" value
+ * @method Reunion   setIsActivated()  Sets the current record's "is_activated" value
+ * @method Reunion   setProyecto()     Sets the current record's "Proyecto" value
+ * @method Reunion   setPersona()      Sets the current record's "Persona" value
  * 
  * @package    scrum
  * @subpackage model
@@ -85,8 +85,10 @@ abstract class BaseReunion extends sfDoctrineRecord
              'type' => 'integer',
              'length' => 1,
              ));
-        $this->hasColumn('Activo', 'boolean', null, array(
+        $this->hasColumn('is_activated', 'boolean', null, array(
              'type' => 'boolean',
+             'notnull' => true,
+             'default' => 1,
              ));
 
 

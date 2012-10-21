@@ -11,7 +11,7 @@
       <th>Created at</th>
       <th>Updated at</th>
       <th>Expires at</th>
-      <th>Activo</th>
+      <th>Is activated</th>
     </tr>
   </thead>
   <tbody>
@@ -25,7 +25,7 @@
       <td><?php echo $proyecto->getCreatedAt() ?></td>
       <td><?php echo $proyecto->getUpdatedAt() ?></td>
       <td><?php echo $proyecto->getExpiresAt() ?></td>
-      <td><?php echo $proyecto->getActivo() ?></td>
+      <td><?php echo $proyecto->getIsActivated() ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>
