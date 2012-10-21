@@ -10,29 +10,29 @@
  * @property integer $Persona_id
  * @property integer $Rol_id
  * @property string $Nombre
- * @property boolean $Activo
+ * @property boolean $is_activated
  * @property Rol $Rol
  * @property Persona $Persona
  * @property Proyecto $Proyecto
  * 
- * @method integer  getId()          Returns the current record's "id" value
- * @method integer  getProyectoId()  Returns the current record's "Proyecto_id" value
- * @method integer  getPersonaId()   Returns the current record's "Persona_id" value
- * @method integer  getRolId()       Returns the current record's "Rol_id" value
- * @method string   getNombre()      Returns the current record's "Nombre" value
- * @method boolean  getActivo()      Returns the current record's "Activo" value
- * @method Rol      getRol()         Returns the current record's "Rol" value
- * @method Persona  getPersona()     Returns the current record's "Persona" value
- * @method Proyecto getProyecto()    Returns the current record's "Proyecto" value
- * @method Equipo   setId()          Sets the current record's "id" value
- * @method Equipo   setProyectoId()  Sets the current record's "Proyecto_id" value
- * @method Equipo   setPersonaId()   Sets the current record's "Persona_id" value
- * @method Equipo   setRolId()       Sets the current record's "Rol_id" value
- * @method Equipo   setNombre()      Sets the current record's "Nombre" value
- * @method Equipo   setActivo()      Sets the current record's "Activo" value
- * @method Equipo   setRol()         Sets the current record's "Rol" value
- * @method Equipo   setPersona()     Sets the current record's "Persona" value
- * @method Equipo   setProyecto()    Sets the current record's "Proyecto" value
+ * @method integer  getId()           Returns the current record's "id" value
+ * @method integer  getProyectoId()   Returns the current record's "Proyecto_id" value
+ * @method integer  getPersonaId()    Returns the current record's "Persona_id" value
+ * @method integer  getRolId()        Returns the current record's "Rol_id" value
+ * @method string   getNombre()       Returns the current record's "Nombre" value
+ * @method boolean  getIsActivated()  Returns the current record's "is_activated" value
+ * @method Rol      getRol()          Returns the current record's "Rol" value
+ * @method Persona  getPersona()      Returns the current record's "Persona" value
+ * @method Proyecto getProyecto()     Returns the current record's "Proyecto" value
+ * @method Equipo   setId()           Sets the current record's "id" value
+ * @method Equipo   setProyectoId()   Sets the current record's "Proyecto_id" value
+ * @method Equipo   setPersonaId()    Sets the current record's "Persona_id" value
+ * @method Equipo   setRolId()        Sets the current record's "Rol_id" value
+ * @method Equipo   setNombre()       Sets the current record's "Nombre" value
+ * @method Equipo   setIsActivated()  Sets the current record's "is_activated" value
+ * @method Equipo   setRol()          Sets the current record's "Rol" value
+ * @method Equipo   setPersona()      Sets the current record's "Persona" value
+ * @method Equipo   setProyecto()     Sets the current record's "Proyecto" value
  * 
  * @package    scrum
  * @subpackage model
@@ -69,8 +69,10 @@ abstract class BaseEquipo extends sfDoctrineRecord
              'type' => 'string',
              'length' => 45,
              ));
-        $this->hasColumn('Activo', 'boolean', null, array(
+        $this->hasColumn('is_activated', 'boolean', null, array(
              'type' => 'boolean',
+             'notnull' => true,
+             'default' => 1,
              ));
 
 

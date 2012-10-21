@@ -13,7 +13,7 @@
  * @property timestamp $created_at
  * @property timestamp $updated_at
  * @property timestamp $expires_at
- * @property boolean $Activo
+ * @property boolean $is_activated
  * @property Persona $Persona
  * @property Doctrine_Collection $Sprints
  * @property Doctrine_Collection $ProductBacklogs
@@ -31,7 +31,7 @@
  * @method timestamp           getCreatedAt()       Returns the current record's "created_at" value
  * @method timestamp           getUpdatedAt()       Returns the current record's "updated_at" value
  * @method timestamp           getExpiresAt()       Returns the current record's "expires_at" value
- * @method boolean             getActivo()          Returns the current record's "Activo" value
+ * @method boolean             getIsActivated()     Returns the current record's "is_activated" value
  * @method Persona             getPersona()         Returns the current record's "Persona" value
  * @method Doctrine_Collection getSprints()         Returns the current record's "Sprints" collection
  * @method Doctrine_Collection getProductBacklogs() Returns the current record's "ProductBacklogs" collection
@@ -48,7 +48,7 @@
  * @method Proyecto            setCreatedAt()       Sets the current record's "created_at" value
  * @method Proyecto            setUpdatedAt()       Sets the current record's "updated_at" value
  * @method Proyecto            setExpiresAt()       Sets the current record's "expires_at" value
- * @method Proyecto            setActivo()          Sets the current record's "Activo" value
+ * @method Proyecto            setIsActivated()     Sets the current record's "is_activated" value
  * @method Proyecto            setPersona()         Sets the current record's "Persona" value
  * @method Proyecto            setSprints()         Sets the current record's "Sprints" collection
  * @method Proyecto            setProductBacklogs() Sets the current record's "ProductBacklogs" collection
@@ -95,15 +95,20 @@ abstract class BaseProyecto extends sfDoctrineRecord
              ));
         $this->hasColumn('created_at', 'timestamp', null, array(
              'type' => 'timestamp',
+             'notnull' => true,
              ));
         $this->hasColumn('updated_at', 'timestamp', null, array(
              'type' => 'timestamp',
+             'notnull' => true,
              ));
         $this->hasColumn('expires_at', 'timestamp', null, array(
              'type' => 'timestamp',
+             'notnull' => true,
              ));
-        $this->hasColumn('Activo', 'boolean', null, array(
+        $this->hasColumn('is_activated', 'boolean', null, array(
              'type' => 'boolean',
+             'notnull' => true,
+             'default' => 1,
              ));
 
 

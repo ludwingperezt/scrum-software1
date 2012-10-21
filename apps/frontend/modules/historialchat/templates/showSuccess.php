@@ -21,8 +21,8 @@
       <td><?php echo $historialchat->getCreatedAt() ?></td>
     </tr>
     <tr>
-      <th>Activo:</th>
-      <td><?php echo $historialchat->getActivo() ?></td>
+      <th>Is activated:</th>
+      <td><?php echo $historialchat->getIsActivated() ?></td>
     </tr>
   </tbody>
 </table>

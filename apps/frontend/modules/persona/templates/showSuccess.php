@@ -21,8 +21,8 @@
       <td><?php echo $persona->getTelefono() ?></td>
     </tr>
     <tr>
-      <th>Activo:</th>
-      <td><?php echo $persona->getActivo() ?></td>
+      <th>Is activated:</th>
+      <td><?php echo $persona->getIsActivated() ?></td>
     </tr>
   </tbody>
 </table>

@@ -68,6 +68,7 @@ abstract class BaseLink extends sfDoctrineRecord
              ));
         $this->hasColumn('created_at', 'timestamp', null, array(
              'type' => 'timestamp',
+             'notnull' => true,
              ));
 
 

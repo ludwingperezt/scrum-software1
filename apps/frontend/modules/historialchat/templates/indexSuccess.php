@@ -8,7 +8,7 @@
       <th>Persona</th>
       <th>Mensaje</th>
       <th>Created at</th>
-      <th>Activo</th>
+      <th>Is activated</th>
     </tr>
   </thead>
   <tbody>
@@ -19,7 +19,7 @@
       <td><?php echo $historialchat->getPersonaId() ?></td>
       <td><?php echo $historialchat->getMensaje() ?></td>
       <td><?php echo $historialchat->getCreatedAt() ?></td>
-      <td><?php echo $historialchat->getActivo() ?></td>
+      <td><?php echo $historialchat->getIsActivated() ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>

@@ -15,17 +15,17 @@ abstract class BaseRolForm extends BaseFormDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'id'          => new sfWidgetFormInputHidden(),
-      'Nombre'      => new sfWidgetFormInputText(),
-      'Descripcion' => new sfWidgetFormTextarea(),
-      'Activo'      => new sfWidgetFormInputCheckbox(),
+      'id'           => new sfWidgetFormInputHidden(),
+      'Nombre'       => new sfWidgetFormInputText(),
+      'Descripcion'  => new sfWidgetFormTextarea(),
+      'is_activated' => new sfWidgetFormInputCheckbox(),
     ));
 
     $this->setValidators(array(
-      'id'          => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'Nombre'      => new sfValidatorString(array('max_length' => 45)),
-      'Descripcion' => new sfValidatorString(array('required' => false)),
-      'Activo'      => new sfValidatorBoolean(array('required' => false)),
+      'id'           => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'Nombre'       => new sfValidatorString(array('max_length' => 45)),
+      'Descripcion'  => new sfValidatorString(array('required' => false)),
+      'is_activated' => new sfValidatorBoolean(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('rol[%s]');

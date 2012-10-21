@@ -33,8 +33,8 @@
       <td><?php echo $reunion->getDuracion() ?></td>
     </tr>
     <tr>
-      <th>Activo:</th>
-      <td><?php echo $reunion->getActivo() ?></td>
+      <th>Is activated:</th>
+      <td><?php echo $reunion->getIsActivated() ?></td>
     </tr>
   </tbody>
 </table>

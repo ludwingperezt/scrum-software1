@@ -21,8 +21,8 @@
       <td><?php echo $equipo->getNombre() ?></td>
     </tr>
     <tr>
-      <th>Activo:</th>
-      <td><?php echo $equipo->getActivo() ?></td>
+      <th>Is activated:</th>
+      <td><?php echo $equipo->getIsActivated() ?></td>
     </tr>
   </tbody>
 </table>

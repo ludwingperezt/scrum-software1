@@ -29,7 +29,7 @@ abstract class BaseLinkForm extends BaseFormDoctrine
       'Persona_id'  => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Persona'))),
       'Direccion'   => new sfValidatorString(),
       'Descripcion' => new sfValidatorString(array('required' => false)),
-      'created_at'  => new sfValidatorDateTime(array('required' => false)),
+      'created_at'  => new sfValidatorDateTime(),
     ));
 
     $this->widgetSchema->setNameFormat('link[%s]');

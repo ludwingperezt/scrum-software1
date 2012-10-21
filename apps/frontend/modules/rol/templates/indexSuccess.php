@@ -6,7 +6,7 @@
       <th>Id</th>
       <th>Nombre</th>
       <th>Descripcion</th>
-      <th>Activo</th>
+      <th>Is activated</th>
     </tr>
   </thead>
   <tbody>
@@ -15,7 +15,7 @@
       <td><a href="<?php echo url_for('rol/show?id='.$rol->getId()) ?>"><?php echo $rol->getId() ?></a></td>
       <td><?php echo $rol->getNombre() ?></td>
       <td><?php echo $rol->getDescripcion() ?></td>
-      <td><?php echo $rol->getActivo() ?></td>
+      <td><?php echo $rol->getIsActivated() ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>

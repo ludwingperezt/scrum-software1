@@ -13,8 +13,8 @@
       <td><?php echo $rol->getDescripcion() ?></td>
     </tr>
     <tr>
-      <th>Activo:</th>
-      <td><?php echo $rol->getActivo() ?></td>
+      <th>Is activated:</th>
+      <td><?php echo $rol->getIsActivated() ?></td>
     </tr>
   </tbody>
 </table>

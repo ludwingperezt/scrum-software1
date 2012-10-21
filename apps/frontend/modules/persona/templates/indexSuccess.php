@@ -8,7 +8,7 @@
       <th>Nombre</th>
       <th>Email</th>
       <th>Telefono</th>
-      <th>Activo</th>
+      <th>Is activated</th>
     </tr>
   </thead>
   <tbody>
@@ -19,7 +19,7 @@
       <td><?php echo $persona->getNombre() ?></td>
       <td><?php echo $persona->getEmail() ?></td>
       <td><?php echo $persona->getTelefono() ?></td>
-      <td><?php echo $persona->getActivo() ?></td>
+      <td><?php echo $persona->getIsActivated() ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>

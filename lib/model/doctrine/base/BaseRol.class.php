@@ -8,19 +8,19 @@
  * @property integer $id
  * @property string $Nombre
  * @property clob $Descripcion
- * @property boolean $Activo
+ * @property boolean $is_activated
  * @property Doctrine_Collection $Equipoes
  * 
- * @method integer             getId()          Returns the current record's "id" value
- * @method string              getNombre()      Returns the current record's "Nombre" value
- * @method clob                getDescripcion() Returns the current record's "Descripcion" value
- * @method boolean             getActivo()      Returns the current record's "Activo" value
- * @method Doctrine_Collection getEquipoes()    Returns the current record's "Equipoes" collection
- * @method Rol                 setId()          Sets the current record's "id" value
- * @method Rol                 setNombre()      Sets the current record's "Nombre" value
- * @method Rol                 setDescripcion() Sets the current record's "Descripcion" value
- * @method Rol                 setActivo()      Sets the current record's "Activo" value
- * @method Rol                 setEquipoes()    Sets the current record's "Equipoes" collection
+ * @method integer             getId()           Returns the current record's "id" value
+ * @method string              getNombre()       Returns the current record's "Nombre" value
+ * @method clob                getDescripcion()  Returns the current record's "Descripcion" value
+ * @method boolean             getIsActivated()  Returns the current record's "is_activated" value
+ * @method Doctrine_Collection getEquipoes()     Returns the current record's "Equipoes" collection
+ * @method Rol                 setId()           Sets the current record's "id" value
+ * @method Rol                 setNombre()       Sets the current record's "Nombre" value
+ * @method Rol                 setDescripcion()  Sets the current record's "Descripcion" value
+ * @method Rol                 setIsActivated()  Sets the current record's "is_activated" value
+ * @method Rol                 setEquipoes()     Sets the current record's "Equipoes" collection
  * 
  * @package    scrum
  * @subpackage model
@@ -47,8 +47,10 @@ abstract class BaseRol extends sfDoctrineRecord
              'type' => 'clob',
              'length' => 65535,
              ));
-        $this->hasColumn('Activo', 'boolean', null, array(
+        $this->hasColumn('is_activated', 'boolean', null, array(
              'type' => 'boolean',
+             'notnull' => true,
+             'default' => 1,
              ));
 
         $this->option('collate', 'latin1_spanish_ci');
