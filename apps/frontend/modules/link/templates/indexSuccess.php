@@ -9,6 +9,7 @@
       <th>Direccion</th>
       <th>Descripcion</th>
       <th>Created at</th>
+      <th>Updated at</th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +21,7 @@
       <td><?php echo $link->getDireccion() ?></td>
       <td><?php echo $link->getDescripcion() ?></td>
       <td><?php echo $link->getCreatedAt() ?></td>
+      <td><?php echo $link->getUpdatedAt() ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>

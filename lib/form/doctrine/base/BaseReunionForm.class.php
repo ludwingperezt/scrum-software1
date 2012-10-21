@@ -24,6 +24,8 @@ abstract class BaseReunionForm extends BaseFormDoctrine
       'Fecha'        => new sfWidgetFormDateTime(),
       'Duracion'     => new sfWidgetFormInputText(),
       'is_activated' => new sfWidgetFormInputCheckbox(),
+      'created_at'   => new sfWidgetFormDateTime(),
+      'updated_at'   => new sfWidgetFormDateTime(),
     ));
 
     $this->setValidators(array(
@@ -36,6 +38,8 @@ abstract class BaseReunionForm extends BaseFormDoctrine
       'Fecha'        => new sfValidatorDateTime(array('required' => false)),
       'Duracion'     => new sfValidatorInteger(array('required' => false)),
       'is_activated' => new sfValidatorBoolean(array('required' => false)),
+      'created_at'   => new sfValidatorDateTime(),
+      'updated_at'   => new sfValidatorDateTime(),
     ));
 
     $this->widgetSchema->setNameFormat('reunion[%s]');

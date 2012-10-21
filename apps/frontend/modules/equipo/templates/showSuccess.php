@@ -24,6 +24,14 @@
       <th>Is activated:</th>
       <td><?php echo $equipo->getIsActivated() ?></td>
     </tr>
+    <tr>
+      <th>Created at:</th>
+      <td><?php echo $equipo->getCreatedAt() ?></td>
+    </tr>
+    <tr>
+      <th>Updated at:</th>
+      <td><?php echo $equipo->getUpdatedAt() ?></td>
+    </tr>
   </tbody>
 </table>
 

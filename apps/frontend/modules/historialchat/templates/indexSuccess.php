@@ -9,6 +9,7 @@
       <th>Mensaje</th>
       <th>Created at</th>
       <th>Is activated</th>
+      <th>Updated at</th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +21,7 @@
       <td><?php echo $historialchat->getMensaje() ?></td>
       <td><?php echo $historialchat->getCreatedAt() ?></td>
       <td><?php echo $historialchat->getIsActivated() ?></td>
+      <td><?php echo $historialchat->getUpdatedAt() ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>

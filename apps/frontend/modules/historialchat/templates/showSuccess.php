@@ -24,6 +24,10 @@
       <th>Is activated:</th>
       <td><?php echo $historialchat->getIsActivated() ?></td>
     </tr>
+    <tr>
+      <th>Updated at:</th>
+      <td><?php echo $historialchat->getUpdatedAt() ?></td>
+    </tr>
   </tbody>
 </table>
 

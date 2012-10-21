@@ -17,11 +17,15 @@ abstract class BaseSprintProductBacklogForm extends BaseFormDoctrine
     $this->setWidgets(array(
       'Sprint_id'         => new sfWidgetFormInputHidden(),
       'ProductBacklog_id' => new sfWidgetFormInputHidden(),
+      'created_at'        => new sfWidgetFormDateTime(),
+      'updated_at'        => new sfWidgetFormDateTime(),
     ));
 
     $this->setValidators(array(
       'Sprint_id'         => new sfValidatorChoice(array('choices' => array($this->getObject()->get('Sprint_id')), 'empty_value' => $this->getObject()->get('Sprint_id'), 'required' => false)),
       'ProductBacklog_id' => new sfValidatorChoice(array('choices' => array($this->getObject()->get('ProductBacklog_id')), 'empty_value' => $this->getObject()->get('ProductBacklog_id'), 'required' => false)),
+      'created_at'        => new sfValidatorDateTime(),
+      'updated_at'        => new sfValidatorDateTime(),
     ));
 
     $this->widgetSchema->setNameFormat('sprint_product_backlog[%s]');

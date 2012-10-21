@@ -21,6 +21,8 @@ abstract class BaseEquipoForm extends BaseFormDoctrine
       'Rol_id'       => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Rol'), 'add_empty' => false)),
       'Nombre'       => new sfWidgetFormInputText(),
       'is_activated' => new sfWidgetFormInputCheckbox(),
+      'created_at'   => new sfWidgetFormDateTime(),
+      'updated_at'   => new sfWidgetFormDateTime(),
     ));
 
     $this->setValidators(array(
@@ -30,6 +32,8 @@ abstract class BaseEquipoForm extends BaseFormDoctrine
       'Rol_id'       => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Rol'))),
       'Nombre'       => new sfValidatorString(array('max_length' => 45, 'required' => false)),
       'is_activated' => new sfValidatorBoolean(array('required' => false)),
+      'created_at'   => new sfValidatorDateTime(),
+      'updated_at'   => new sfValidatorDateTime(),
     ));
 
     $this->widgetSchema->setNameFormat('equipo[%s]');

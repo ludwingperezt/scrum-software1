@@ -20,6 +20,8 @@ abstract class BaseCambioForm extends BaseFormDoctrine
       'Persona_id'  => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Persona'), 'add_empty' => false)),
       'Descripcion' => new sfWidgetFormInputText(),
       'Fecha'       => new sfWidgetFormDateTime(),
+      'created_at'  => new sfWidgetFormDateTime(),
+      'updated_at'  => new sfWidgetFormDateTime(),
     ));
 
     $this->setValidators(array(
@@ -28,6 +30,8 @@ abstract class BaseCambioForm extends BaseFormDoctrine
       'Persona_id'  => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Persona'))),
       'Descripcion' => new sfValidatorString(array('max_length' => 150, 'required' => false)),
       'Fecha'       => new sfValidatorDateTime(array('required' => false)),
+      'created_at'  => new sfValidatorDateTime(),
+      'updated_at'  => new sfValidatorDateTime(),
     ));
 
     $this->widgetSchema->setNameFormat('cambio[%s]');

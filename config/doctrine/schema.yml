@@ -6,6 +6,7 @@ options:
   type: InnoDB
 
 Tarea:
+  actAs: { Timestampable: ~ }
   columns:
     id:
       type: integer(4)
@@ -52,6 +53,7 @@ Tarea:
       fields: [ProductBacklog_id]
 
 Sprint:
+  actAs: { Timestampable: ~ }
   columns:
     id:
       type: integer(4)
@@ -102,6 +104,7 @@ Sprint:
       fields: [Persona_id]
 
 ProductBacklog:
+  actAs: { Timestampable: ~ }
   columns:
     id:
       type: integer(4)
@@ -123,8 +126,10 @@ ProductBacklog:
       type: integer(1)
     Duracion:
       type: integer(2)
-    Activo:
+    is_activated:
       type: boolean
+      notnull: true
+      default: 1
   relations:
     Proyecto:
       class: Proyecto
@@ -143,6 +148,7 @@ ProductBacklog:
       fields: [Persona_id]
 
 Estado:
+  actAs: { Timestampable: ~ }
   columns:
     id:
       type: integer(4)
@@ -155,6 +161,7 @@ Estado:
       type: clob(65535)
 
 Proyecto:
+  actAs: { Timestampable: ~ }
   columns:
     id:
       type: integer(4)
@@ -196,6 +203,7 @@ Proyecto:
       fields: [Persona_id]
 
 Persona:
+  actAs: { Timestampable: ~ }
   columns:
     id:
       type: integer(4)
@@ -219,6 +227,7 @@ Persona:
       default: 1
 
 Rol:
+  actAs: { Timestampable: ~ }
   columns:
     id:
       type: integer(4)
@@ -236,6 +245,7 @@ Rol:
       default: 1
 
 SprintProductBacklog:
+  actAs: { Timestampable: ~ }
   columns:
     Sprint_id:
       type: integer(4)
@@ -263,6 +273,7 @@ SprintProductBacklog:
       fields: [ProductBacklog_id]
 
 Equipo:
+  actAs: { Timestampable: ~ }
   columns:
     id:
       type: integer(4)
@@ -309,6 +320,7 @@ Equipo:
       fields: [Proyecto_id]
 
 Reunion:
+  actAs: { Timestampable: ~ }
   columns:
     id:
       type: integer(4)
@@ -353,6 +365,7 @@ Reunion:
       fields: [Persona_id]
 
 HistorialChat:
+  actAs: { Timestampable: ~ }
   columns:
     id:
       type: integer(4)
@@ -392,6 +405,7 @@ HistorialChat:
       fields: [Persona_id]
 
 Link:
+  actAs: { Timestampable: ~ }
   columns:
     id:
       type: integer(4)
@@ -430,6 +444,7 @@ Link:
       fields: [Persona_id]
 
 Cambio:
+  actAs: { Timestampable: ~ }
   columns:
     id:
       type: integer(4)
@@ -462,4 +477,3 @@ Cambio:
       fields: [Persona_id]
     fk_Cambios_Proyecto2:
       fields: [Proyecto_id]
-

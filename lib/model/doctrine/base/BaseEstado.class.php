@@ -62,5 +62,8 @@ abstract class BaseEstado extends sfDoctrineRecord
         $this->hasMany('Sprint as Sprints', array(
              'local' => 'id',
              'foreign' => 'Estado_id'));
+
+        $timestampable0 = new Doctrine_Template_Timestampable();
+        $this->actAs($timestampable0);
     }
 }

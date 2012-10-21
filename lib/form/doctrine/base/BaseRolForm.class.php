@@ -19,6 +19,8 @@ abstract class BaseRolForm extends BaseFormDoctrine
       'Nombre'       => new sfWidgetFormInputText(),
       'Descripcion'  => new sfWidgetFormTextarea(),
       'is_activated' => new sfWidgetFormInputCheckbox(),
+      'created_at'   => new sfWidgetFormDateTime(),
+      'updated_at'   => new sfWidgetFormDateTime(),
     ));
 
     $this->setValidators(array(
@@ -26,6 +28,8 @@ abstract class BaseRolForm extends BaseFormDoctrine
       'Nombre'       => new sfValidatorString(array('max_length' => 45)),
       'Descripcion'  => new sfValidatorString(array('required' => false)),
       'is_activated' => new sfValidatorBoolean(array('required' => false)),
+      'created_at'   => new sfValidatorDateTime(),
+      'updated_at'   => new sfValidatorDateTime(),
     ));
 
     $this->widgetSchema->setNameFormat('rol[%s]');

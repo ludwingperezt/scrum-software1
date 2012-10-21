@@ -12,6 +12,14 @@
       <th>Descripcion:</th>
       <td><?php echo $estado->getDescripcion() ?></td>
     </tr>
+    <tr>
+      <th>Created at:</th>
+      <td><?php echo $estado->getCreatedAt() ?></td>
+    </tr>
+    <tr>
+      <th>Updated at:</th>
+      <td><?php echo $estado->getUpdatedAt() ?></td>
+    </tr>
   </tbody>
 </table>
 

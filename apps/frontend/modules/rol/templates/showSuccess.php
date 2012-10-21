@@ -16,6 +16,14 @@
       <th>Is activated:</th>
       <td><?php echo $rol->getIsActivated() ?></td>
     </tr>
+    <tr>
+      <th>Created at:</th>
+      <td><?php echo $rol->getCreatedAt() ?></td>
+    </tr>
+    <tr>
+      <th>Updated at:</th>
+      <td><?php echo $rol->getUpdatedAt() ?></td>
+    </tr>
   </tbody>
 </table>
 

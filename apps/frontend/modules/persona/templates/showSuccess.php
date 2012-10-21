@@ -24,6 +24,14 @@
       <th>Is activated:</th>
       <td><?php echo $persona->getIsActivated() ?></td>
     </tr>
+    <tr>
+      <th>Created at:</th>
+      <td><?php echo $persona->getCreatedAt() ?></td>
+    </tr>
+    <tr>
+      <th>Updated at:</th>
+      <td><?php echo $persona->getUpdatedAt() ?></td>
+    </tr>
   </tbody>
 </table>
 

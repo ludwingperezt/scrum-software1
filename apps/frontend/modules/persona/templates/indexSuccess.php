@@ -9,6 +9,8 @@
       <th>Email</th>
       <th>Telefono</th>
       <th>Is activated</th>
+      <th>Created at</th>
+      <th>Updated at</th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +22,8 @@
       <td><?php echo $persona->getEmail() ?></td>
       <td><?php echo $persona->getTelefono() ?></td>
       <td><?php echo $persona->getIsActivated() ?></td>
+      <td><?php echo $persona->getCreatedAt() ?></td>
+      <td><?php echo $persona->getUpdatedAt() ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>

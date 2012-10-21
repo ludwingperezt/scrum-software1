@@ -29,8 +29,16 @@
       <td><?php echo $productbacklog->getDuracion() ?></td>
     </tr>
     <tr>
-      <th>Activo:</th>
-      <td><?php echo $productbacklog->getActivo() ?></td>
+      <th>Is activated:</th>
+      <td><?php echo $productbacklog->getIsActivated() ?></td>
+    </tr>
+    <tr>
+      <th>Created at:</th>
+      <td><?php echo $productbacklog->getCreatedAt() ?></td>
+    </tr>
+    <tr>
+      <th>Updated at:</th>
+      <td><?php echo $productbacklog->getUpdatedAt() ?></td>
     </tr>
   </tbody>
 </table>

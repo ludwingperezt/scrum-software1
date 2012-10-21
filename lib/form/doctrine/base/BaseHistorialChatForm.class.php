@@ -21,6 +21,7 @@ abstract class BaseHistorialChatForm extends BaseFormDoctrine
       'Mensaje'      => new sfWidgetFormTextarea(),
       'created_at'   => new sfWidgetFormDateTime(),
       'is_activated' => new sfWidgetFormInputCheckbox(),
+      'updated_at'   => new sfWidgetFormDateTime(),
     ));
 
     $this->setValidators(array(
@@ -30,6 +31,7 @@ abstract class BaseHistorialChatForm extends BaseFormDoctrine
       'Mensaje'      => new sfValidatorString(array('required' => false)),
       'created_at'   => new sfValidatorDateTime(),
       'is_activated' => new sfValidatorBoolean(array('required' => false)),
+      'updated_at'   => new sfValidatorDateTime(),
     ));
 
     $this->widgetSchema->setNameFormat('historial_chat[%s]');

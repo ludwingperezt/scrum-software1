@@ -22,6 +22,8 @@ abstract class BaseTareaForm extends BaseFormDoctrine
       'Nombre'            => new sfWidgetFormInputText(),
       'Descripcion'       => new sfWidgetFormTextarea(),
       'TiempoEstimado'    => new sfWidgetFormInputText(),
+      'created_at'        => new sfWidgetFormDateTime(),
+      'updated_at'        => new sfWidgetFormDateTime(),
     ));
 
     $this->setValidators(array(
@@ -32,6 +34,8 @@ abstract class BaseTareaForm extends BaseFormDoctrine
       'Nombre'            => new sfValidatorString(array('max_length' => 45, 'required' => false)),
       'Descripcion'       => new sfValidatorString(array('required' => false)),
       'TiempoEstimado'    => new sfValidatorInteger(array('required' => false)),
+      'created_at'        => new sfValidatorDateTime(),
+      'updated_at'        => new sfValidatorDateTime(),
     ));
 
     $this->widgetSchema->setNameFormat('tarea[%s]');

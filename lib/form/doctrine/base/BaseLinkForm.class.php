@@ -21,6 +21,7 @@ abstract class BaseLinkForm extends BaseFormDoctrine
       'Direccion'   => new sfWidgetFormTextarea(),
       'Descripcion' => new sfWidgetFormTextarea(),
       'created_at'  => new sfWidgetFormDateTime(),
+      'updated_at'  => new sfWidgetFormDateTime(),
     ));
 
     $this->setValidators(array(
@@ -30,6 +31,7 @@ abstract class BaseLinkForm extends BaseFormDoctrine
       'Direccion'   => new sfValidatorString(),
       'Descripcion' => new sfValidatorString(array('required' => false)),
       'created_at'  => new sfValidatorDateTime(),
+      'updated_at'  => new sfValidatorDateTime(),
     ));
 
     $this->widgetSchema->setNameFormat('link[%s]');

@@ -113,5 +113,8 @@ abstract class BaseEquipo extends sfDoctrineRecord
         $this->hasOne('Proyecto', array(
              'local' => 'Proyecto_id',
              'foreign' => 'id'));
+
+        $timestampable0 = new Doctrine_Template_Timestampable();
+        $this->actAs($timestampable0);
     }
 }

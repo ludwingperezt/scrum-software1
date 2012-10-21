@@ -21,6 +21,8 @@ abstract class BasePersonaForm extends BaseFormDoctrine
       'Email'        => new sfWidgetFormInputText(),
       'Telefono'     => new sfWidgetFormInputText(),
       'is_activated' => new sfWidgetFormInputCheckbox(),
+      'created_at'   => new sfWidgetFormDateTime(),
+      'updated_at'   => new sfWidgetFormDateTime(),
     ));
 
     $this->setValidators(array(
@@ -30,6 +32,8 @@ abstract class BasePersonaForm extends BaseFormDoctrine
       'Email'        => new sfValidatorString(array('max_length' => 45, 'required' => false)),
       'Telefono'     => new sfValidatorString(array('max_length' => 15, 'required' => false)),
       'is_activated' => new sfValidatorBoolean(array('required' => false)),
+      'created_at'   => new sfValidatorDateTime(),
+      'updated_at'   => new sfValidatorDateTime(),
     ));
 
     $this->widgetSchema->setNameFormat('persona[%s]');
