@@ -16,4 +16,18 @@ class ReunionTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Reunion');
     }
+	
+	public function getReunionesProyecto($idProyecto)
+	{
+		$q=$this->createQuery('r')
+		->where('r.Proyecto_id ='.$idProyecto.' and r.is_activated=1');
+		return $q->execute();
+	}
+	
+	public function getReuniones()
+	{
+		$q=$this->createQuery('r')
+		->where('r.is_activated=1');
+		return $q->execute();
+	}
 }

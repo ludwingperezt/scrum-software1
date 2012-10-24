@@ -3,7 +3,7 @@
  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <title>Jobeet - Your best job board</title>
+    <title>SCRUM Manager</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_javascripts() ?>
     <?php include_stylesheets() ?>
@@ -12,8 +12,8 @@
     <div id="container">
       <div id="header">
         <div class="content">
-          <h1><a href="<?php echo url_for('Personas/indice') ?>">
-            <img src="/images/logo.jpg" alt="Tablero de personas" />
+          <h1><a href="<?php echo url_for('@default?module=Inicial') ?>">
+            <img src="/images/logo.png" alt="SCRUM Manager..." />
           </a></h1>
  
           <div id="sub_header">
@@ -25,11 +25,11 @@
             </div>
  
             <div class="search">
-              <h2>Ask for a job</h2>
+              <h2>Buscar un Proyecto</h2>
               <form action="" method="get">
                 <input type="text" name="keywords"
                   id="search_keywords" />
-                <input type="submit" value="search" />
+                <input type="submit" value="" />
                 <div class="help">
                   Enter some keywords (city, country, position, ...)
                 </div>
@@ -66,7 +66,7 @@
             </a>
           </span>
           <ul>
-            <li><a href="">About Jobeet</a></li>
+            <li><a href="">Acerca de SCRUM...</a></li>
             <li class="feed"><a href="">Full feed</a></li>
             <li><a href="">Jobeet API</a></li>
             <li class="last"><a href="">Affiliates</a></li>
