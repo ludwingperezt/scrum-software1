@@ -12,8 +12,7 @@ class reunionActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-  echo $this->getCookie('proyecto');
-    $this->reunions = Doctrine_Core::getTable('reunion')->getReunionesProyecto();
+    $this->reunions = Doctrine_Core::getTable('reunion')->getReuniones();
      // ->createQuery('a')
      // ->execute();
   }
