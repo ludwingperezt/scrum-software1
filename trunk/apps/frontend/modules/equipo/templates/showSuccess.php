@@ -1,35 +1,23 @@
 <table>
   <tbody>
     <tr>
-      <th>Id:</th>
-      <td><?php echo $equipo->getId() ?></td>
-    </tr>
-    <tr>
-      <th>Proyecto:</th>
-      <td><?php echo $equipo->getProyectoId() ?></td>
-    </tr>
-    <tr>
-      <th>Persona:</th>
-      <td><?php echo $equipo->getPersonaId() ?></td>
+      <th>Nombre:</th>
+      <td><?php echo $equipo->getPersona()->getNombre() ?></td>
     </tr>
     <tr>
       <th>Rol:</th>
-      <td><?php echo $equipo->getRolId() ?></td>
+      <td><?php echo $equipo->getRol()->getNombre() ?></td>
     </tr>
     <tr>
-      <th>Nombre:</th>
+      <th>Anotación:</th>
       <td><?php echo $equipo->getNombre() ?></td>
     </tr>
     <tr>
-      <th>Is activated:</th>
-      <td><?php echo $equipo->getIsActivated() ?></td>
-    </tr>
-    <tr>
-      <th>Created at:</th>
+      <th>Fecha de agregación al proyecto:</th>
       <td><?php echo $equipo->getCreatedAt() ?></td>
     </tr>
     <tr>
-      <th>Updated at:</th>
+      <th>Fecha de última modificación:</th>
       <td><?php echo $equipo->getUpdatedAt() ?></td>
     </tr>
   </tbody>
