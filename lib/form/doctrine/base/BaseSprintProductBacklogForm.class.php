@@ -15,15 +15,21 @@ abstract class BaseSprintProductBacklogForm extends BaseFormDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'Sprint_id'         => new sfWidgetFormInputHidden(),
-      'ProductBacklog_id' => new sfWidgetFormInputHidden(),
+      'id'                => new sfWidgetFormInputHidden(),
+      'Persona_id'        => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Persona'), 'add_empty' => false)),
+      'Sprint_id'         => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Sprint'), 'add_empty' => false)),
+      'ProductBacklog_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('ProductBacklog'), 'add_empty' => false)),
+      'Anotaciones'       => new sfWidgetFormTextarea(),
       'created_at'        => new sfWidgetFormDateTime(),
       'updated_at'        => new sfWidgetFormDateTime(),
     ));
 
     $this->setValidators(array(
-      'Sprint_id'         => new sfValidatorChoice(array('choices' => array($this->getObject()->get('Sprint_id')), 'empty_value' => $this->getObject()->get('Sprint_id'), 'required' => false)),
-      'ProductBacklog_id' => new sfValidatorChoice(array('choices' => array($this->getObject()->get('ProductBacklog_id')), 'empty_value' => $this->getObject()->get('ProductBacklog_id'), 'required' => false)),
+      'id'                => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'Persona_id'        => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Persona'))),
+      'Sprint_id'         => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Sprint'))),
+      'ProductBacklog_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('ProductBacklog'))),
+      'Anotaciones'       => new sfValidatorString(array('required' => false)),
       'created_at'        => new sfValidatorDateTime(),
       'updated_at'        => new sfValidatorDateTime(),
     ));

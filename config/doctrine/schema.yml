@@ -247,14 +247,22 @@ Rol:
 SprintProductBacklog:
   actAs: { Timestampable: ~ }
   columns:
-    Sprint_id:
+    id:
       type: integer(4)
       primary: true
+      notnull: true
+      autoincrement: true
+    Persona_id:
+      type: integer(4)
+      notnull: true
+    Sprint_id:
+      type: integer(4)
       notnull: true
     ProductBacklog_id:
       type: integer(4)
-      primary: true
       notnull: true
+    Anotaciones:
+      type: clob(65535)
   relations:
     Sprint:
       class: Sprint
@@ -266,11 +274,18 @@ SprintProductBacklog:
       local: ProductBacklog_id
       foreign: id
       foreignAlias: SprintProductBacklogs
+    Persona:
+      class: Persona
+      local: Persona_id
+      foreign: id
+      foreignAlias: SprintProductBacklogs
   indexes:
     fk_SprintProductBacklog_Sprint1:
       fields: [Sprint_id]
     fk_SprintProductBacklog_ProductBacklog1:
       fields: [ProductBacklog_id]
+    fk_SprintProductBacklog_Persona1:
+      fields: [Persona_id]
 
 Equipo:
   actAs: { Timestampable: ~ }

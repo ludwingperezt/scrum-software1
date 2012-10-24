@@ -19,8 +19,7 @@ class sprintproductbacklogActions extends sfActions
 
   public function executeShow(sfWebRequest $request)
   {
-    $this->sprintproductbacklog = Doctrine_Core::getTable('sprintproductbacklog')->find(array($request->getParameter('sprint_id'),
-                         $request->getParameter('product_backlog_id')));
+    $this->sprintproductbacklog = Doctrine_Core::getTable('sprintproductbacklog')->find(array($request->getParameter('id')));
     $this->forward404Unless($this->sprintproductbacklog);
   }
 
@@ -42,18 +41,14 @@ class sprintproductbacklogActions extends sfActions
 
   public function executeEdit(sfWebRequest $request)
   {
-    $this->forward404Unless($sprintproductbacklog = Doctrine_Core::getTable('sprintproductbacklog')->find(array($request->getParameter('sprint_id'),
-   $request->getParameter('product_backlog_id'))), sprintf('Object sprintproductbacklog does not exist (%s).', $request->getParameter('sprint_id'),
-   $request->getParameter('product_backlog_id')));
+    $this->forward404Unless($sprintproductbacklog = Doctrine_Core::getTable('sprintproductbacklog')->find(array($request->getParameter('id'))), sprintf('Object sprintproductbacklog does not exist (%s).', $request->getParameter('id')));
     $this->form = new sprintproductbacklogForm($sprintproductbacklog);
   }
 
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
-    $this->forward404Unless($sprintproductbacklog = Doctrine_Core::getTable('sprintproductbacklog')->find(array($request->getParameter('sprint_id'),
-   $request->getParameter('product_backlog_id'))), sprintf('Object sprintproductbacklog does not exist (%s).', $request->getParameter('sprint_id'),
-   $request->getParameter('product_backlog_id')));
+    $this->forward404Unless($sprintproductbacklog = Doctrine_Core::getTable('sprintproductbacklog')->find(array($request->getParameter('id'))), sprintf('Object sprintproductbacklog does not exist (%s).', $request->getParameter('id')));
     $this->form = new sprintproductbacklogForm($sprintproductbacklog);
 
     $this->processForm($request, $this->form);
@@ -65,9 +60,7 @@ class sprintproductbacklogActions extends sfActions
   {
     $request->checkCSRFProtection();
 
-    $this->forward404Unless($sprintproductbacklog = Doctrine_Core::getTable('sprintproductbacklog')->find(array($request->getParameter('sprint_id'),
-   $request->getParameter('product_backlog_id'))), sprintf('Object sprintproductbacklog does not exist (%s).', $request->getParameter('sprint_id'),
-   $request->getParameter('product_backlog_id')));
+    $this->forward404Unless($sprintproductbacklog = Doctrine_Core::getTable('sprintproductbacklog')->find(array($request->getParameter('id'))), sprintf('Object sprintproductbacklog does not exist (%s).', $request->getParameter('id')));
     $sprintproductbacklog->delete();
 
     $this->redirect('sprintproductbacklog/index');
@@ -80,7 +73,7 @@ class sprintproductbacklogActions extends sfActions
     {
       $sprintproductbacklog = $form->save();
 
-      $this->redirect('sprintproductbacklog/edit?sprint_id='.$sprintproductbacklog->getSprintId().'&product_backlog_id='.$sprintproductbacklog->getProductBacklogId());
+      $this->redirect('sprintproductbacklog/edit?id='.$sprintproductbacklog->getId());
     }
   }
 }
