@@ -9,11 +9,11 @@
     <tfoot>
       <tr>
         <td colspan="2">
-          &nbsp;<a href="<?php echo url_for('reunion/index') ?>">Back to list</a>
-          <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo link_to('Delete', 'reunion/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
+          &nbsp;<a href="<?php echo url_for('reunion/index') ?>">Lista de reuniones del proyecto</a>
+          <?php if (!$form->getObject()->isNew()): ?>		  
+            &nbsp;<?php echo link_to('Borrar', 'reunion/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => '¿Está seguro de borrar?')) ?>
           <?php endif; ?>
-          <input type="submit" value="Save" />
+          <input type="submit" value="Guardar" />
         </td>
       </tr>
     </tfoot>

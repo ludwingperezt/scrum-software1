@@ -12,5 +12,15 @@ class ReunionForm extends BaseReunionForm
 {
   public function configure()
   {
+  $this->widgetSchema->setLabels(array(
+	'Persona_id' => 'Encargado',
+	'Proyecto_id'=>'Proyecto',
+	'Duracion'=>'Duracion (hrs)'
+  ));
+  unset(
+  $this['is_activated'],
+  $this['created_at'],
+  $this['updated_at']
+  );
   }
 }

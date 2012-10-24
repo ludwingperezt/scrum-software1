@@ -1,4 +1,4 @@
-<h1>Reunions List</h1>
+<h1>Listado de reuniones del proyecto</h1>
 
 <table>
   <thead>
@@ -10,10 +10,10 @@
       <th>Descripcion</th>
       <th>Anotaciones</th>
       <th>Fecha</th>
-      <th>Duracion</th>
-      <th>Is activated</th>
+      <th>Duracion (hrs)</th>
+      <!--<th>Is activated</th>
       <th>Created at</th>
-      <th>Updated at</th>
+      <th>Updated at</th>-->
     </tr>
   </thead>
   <tbody>
@@ -27,9 +27,9 @@
       <td><?php echo $reunion->getAnotaciones() ?></td>
       <td><?php echo $reunion->getFecha() ?></td>
       <td><?php echo $reunion->getDuracion() ?></td>
-      <td><?php echo $reunion->getIsActivated() ?></td>
-      <td><?php echo $reunion->getCreatedAt() ?></td>
-      <td><?php echo $reunion->getUpdatedAt() ?></td>
+      <!--<td><//?php echo $reunion->getIsActivated() ?></td>
+      <td><//?php echo $reunion->getCreatedAt() ?></td>
+      <td><//?php echo $reunion->getUpdatedAt() ?></td>-->
     </tr>
     <?php endforeach; ?>
   </tbody>
