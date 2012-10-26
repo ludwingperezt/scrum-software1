@@ -31,4 +31,4 @@
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('tarea/new') ?>">New</a>
+  <a href="<?php echo url_for('tarea/new') ?>">Crear Nuevo</a>

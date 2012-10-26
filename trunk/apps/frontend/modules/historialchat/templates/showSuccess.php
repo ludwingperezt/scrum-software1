@@ -33,6 +33,6 @@
 
 <hr />
 
-<a href="<?php echo url_for('historialchat/edit?id='.$historialchat->getId()) ?>">Edit</a>
+<a href="<?php echo url_for('historialchat/edit?id='.$historialchat->getId()) ?>">Editar</a>
 &nbsp;
-<a href="<?php echo url_for('historialchat/index') ?>">List</a>
+<a href="<?php echo url_for('historialchat/index') ?>">Lista</a>

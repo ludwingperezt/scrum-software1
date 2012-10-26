@@ -27,4 +27,4 @@
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('link/new') ?>">New</a>
+  <a href="<?php echo url_for('link/new') ?>">Crear Nuevo</a>
