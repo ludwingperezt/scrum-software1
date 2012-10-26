@@ -41,7 +41,7 @@
       <td><?php echo $reunion->getCreatedAt() ?></td>
     </tr>
     <tr>
-      <th>Ultima modificación:</th>
+      <th>Ultima modificacion:</th>
       <td><?php echo $reunion->getUpdatedAt() ?></td>
     </tr>
   </tbody>
@@ -51,4 +51,4 @@
 
 <a href="<?php echo url_for('reunion/edit?id='.$reunion->getId()) ?>">Edit</a>
 &nbsp;
-<a href="<?php echo url_for('reunion/index') ?>">Lista reuniones</a>
+<a href="<?php echo url_for('reunion/index') ?>">Listar reuniones</a>
