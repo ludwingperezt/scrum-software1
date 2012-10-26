@@ -12,5 +12,9 @@ class HistorialChatForm extends BaseHistorialChatForm
 {
   public function configure()
   {
+  unset(
+      $this['created_at'], $this['is_activated'],
+	  $this['updated_at']
+    );
   }
 }

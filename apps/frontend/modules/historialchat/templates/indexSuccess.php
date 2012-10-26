@@ -27,4 +27,4 @@
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('historialchat/new') ?>">New</a>
+  <a href="<?php echo url_for('historialchat/new') ?>">Crear Nuevo</a>
