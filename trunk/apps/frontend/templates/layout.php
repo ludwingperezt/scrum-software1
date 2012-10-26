@@ -18,9 +18,9 @@
  
           <div id="sub_header">
             <div class="post">
-              <h2>Nuevo Proyecto</h2>
+              <h2>Login</h2>
               <div>
-                <a href="<?php echo url_for('proyecto/index') ?>">Nuevo Proyecto</a>
+                <a href="http://www.scrum.260mb.org">Login</a>
               </div>
             </div>
  
