@@ -5,13 +5,13 @@
     <tr>
       <th>Id</th>
       <th>Persona</th>
-      <th>Productbacklog</th>
+      <th>Product backlog</th>
       <th>Estado</th>
       <th>Nombre</th>
       <th>Descripcion</th>
       <th>Tiempo estimado</th>
-      <th>Created at</th>
-      <th>Updated at</th>
+      <th>Fecha de creacion</th>
+      <th>Fecha de modificacion</th>
     </tr>
   </thead>
   <tbody>
@@ -31,4 +31,4 @@
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('tarea/new') ?>">New</a>
+  <a href="<?php echo url_for('tarea/new') ?>">Crear Nuevo</a>
