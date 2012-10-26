@@ -35,4 +35,4 @@
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('reunion/new') ?>">New</a>
+  <a href="<?php echo url_for('reunion/new') ?>">Crear Reunión</a>

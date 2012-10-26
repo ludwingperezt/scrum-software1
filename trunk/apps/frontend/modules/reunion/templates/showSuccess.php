@@ -33,15 +33,15 @@
       <td><?php echo $reunion->getDuracion() ?></td>
     </tr>
     <tr>
-      <th>Is activated:</th>
+      <th>Activo:</th>
       <td><?php echo $reunion->getIsActivated() ?></td>
     </tr>
     <tr>
-      <th>Created at:</th>
+      <th>Creado:</th>
       <td><?php echo $reunion->getCreatedAt() ?></td>
     </tr>
     <tr>
-      <th>Updated at:</th>
+      <th>Ultima modificación:</th>
       <td><?php echo $reunion->getUpdatedAt() ?></td>
     </tr>
   </tbody>
@@ -51,4 +51,4 @@
 
 <a href="<?php echo url_for('reunion/edit?id='.$reunion->getId()) ?>">Edit</a>
 &nbsp;
-<a href="<?php echo url_for('reunion/index') ?>">List</a>
+<a href="<?php echo url_for('reunion/index') ?>">Lista reuniones</a>
