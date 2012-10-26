@@ -12,4 +12,9 @@
  */
 class ProductBacklog extends BaseProductBacklog
 {
+	public function __toString()
+	{
+		return sprintf($this->getNombre());
+	}
+
 }
