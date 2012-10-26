@@ -12,4 +12,9 @@
  */
 class Sprint extends BaseSprint
 {
+	public function __toString()
+	{
+		return sprintf($this->getNombre());
+	}
+
 }
