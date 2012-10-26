@@ -6,11 +6,11 @@
     </tr>
     <tr>
       <th>Proyecto:</th>
-      <td><?php echo $reunion->getProyectoId() ?></td>
+      <td><?php echo $reunion->getProyecto()->getNombre() ?></td>
     </tr>
     <tr>
       <th>Persona:</th>
-      <td><?php echo $reunion->getPersonaId() ?></td>
+      <td><?php echo $reunion->getPersona()->getNombre() ?></td>
     </tr>
     <tr>
       <th>Titulo:</th>
@@ -49,6 +49,6 @@
 
 <hr />
 
-<a href="<?php echo url_for('reunion/edit?id='.$reunion->getId()) ?>">Edit</a>
+<a href="<?php echo url_for('reunion/edit?id='.$reunion->getId()) ?>">Editar</a>
 &nbsp;
 <a href="<?php echo url_for('reunion/index') ?>">Listar reuniones</a>

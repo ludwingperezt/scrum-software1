@@ -3,10 +3,10 @@
 <table>
   <thead>
     <tr>
-      <th>Id</th>
+      <th>Titulo</th>
       <th>Proyecto</th>
       <th>Persona</th>
-      <th>Titulo</th>
+      <!--<th>Titulo</th>-->
       <th>Descripcion</th>
       <th>Anotaciones</th>
       <th>Fecha</th>
@@ -19,10 +19,10 @@
   <tbody>
     <?php foreach ($reunions as $reunion): ?>
     <tr>
-      <td><a href="<?php echo url_for('reunion/show?id='.$reunion->getId()) ?>"><?php echo $reunion->getId() ?></a></td>
-      <td><?php echo $reunion->getProyectoId() ?></td>
-      <td><?php echo $reunion->getPersonaId() ?></td>
-      <td><?php echo $reunion->getTitulo() ?></td>
+      <td><a href="<?php echo url_for('reunion/show?id='.$reunion->getId()) ?>"><?php echo $reunion->getTitulo() ?></a></td>
+      <td><?php echo $reunion->getProyecto()->getNombre() ?></td>
+      <td><?php echo $reunion->getPersona()->getNombre() ?></td>
+      <!--<td><//?php echo $reunion->getTitulo() ?></td>-->
       <td><?php echo $reunion->getDescripcion() ?></td>
       <td><?php echo $reunion->getAnotaciones() ?></td>
       <td><?php echo $reunion->getFecha() ?></td>
@@ -35,4 +35,4 @@
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('reunion/new') ?>">Crear Reunión</a>
+  <a href="<?php echo url_for('reunion/new') ?>">Crear Reunion</a>
