@@ -1,31 +1,27 @@
 <table>
   <tbody>
     <tr>
-      <th>Id:</th>
-      <td><?php echo $sprintproductbacklog->getId() ?></td>
-    </tr>
-    <tr>
-      <th>Persona:</th>
-      <td><?php echo $sprintproductbacklog->getPersonaId() ?></td>
+      <th>Creador:</th>
+      <td><?php echo $sprintproductbacklog->getPersona()->getNombre() ?></td>
     </tr>
     <tr>
       <th>Sprint:</th>
-      <td><?php echo $sprintproductbacklog->getSprintId() ?></td>
+      <td><?php echo $sprintproductbacklog->getSprint()->getNombre() ?></td>
     </tr>
     <tr>
       <th>Productbacklog:</th>
-      <td><?php echo $sprintproductbacklog->getProductbacklogId() ?></td>
+      <td><?php echo $sprintproductbacklog->getProductbacklog()->getNombre() ?></td>
     </tr>
     <tr>
       <th>Anotaciones:</th>
       <td><?php echo $sprintproductbacklog->getAnotaciones() ?></td>
     </tr>
     <tr>
-      <th>Created at:</th>
+      <th>Fecha de creacion:</th>
       <td><?php echo $sprintproductbacklog->getCreatedAt() ?></td>
     </tr>
     <tr>
-      <th>Updated at:</th>
+      <th>Fecha de actualizacion:</th>
       <td><?php echo $sprintproductbacklog->getUpdatedAt() ?></td>
     </tr>
   </tbody>
@@ -33,6 +29,6 @@
 
 <hr />
 
-<a href="<?php echo url_for('sprintproductbacklog/edit?id='.$sprintproductbacklog->getId()) ?>">Edit</a>
+<a href="<?php echo url_for('sprintproductbacklog/edit?id='.$sprintproductbacklog->getId()) ?>">Editar</a>
 &nbsp;
-<a href="<?php echo url_for('sprintproductbacklog/index') ?>">List</a>
+<a href="<?php echo url_for('sprintproductbacklog/index') ?>">Volver a lista</a>
