@@ -18,9 +18,9 @@
  
           <div id="sub_header">
             <div class="post">
-              <h2>Ask for people</h2>
+              <h2>Nuevo Proyecto</h2>
               <div>
-                <a href="<?php echo url_for('job/index') ?>">Post a Job</a>
+                <a href="<?php echo url_for('proyecto/index') ?>">Nuevo Proyecto</a>
               </div>
             </div>
  
