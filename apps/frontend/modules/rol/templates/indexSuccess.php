@@ -3,21 +3,17 @@
 <table>
   <thead>
     <tr>
-      <th>Id</th>
       <th>Nombre</th>
       <th>Descripcion</th>
-      <th>Is activated</th>
-      <th>Created at</th>
-      <th>Updated at</th>
+      <th>Fecha de creación</th>
+      <th>Ultima actualización</th>
     </tr>
   </thead>
   <tbody>
     <?php foreach ($rols as $rol): ?>
     <tr>
-      <td><a href="<?php echo url_for('rol/show?id='.$rol->getId()) ?>"><?php echo $rol->getId() ?></a></td>
-      <td><?php echo $rol->getNombre() ?></td>
+      <td><a href="<?php echo url_for('rol/show?id='.$rol->getId()) ?>"><?php echo $rol->getNombre() ?></a></td>
       <td><?php echo $rol->getDescripcion() ?></td>
-      <td><?php echo $rol->getIsActivated() ?></td>
       <td><?php echo $rol->getCreatedAt() ?></td>
       <td><?php echo $rol->getUpdatedAt() ?></td>
     </tr>

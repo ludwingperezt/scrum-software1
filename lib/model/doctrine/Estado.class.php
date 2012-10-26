@@ -12,4 +12,8 @@
  */
 class Estado extends BaseEstado
 {
+	public function __toString()
+	{
+		return sprintf($this->getNombre());
+	}
 }
