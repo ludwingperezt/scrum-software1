@@ -8,28 +8,28 @@
  * @property integer $id
  * @property integer $Persona_id
  * @property integer $Sprint_id
- * @property integer $ProductBacklog_id
+ * @property integer $Productbacklog_id
  * @property clob $Anotaciones
  * @property Sprint $Sprint
- * @property ProductBacklog $ProductBacklog
  * @property Persona $Persona
+ * @property Productbacklog $Productbacklog
  * 
  * @method integer              getId()                Returns the current record's "id" value
  * @method integer              getPersonaId()         Returns the current record's "Persona_id" value
  * @method integer              getSprintId()          Returns the current record's "Sprint_id" value
- * @method integer              getProductBacklogId()  Returns the current record's "ProductBacklog_id" value
+ * @method integer              getProductbacklogId()  Returns the current record's "Productbacklog_id" value
  * @method clob                 getAnotaciones()       Returns the current record's "Anotaciones" value
  * @method Sprint               getSprint()            Returns the current record's "Sprint" value
- * @method ProductBacklog       getProductBacklog()    Returns the current record's "ProductBacklog" value
  * @method Persona              getPersona()           Returns the current record's "Persona" value
+ * @method Productbacklog       getProductbacklog()    Returns the current record's "Productbacklog" value
  * @method SprintProductBacklog setId()                Sets the current record's "id" value
  * @method SprintProductBacklog setPersonaId()         Sets the current record's "Persona_id" value
  * @method SprintProductBacklog setSprintId()          Sets the current record's "Sprint_id" value
- * @method SprintProductBacklog setProductBacklogId()  Sets the current record's "ProductBacklog_id" value
+ * @method SprintProductBacklog setProductbacklogId()  Sets the current record's "Productbacklog_id" value
  * @method SprintProductBacklog setAnotaciones()       Sets the current record's "Anotaciones" value
  * @method SprintProductBacklog setSprint()            Sets the current record's "Sprint" value
- * @method SprintProductBacklog setProductBacklog()    Sets the current record's "ProductBacklog" value
  * @method SprintProductBacklog setPersona()           Sets the current record's "Persona" value
+ * @method SprintProductBacklog setProductbacklog()    Sets the current record's "Productbacklog" value
  * 
  * @package    scrum
  * @subpackage model
@@ -57,7 +57,7 @@ abstract class BaseSprintProductBacklog extends sfDoctrineRecord
              'notnull' => true,
              'length' => 4,
              ));
-        $this->hasColumn('ProductBacklog_id', 'integer', 4, array(
+        $this->hasColumn('Productbacklog_id', 'integer', 4, array(
              'type' => 'integer',
              'notnull' => true,
              'length' => 4,
@@ -74,16 +74,16 @@ abstract class BaseSprintProductBacklog extends sfDoctrineRecord
               0 => 'Sprint_id',
              ),
              ));
-        $this->index('fk_SprintProductBacklog_ProductBacklog1', array(
-             'fields' => 
-             array(
-              0 => 'ProductBacklog_id',
-             ),
-             ));
         $this->index('fk_SprintProductBacklog_Persona1', array(
              'fields' => 
              array(
               0 => 'Persona_id',
+             ),
+             ));
+        $this->index('fk_SprintProductBacklog_Productbacklog1', array(
+             'fields' => 
+             array(
+              0 => 'Productbacklog_id',
              ),
              ));
         $this->option('collate', 'latin1_spanish_ci');
@@ -98,12 +98,12 @@ abstract class BaseSprintProductBacklog extends sfDoctrineRecord
              'local' => 'Sprint_id',
              'foreign' => 'id'));
 
-        $this->hasOne('ProductBacklog', array(
-             'local' => 'ProductBacklog_id',
-             'foreign' => 'id'));
-
         $this->hasOne('Persona', array(
              'local' => 'Persona_id',
+             'foreign' => 'id'));
+
+        $this->hasOne('Productbacklog', array(
+             'local' => 'Productbacklog_id',
              'foreign' => 'id'));
 
         $timestampable0 = new Doctrine_Template_Timestampable();

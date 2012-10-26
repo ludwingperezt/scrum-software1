@@ -5,7 +5,7 @@
     <tr>
       <th>Id</th>
       <th>Persona</th>
-      <th>Product backlog</th>
+      <th>Productbacklog</th>
       <th>Estado</th>
       <th>Nombre</th>
       <th>Descripcion</th>
@@ -19,7 +19,7 @@
     <tr>
       <td><a href="<?php echo url_for('tarea/show?id='.$tarea->getId()) ?>"><?php echo $tarea->getId() ?></a></td>
       <td><?php echo $tarea->getPersonaId() ?></td>
-      <td><?php echo $tarea->getProductBacklogId() ?></td>
+      <td><?php echo $tarea->getProductbacklogId() ?></td>
       <td><?php echo $tarea->getEstadoId() ?></td>
       <td><?php echo $tarea->getNombre() ?></td>
       <td><?php echo $tarea->getDescripcion() ?></td>
@@ -31,4 +31,4 @@
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('tarea/new') ?>">Crear Nuevo</a>
+  <a href="<?php echo url_for('tarea/new') ?>">New</a>

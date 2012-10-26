@@ -13,8 +13,8 @@
       <td><?php echo $sprintproductbacklog->getSprintId() ?></td>
     </tr>
     <tr>
-      <th>Product backlog:</th>
-      <td><?php echo $sprintproductbacklog->getProductBacklogId() ?></td>
+      <th>Productbacklog:</th>
+      <td><?php echo $sprintproductbacklog->getProductbacklogId() ?></td>
     </tr>
     <tr>
       <th>Anotaciones:</th>
