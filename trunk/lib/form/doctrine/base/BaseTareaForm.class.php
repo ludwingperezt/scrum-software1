@@ -17,7 +17,7 @@ abstract class BaseTareaForm extends BaseFormDoctrine
     $this->setWidgets(array(
       'id'                => new sfWidgetFormInputHidden(),
       'Persona_id'        => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Persona'), 'add_empty' => false)),
-      'ProductBacklog_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('ProductBacklog'), 'add_empty' => false)),
+      'Productbacklog_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Productbacklog'), 'add_empty' => false)),
       'Estado_id'         => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Estado'), 'add_empty' => false)),
       'Nombre'            => new sfWidgetFormInputText(),
       'Descripcion'       => new sfWidgetFormTextarea(),
@@ -29,7 +29,7 @@ abstract class BaseTareaForm extends BaseFormDoctrine
     $this->setValidators(array(
       'id'                => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'Persona_id'        => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Persona'))),
-      'ProductBacklog_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('ProductBacklog'))),
+      'Productbacklog_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Productbacklog'))),
       'Estado_id'         => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Estado'))),
       'Nombre'            => new sfValidatorString(array('max_length' => 45, 'required' => false)),
       'Descripcion'       => new sfValidatorString(array('required' => false)),

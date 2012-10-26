@@ -14,7 +14,7 @@ abstract class BaseTareaFormFilter extends BaseFormFilterDoctrine
   {
     $this->setWidgets(array(
       'Persona_id'        => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Persona'), 'add_empty' => true)),
-      'ProductBacklog_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('ProductBacklog'), 'add_empty' => true)),
+      'Productbacklog_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Productbacklog'), 'add_empty' => true)),
       'Estado_id'         => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Estado'), 'add_empty' => true)),
       'Nombre'            => new sfWidgetFormFilterInput(),
       'Descripcion'       => new sfWidgetFormFilterInput(),
@@ -25,7 +25,7 @@ abstract class BaseTareaFormFilter extends BaseFormFilterDoctrine
 
     $this->setValidators(array(
       'Persona_id'        => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Persona'), 'column' => 'id')),
-      'ProductBacklog_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('ProductBacklog'), 'column' => 'id')),
+      'Productbacklog_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Productbacklog'), 'column' => 'id')),
       'Estado_id'         => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Estado'), 'column' => 'id')),
       'Nombre'            => new sfValidatorPass(array('required' => false)),
       'Descripcion'       => new sfValidatorPass(array('required' => false)),
@@ -53,7 +53,7 @@ abstract class BaseTareaFormFilter extends BaseFormFilterDoctrine
     return array(
       'id'                => 'Number',
       'Persona_id'        => 'ForeignKey',
-      'ProductBacklog_id' => 'ForeignKey',
+      'Productbacklog_id' => 'ForeignKey',
       'Estado_id'         => 'ForeignKey',
       'Nombre'            => 'Text',
       'Descripcion'       => 'Text',

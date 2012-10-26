@@ -16,7 +16,7 @@
  * @property boolean $is_activated
  * @property Persona $Persona
  * @property Doctrine_Collection $Sprints
- * @property Doctrine_Collection $ProductBacklogs
+ * @property Doctrine_Collection $Productbacklogs
  * @property Doctrine_Collection $Equipoes
  * @property Doctrine_Collection $Reunions
  * @property Doctrine_Collection $HistorialChats
@@ -34,7 +34,7 @@
  * @method boolean             getIsActivated()     Returns the current record's "is_activated" value
  * @method Persona             getPersona()         Returns the current record's "Persona" value
  * @method Doctrine_Collection getSprints()         Returns the current record's "Sprints" collection
- * @method Doctrine_Collection getProductBacklogs() Returns the current record's "ProductBacklogs" collection
+ * @method Doctrine_Collection getProductbacklogs() Returns the current record's "Productbacklogs" collection
  * @method Doctrine_Collection getEquipoes()        Returns the current record's "Equipoes" collection
  * @method Doctrine_Collection getReunions()        Returns the current record's "Reunions" collection
  * @method Doctrine_Collection getHistorialChats()  Returns the current record's "HistorialChats" collection
@@ -51,7 +51,7 @@
  * @method Proyecto            setIsActivated()     Sets the current record's "is_activated" value
  * @method Proyecto            setPersona()         Sets the current record's "Persona" value
  * @method Proyecto            setSprints()         Sets the current record's "Sprints" collection
- * @method Proyecto            setProductBacklogs() Sets the current record's "ProductBacklogs" collection
+ * @method Proyecto            setProductbacklogs() Sets the current record's "Productbacklogs" collection
  * @method Proyecto            setEquipoes()        Sets the current record's "Equipoes" collection
  * @method Proyecto            setReunions()        Sets the current record's "Reunions" collection
  * @method Proyecto            setHistorialChats()  Sets the current record's "HistorialChats" collection
@@ -134,7 +134,7 @@ abstract class BaseProyecto extends sfDoctrineRecord
              'local' => 'id',
              'foreign' => 'Proyecto_id'));
 
-        $this->hasMany('ProductBacklog as ProductBacklogs', array(
+        $this->hasMany('Productbacklog as Productbacklogs', array(
              'local' => 'id',
              'foreign' => 'Proyecto_id'));
 

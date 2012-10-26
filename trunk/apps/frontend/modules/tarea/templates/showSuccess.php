@@ -9,8 +9,8 @@
       <td><?php echo $tarea->getPersonaId() ?></td>
     </tr>
     <tr>
-      <th>Product backlog:</th>
-      <td><?php echo $tarea->getProductBacklogId() ?></td>
+      <th>Productbacklog:</th>
+      <td><?php echo $tarea->getProductbacklogId() ?></td>
     </tr>
     <tr>
       <th>Estado:</th>

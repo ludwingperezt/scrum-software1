@@ -7,35 +7,35 @@
  * 
  * @property integer $id
  * @property integer $Persona_id
- * @property integer $ProductBacklog_id
+ * @property integer $Productbacklog_id
  * @property integer $Estado_id
  * @property string $Nombre
  * @property clob $Descripcion
  * @property integer $TiempoEstimado
  * @property Estado $Estado
  * @property Persona $Persona
- * @property ProductBacklog $ProductBacklog
+ * @property Productbacklog $Productbacklog
  * 
  * @method integer        getId()                Returns the current record's "id" value
  * @method integer        getPersonaId()         Returns the current record's "Persona_id" value
- * @method integer        getProductBacklogId()  Returns the current record's "ProductBacklog_id" value
+ * @method integer        getProductbacklogId()  Returns the current record's "Productbacklog_id" value
  * @method integer        getEstadoId()          Returns the current record's "Estado_id" value
  * @method string         getNombre()            Returns the current record's "Nombre" value
  * @method clob           getDescripcion()       Returns the current record's "Descripcion" value
  * @method integer        getTiempoEstimado()    Returns the current record's "TiempoEstimado" value
  * @method Estado         getEstado()            Returns the current record's "Estado" value
  * @method Persona        getPersona()           Returns the current record's "Persona" value
- * @method ProductBacklog getProductBacklog()    Returns the current record's "ProductBacklog" value
+ * @method Productbacklog getProductbacklog()    Returns the current record's "Productbacklog" value
  * @method Tarea          setId()                Sets the current record's "id" value
  * @method Tarea          setPersonaId()         Sets the current record's "Persona_id" value
- * @method Tarea          setProductBacklogId()  Sets the current record's "ProductBacklog_id" value
+ * @method Tarea          setProductbacklogId()  Sets the current record's "Productbacklog_id" value
  * @method Tarea          setEstadoId()          Sets the current record's "Estado_id" value
  * @method Tarea          setNombre()            Sets the current record's "Nombre" value
  * @method Tarea          setDescripcion()       Sets the current record's "Descripcion" value
  * @method Tarea          setTiempoEstimado()    Sets the current record's "TiempoEstimado" value
  * @method Tarea          setEstado()            Sets the current record's "Estado" value
  * @method Tarea          setPersona()           Sets the current record's "Persona" value
- * @method Tarea          setProductBacklog()    Sets the current record's "ProductBacklog" value
+ * @method Tarea          setProductbacklog()    Sets the current record's "Productbacklog" value
  * 
  * @package    scrum
  * @subpackage model
@@ -58,7 +58,7 @@ abstract class BaseTarea extends sfDoctrineRecord
              'notnull' => true,
              'length' => 4,
              ));
-        $this->hasColumn('ProductBacklog_id', 'integer', 4, array(
+        $this->hasColumn('Productbacklog_id', 'integer', 4, array(
              'type' => 'integer',
              'notnull' => true,
              'length' => 4,
@@ -94,10 +94,10 @@ abstract class BaseTarea extends sfDoctrineRecord
               0 => 'Persona_id',
              ),
              ));
-        $this->index('fk_Tarea_ProductBacklog1', array(
+        $this->index('fk_Tarea_Productbacklog1', array(
              'fields' => 
              array(
-              0 => 'ProductBacklog_id',
+              0 => 'Productbacklog_id',
              ),
              ));
         $this->option('collate', 'latin1_spanish_ci');
@@ -116,8 +116,8 @@ abstract class BaseTarea extends sfDoctrineRecord
              'local' => 'Persona_id',
              'foreign' => 'id'));
 
-        $this->hasOne('ProductBacklog', array(
-             'local' => 'ProductBacklog_id',
+        $this->hasOne('Productbacklog', array(
+             'local' => 'Productbacklog_id',
              'foreign' => 'id'));
 
         $timestampable0 = new Doctrine_Template_Timestampable();

@@ -16,7 +16,7 @@ Tarea:
     Persona_id:
       type: integer(4)
       notnull: true
-    ProductBacklog_id:
+    Productbacklog_id:
       type: integer(4)
       notnull: true
     Estado_id:
@@ -39,9 +39,9 @@ Tarea:
       local: Persona_id
       foreign: id
       foreignAlias: Tareas
-    ProductBacklog:
-      class: ProductBacklog
-      local: ProductBacklog_id
+    Productbacklog:
+      class: Productbacklog
+      local: Productbacklog_id
       foreign: id
       foreignAlias: Tareas
   indexes:
@@ -49,8 +49,8 @@ Tarea:
       fields: [Estado_id]
     fk_Tarea_Persona1:
       fields: [Persona_id]
-    fk_Tarea_ProductBacklog1:
-      fields: [ProductBacklog_id]
+    fk_Tarea_Productbacklog1:
+      fields: [Productbacklog_id]
 
 Sprint:
   actAs: { Timestampable: ~ }
@@ -103,7 +103,7 @@ Sprint:
     fk_Sprint_Persona1:
       fields: [Persona_id]
 
-ProductBacklog:
+Productbacklog:
   actAs: { Timestampable: ~ }
   columns:
     id:
@@ -135,12 +135,12 @@ ProductBacklog:
       class: Proyecto
       local: Proyecto_id
       foreign: id
-      foreignAlias: ProductBacklogs
+      foreignAlias: Productbacklogs
     Persona:
       class: Persona
       local: Persona_id
       foreign: id
-      foreignAlias: ProductBacklogs
+      foreignAlias: Productbacklogs
   indexes:
     fk_ProductBacklog_Proyecto2:
       fields: [Proyecto_id]
@@ -258,7 +258,7 @@ SprintProductBacklog:
     Sprint_id:
       type: integer(4)
       notnull: true
-    ProductBacklog_id:
+    Productbacklog_id:
       type: integer(4)
       notnull: true
     Anotaciones:
@@ -269,23 +269,23 @@ SprintProductBacklog:
       local: Sprint_id
       foreign: id
       foreignAlias: SprintProductBacklogs
-    ProductBacklog:
-      class: ProductBacklog
-      local: ProductBacklog_id
-      foreign: id
-      foreignAlias: SprintProductBacklogs
     Persona:
       class: Persona
       local: Persona_id
       foreign: id
       foreignAlias: SprintProductBacklogs
+    Productbacklog:
+      class: Productbacklog
+      local: Productbacklog_id
+      foreign: id
+      foreignAlias: SprintProductBacklogs
   indexes:
     fk_SprintProductBacklog_Sprint1:
       fields: [Sprint_id]
-    fk_SprintProductBacklog_ProductBacklog1:
-      fields: [ProductBacklog_id]
     fk_SprintProductBacklog_Persona1:
       fields: [Persona_id]
+    fk_SprintProductBacklog_Productbacklog1:
+      fields: [Productbacklog_id]
 
 Equipo:
   actAs: { Timestampable: ~ }

@@ -13,7 +13,7 @@
  * @property boolean $is_activated
  * @property Doctrine_Collection $Tareas
  * @property Doctrine_Collection $Sprints
- * @property Doctrine_Collection $ProductBacklogs
+ * @property Doctrine_Collection $Productbacklogs
  * @property Doctrine_Collection $Proyectoes
  * @property Doctrine_Collection $SprintProductBacklogs
  * @property Doctrine_Collection $Equipoes
@@ -30,7 +30,7 @@
  * @method boolean             getIsActivated()           Returns the current record's "is_activated" value
  * @method Doctrine_Collection getTareas()                Returns the current record's "Tareas" collection
  * @method Doctrine_Collection getSprints()               Returns the current record's "Sprints" collection
- * @method Doctrine_Collection getProductBacklogs()       Returns the current record's "ProductBacklogs" collection
+ * @method Doctrine_Collection getProductbacklogs()       Returns the current record's "Productbacklogs" collection
  * @method Doctrine_Collection getProyectoes()            Returns the current record's "Proyectoes" collection
  * @method Doctrine_Collection getSprintProductBacklogs() Returns the current record's "SprintProductBacklogs" collection
  * @method Doctrine_Collection getEquipoes()              Returns the current record's "Equipoes" collection
@@ -46,7 +46,7 @@
  * @method Persona             setIsActivated()           Sets the current record's "is_activated" value
  * @method Persona             setTareas()                Sets the current record's "Tareas" collection
  * @method Persona             setSprints()               Sets the current record's "Sprints" collection
- * @method Persona             setProductBacklogs()       Sets the current record's "ProductBacklogs" collection
+ * @method Persona             setProductbacklogs()       Sets the current record's "Productbacklogs" collection
  * @method Persona             setProyectoes()            Sets the current record's "Proyectoes" collection
  * @method Persona             setSprintProductBacklogs() Sets the current record's "SprintProductBacklogs" collection
  * @method Persona             setEquipoes()              Sets the current record's "Equipoes" collection
@@ -112,7 +112,7 @@ abstract class BasePersona extends sfDoctrineRecord
              'local' => 'id',
              'foreign' => 'Persona_id'));
 
-        $this->hasMany('ProductBacklog as ProductBacklogs', array(
+        $this->hasMany('Productbacklog as Productbacklogs', array(
              'local' => 'id',
              'foreign' => 'Persona_id'));
 
