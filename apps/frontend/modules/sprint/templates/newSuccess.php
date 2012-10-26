@@ -1,3 +1,3 @@
-<h1>New Sprint</h1>
+<h1>Nuevo Sprint</h1>
 
 <?php include_partial('form', array('form' => $form)) ?>

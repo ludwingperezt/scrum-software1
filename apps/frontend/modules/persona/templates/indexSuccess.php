@@ -29,4 +29,4 @@
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('persona/new') ?>">New</a>
+  <a href="<?php echo url_for('persona/new') ?>">Añadir Persona</a>
