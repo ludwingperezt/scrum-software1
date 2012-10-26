@@ -6,11 +6,11 @@
     </tr>
     <tr>
       <th>Proyecto:</th>
-      <td><?php echo $productbacklog->getProyectoId() ?></td>
+      <td><?php echo $productbacklog->getProyecto() ?></td>
     </tr>
     <tr>
       <th>Persona:</th>
-      <td><?php echo $productbacklog->getPersonaId() ?></td>
+      <td><?php echo $productbacklog->getPersona() ?></td>
     </tr>
     <tr>
       <th>Nombre:</th>
@@ -45,6 +45,6 @@
 
 <hr />
 
-<a href="<?php echo url_for('productbacklog/edit?id='.$productbacklog->getId()) ?>">Edit</a>
+<a href="<?php echo url_for('productbacklog/edit?id='.$productbacklog->getId()) ?>">Editar</a>
 &nbsp;
-<a href="<?php echo url_for('productbacklog/index') ?>">List</a>
+<a href="<?php echo url_for('productbacklog/index') ?>">Lista de Product Backlogs</a>

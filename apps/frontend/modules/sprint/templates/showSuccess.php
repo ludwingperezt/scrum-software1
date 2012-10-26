@@ -6,15 +6,15 @@
     </tr>
     <tr>
       <th>Proyecto:</th>
-      <td><?php echo $sprint->getProyectoId() ?></td>
+      <td><?php echo $sprint->getProyecto() ?></td>
     </tr>
     <tr>
       <th>Persona:</th>
-      <td><?php echo $sprint->getPersonaId() ?></td>
+      <td><?php echo $sprint->getPersona() ?></td>
     </tr>
     <tr>
       <th>Estado:</th>
-      <td><?php echo $sprint->getEstadoId() ?></td>
+      <td><?php echo $sprint->getEstado() ?></td>
     </tr>
     <tr>
       <th>Nombre:</th>
@@ -49,6 +49,6 @@
 
 <hr />
 
-<a href="<?php echo url_for('sprint/edit?id='.$sprint->getId()) ?>">Edit</a>
+<a href="<?php echo url_for('sprint/edit?id='.$sprint->getId()) ?>">Editar</a>
 &nbsp;
-<a href="<?php echo url_for('sprint/index') ?>">List</a>
+<a href="<?php echo url_for('sprint/index') ?>">Lista de Sprints</a>
