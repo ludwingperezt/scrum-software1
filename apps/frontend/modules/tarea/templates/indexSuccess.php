@@ -18,9 +18,9 @@
     <?php foreach ($tareas as $tarea): ?>
     <tr>
       <td><a href="<?php echo url_for('tarea/show?id='.$tarea->getId()) ?>"><?php echo $tarea->getId() ?></a></td>
-      <td><?php echo $tarea->getPersonaId() ?></td>
-      <td><?php echo $tarea->getProductbacklogId() ?></td>
-      <td><?php echo $tarea->getEstadoId() ?></td>
+      <td><?php echo $tarea->getPersona() ?></td>
+      <td><?php echo $tarea->getProductbacklog() ?></td>
+      <td><?php echo $tarea->getEstado() ?></td>
       <td><?php echo $tarea->getNombre() ?></td>
       <td><?php echo $tarea->getDescripcion() ?></td>
       <td><?php echo $tarea->getTiempoEstimado() ?></td>

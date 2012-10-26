@@ -6,11 +6,11 @@
     </tr>
     <tr>
       <th>Proyecto:</th>
-      <td><?php echo $historialchat->getProyectoId() ?></td>
+      <td><?php echo $historialchat->getProyecto() ?></td>
     </tr>
     <tr>
       <th>Persona:</th>
-      <td><?php echo $historialchat->getPersonaId() ?></td>
+      <td><?php echo $historialchat->getPersona()->getNombre() ?></td>
     </tr>
     <tr>
       <th>Mensaje:</th>
@@ -35,4 +35,4 @@
 
 <a href="<?php echo url_for('historialchat/edit?id='.$historialchat->getId()) ?>">Editar</a>
 &nbsp;
-<a href="<?php echo url_for('historialchat/index') ?>">Lista</a>
+<a href="<?php echo url_for('historialchat/index') ?>">Listado de Chat</a>

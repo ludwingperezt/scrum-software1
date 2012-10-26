@@ -6,15 +6,15 @@
     </tr>
     <tr>
       <th>Persona:</th>
-      <td><?php echo $tarea->getPersonaId() ?></td>
+      <td><?php echo $tarea->getPersona() ?></td>
     </tr>
     <tr>
       <th>Productbacklog:</th>
-      <td><?php echo $tarea->getProductbacklogId() ?></td>
+      <td><?php echo $tarea->getProductbacklog() ?></td>
     </tr>
     <tr>
       <th>Estado:</th>
-      <td><?php echo $tarea->getEstadoId() ?></td>
+      <td><?php echo $tarea->getEstado() ?></td>
     </tr>
     <tr>
       <th>Nombre:</th>
@@ -41,6 +41,6 @@
 
 <hr />
 
-<a href="<?php echo url_for('tarea/edit?id='.$tarea->getId()) ?>">Edit</a>
+<a href="<?php echo url_for('tarea/edit?id='.$tarea->getId()) ?>">Editar</a>
 &nbsp;
-<a href="<?php echo url_for('tarea/index') ?>">List</a>
+<a href="<?php echo url_for('tarea/index') ?>">Listado de Tareas</a>

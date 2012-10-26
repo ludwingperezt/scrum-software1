@@ -16,5 +16,8 @@ class EquipoForm extends BaseEquipoForm
       $this['created_at'], $this['updated_at'],
       $this['expires_at'], $this['is_activated']
     );
+	$this->widgetSchema->setLabels(array(
+		'Nombre'=>'Anotaciones'
+	));
   }
 }

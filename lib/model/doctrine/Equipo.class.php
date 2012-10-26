@@ -12,4 +12,8 @@
  */
 class Equipo extends BaseEquipo
 {
+	public function __toString()
+	{
+		return sprintf($this->getNombre());
+	}
 }

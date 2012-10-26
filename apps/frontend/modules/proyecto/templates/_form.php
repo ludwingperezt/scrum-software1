@@ -11,7 +11,7 @@
         <td colspan="2">
           &nbsp;<a href="<?php echo url_for('proyecto/index') ?>">Lista de Proyectos del Equipo</a>
           <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo link_to('Borrar', 'proyecto/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
+            &nbsp;<?php echo link_to('Borrar', 'proyecto/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Esta Seguro?')) ?>
           <?php endif; ?>
           <input type="submit" value="Guardar" />
         </td>

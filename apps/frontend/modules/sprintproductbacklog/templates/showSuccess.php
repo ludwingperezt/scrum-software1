@@ -31,4 +31,4 @@
 
 <a href="<?php echo url_for('sprintproductbacklog/edit?id='.$sprintproductbacklog->getId()) ?>">Editar</a>
 &nbsp;
-<a href="<?php echo url_for('sprintproductbacklog/index') ?>">Volver a lista</a>
+<a href="<?php echo url_for('sprintproductbacklog/index') ?>">Listado de Sprint ProductBacklog</a>

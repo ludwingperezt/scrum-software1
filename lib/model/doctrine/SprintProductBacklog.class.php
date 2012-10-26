@@ -12,4 +12,7 @@
  */
 class SprintProductBacklog extends BaseSprintProductBacklog
 {
+	public function __toString(){
+		return sprintf($this->getSprint());
+	}
 }

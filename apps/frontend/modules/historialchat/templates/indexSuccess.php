@@ -1,4 +1,4 @@
-<h1>Historialchats List</h1>
+<h1>Listado de Chat</h1>
 
 <table>
   <thead>
@@ -16,8 +16,8 @@
     <?php foreach ($historialchats as $historialchat): ?>
     <tr>
       <td><a href="<?php echo url_for('historialchat/show?id='.$historialchat->getId()) ?>"><?php echo $historialchat->getId() ?></a></td>
-      <td><?php echo $historialchat->getProyectoId() ?></td>
-      <td><?php echo $historialchat->getPersonaId() ?></td>
+      <td><?php echo $historialchat->getProyecto() ?></td>
+      <td><?php echo $historialchat->getPersona() ?></td>
       <td><?php echo $historialchat->getMensaje() ?></td>
       <td><?php echo $historialchat->getCreatedAt() ?></td>
       <td><?php echo $historialchat->getIsActivated() ?></td>

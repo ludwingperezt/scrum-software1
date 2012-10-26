@@ -25,4 +25,4 @@
 
 <a href="<?php echo url_for('rol/edit?id='.$rol->getId()) ?>">Editar</a>
 &nbsp;
-<a href="<?php echo url_for('rol/index') ?>">Volver al listado</a>
+<a href="<?php echo url_for('rol/index') ?>">Listado de Roles</a>

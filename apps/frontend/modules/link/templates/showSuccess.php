@@ -6,11 +6,11 @@
     </tr>
     <tr>
       <th>Proyecto:</th>
-      <td><?php echo $link->getProyectoId() ?></td>
+      <td><?php echo $link->getProyecto() ?></td>
     </tr>
     <tr>
       <th>Persona:</th>
-      <td><?php echo $link->getPersonaId() ?></td>
+      <td><?php echo $link->getPersona() ?></td>
     </tr>
     <tr>
       <th>Direccion:</th>
@@ -33,6 +33,6 @@
 
 <hr />
 
-<a href="<?php echo url_for('link/edit?id='.$link->getId()) ?>">Edit</a>
+<a href="<?php echo url_for('link/edit?id='.$link->getId()) ?>">Editar</a>
 &nbsp;
-<a href="<?php echo url_for('link/index') ?>">List</a>
+<a href="<?php echo url_for('link/index') ?>">Listado de Links</a>

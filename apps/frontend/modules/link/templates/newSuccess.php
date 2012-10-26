@@ -1,3 +1,3 @@
-<h1>New Link</h1>
+<h1>Nuevo Link</h1>
 
 <?php include_partial('form', array('form' => $form)) ?>
