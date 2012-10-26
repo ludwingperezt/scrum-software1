@@ -1,16 +1,16 @@
 <?php
 
 /**
- * ProductBacklog form base class.
+ * Productbacklog form base class.
  *
- * @method ProductBacklog getObject() Returns the current form's model object
+ * @method Productbacklog getObject() Returns the current form's model object
  *
  * @package    scrum
  * @subpackage form
  * @author     Your name here
  * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
  */
-abstract class BaseProductBacklogForm extends BaseFormDoctrine
+abstract class BaseProductbacklogForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -40,7 +40,7 @@ abstract class BaseProductBacklogForm extends BaseFormDoctrine
       'updated_at'   => new sfValidatorDateTime(),
     ));
 
-    $this->widgetSchema->setNameFormat('product_backlog[%s]');
+    $this->widgetSchema->setNameFormat('productbacklog[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
 
@@ -51,7 +51,7 @@ abstract class BaseProductBacklogForm extends BaseFormDoctrine
 
   public function getModelName()
   {
-    return 'ProductBacklog';
+    return 'Productbacklog';
   }
 
 }

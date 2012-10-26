@@ -15,7 +15,8 @@ class ProyectoForm extends BaseProyectoForm
   unset(
   $this['created_at'],
   $this['updated_at'],
-  $this['expires_at']
+  $this['expires_at'],
+  $this['is_activated']
   );
   }
 }

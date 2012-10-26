@@ -1,34 +1,32 @@
-<h1>Proyectos List</h1>
+<h1>Lista de Proyectos</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Id</th>
-      <th>Persona</th>
       <th>Nombre</th>
+	  <th>Persona</th>      
       <th>Descripcion</th>
       <th>Comentarios</th>
-      <th>Created at</th>
+      <!--<th>Created at</th>
       <th>Updated at</th>
       <th>Expires at</th>
-      <th>Is activated</th>
+      <th>Is activated</th>-->
     </tr>
   </thead>
   <tbody>
     <?php foreach ($proyectos as $proyecto): ?>
     <tr>
-      <td><a href="<?php echo url_for('proyecto/show?id='.$proyecto->getId()) ?>"><?php echo $proyecto->getId() ?></a></td>
-      <td><?php echo $proyecto->getPersonaId() ?></td>
-      <td><?php echo $proyecto->getNombre() ?></td>
+      <td><a href="<?php echo url_for('proyecto/show?id='.$proyecto->getId()) ?>"><?php echo $proyecto->getNombre() ?></a></td>
+      <td><?php echo $proyecto->getPersona() ?></td>
       <td><?php echo $proyecto->getDescripcion() ?></td>
       <td><?php echo $proyecto->getComentarios() ?></td>
-      <td><?php echo $proyecto->getCreatedAt() ?></td>
-      <td><?php echo $proyecto->getUpdatedAt() ?></td>
-      <td><?php echo $proyecto->getExpiresAt() ?></td>
-      <td><?php echo $proyecto->getIsActivated() ?></td>
+      <!--<td><?php echo $proyecto->getCreatedAt() ?></td>
+      <td><//?php echo $proyecto->getUpdatedAt() ?></td>
+      <td><//?php echo $proyecto->getExpiresAt() ?></td>
+      <td><//?php echo $proyecto->getIsActivated() ?></td>-->
     </tr>
     <?php endforeach; ?>
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('proyecto/new') ?>">New</a>
+  <a href="<?php echo url_for('proyecto/new') ?>">Crear Proyecto</a>
