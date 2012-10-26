@@ -25,6 +25,6 @@
 
 <hr />
 
-<a href="<?php echo url_for('equipo/edit?id='.$equipo->getId()) ?>">Edit</a>
+<a href="<?php echo url_for('equipo/edit?id='.$equipo->getId()) ?>">Editar</a>
 &nbsp;
-<a href="<?php echo url_for('equipo/index') ?>">List</a>
+<a href="<?php echo url_for('equipo/index') ?>">Volver al listado</a>

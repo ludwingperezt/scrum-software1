@@ -14,7 +14,8 @@ class RolForm extends BaseRolForm
   {
   unset(
   $this['created_at'],
-  $this['updated_at']
+  $this['updated_at'],
+  $this['is_activated']
   );
   }
 }

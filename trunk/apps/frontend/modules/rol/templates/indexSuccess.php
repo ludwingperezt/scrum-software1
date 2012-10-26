@@ -1,4 +1,4 @@
-<h1>Rols List</h1>
+<h1>Roles</h1>
 
 <table>
   <thead>
@@ -21,4 +21,4 @@
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('rol/new') ?>">New</a>
+  <a href="<?php echo url_for('rol/new') ?>">Nuevo rol</a>
