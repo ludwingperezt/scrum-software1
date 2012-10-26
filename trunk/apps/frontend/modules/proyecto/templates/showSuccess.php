@@ -6,7 +6,7 @@
     </tr>
     <tr>
       <th>Persona:</th>
-      <td><?php echo $proyecto->getPersonaId() ?></td>
+      <td><?php echo $proyecto->getPersona() ?></td>
     </tr>
     <tr>
       <th>Nombre:</th>
@@ -41,6 +41,6 @@
 
 <hr />
 
-<a href="<?php echo url_for('proyecto/edit?id='.$proyecto->getId()) ?>">Edit</a>
+<a href="<?php echo url_for('proyecto/edit?id='.$proyecto->getId()) ?>">Editar</a>
 &nbsp;
-<a href="<?php echo url_for('proyecto/index') ?>">List</a>
+<a href="<?php echo url_for('proyecto/index') ?>">Lista de Proyectos</a>
