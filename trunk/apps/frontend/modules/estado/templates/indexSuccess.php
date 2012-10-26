@@ -1,4 +1,4 @@
-<h1>Estados List</h1>
+<h1>Listado de Estados</h1>
 
 <table>
   <thead>

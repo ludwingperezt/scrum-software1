@@ -1,4 +1,4 @@
-<h1>Personas List</h1>
+<h1>Listado de Personas del Proyecto</h1>
 
 <table>
   <thead>

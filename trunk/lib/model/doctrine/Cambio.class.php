@@ -12,4 +12,8 @@
  */
 class Cambio extends BaseCambio
 {
+	public function __toString()
+	{
+		return sprintf($this->getFecha());
+	}
 }

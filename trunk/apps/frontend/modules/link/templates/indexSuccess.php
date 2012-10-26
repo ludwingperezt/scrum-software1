@@ -1,4 +1,4 @@
-<h1>Links List</h1>
+<h1>Listado de Links</h1>
 
 <table>
   <thead>
@@ -16,8 +16,8 @@
     <?php foreach ($links as $link): ?>
     <tr>
       <td><a href="<?php echo url_for('link/show?id='.$link->getId()) ?>"><?php echo $link->getId() ?></a></td>
-      <td><?php echo $link->getProyectoId() ?></td>
-      <td><?php echo $link->getPersonaId() ?></td>
+      <td><?php echo $link->getProyecto() ?></td>
+      <td><?php echo $link->getPersona() ?></td>
       <td><?php echo $link->getDireccion() ?></td>
       <td><?php echo $link->getDescripcion() ?></td>
       <td><?php echo $link->getCreatedAt() ?></td>

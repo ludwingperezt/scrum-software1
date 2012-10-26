@@ -13,8 +13,8 @@
     <?php foreach ($cambios as $cambio): ?>
     <tr>
       <td><a href="<?php echo url_for('cambio/show?id='.$cambio->getId()) ?>"><?php echo $cambio->getCreatedAt() ?></a></td>
-      <td><a href="<?php echo url_for('proyecto/show?id='.$cambio->getProyecto()->getNombre()) ?>"><?php echo $cambio->getProyecto()->getNombre() ?></a></td>
-      <td><a href="<?php echo url_for('persona/show?id='.$cambio->getPersona()->getNombre()) ?>"><?php echo $cambio->getPersona()->getNombre() ?></a></td>
+      <td><a href="<?php echo url_for('proyecto/show?id='.$cambio->getProyectoId()) ?>"><?php echo $cambio->getProyecto()->getNombre() ?></a></td>
+      <td><a href="<?php echo url_for('persona/show?id='.$cambio->getPersonaId()) ?>"><?php echo $cambio->getPersona()->getNombre() ?></a></td>
       <td><?php echo $cambio->getDescripcion() ?></td>
     </tr>
     <?php endforeach; ?>

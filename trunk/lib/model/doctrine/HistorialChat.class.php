@@ -12,4 +12,8 @@
  */
 class HistorialChat extends BaseHistorialChat
 {
+	public function __toString()
+	{
+		return sprintf($this->getMensaje());
+	}
 }

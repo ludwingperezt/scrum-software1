@@ -12,4 +12,8 @@
  */
 class Link extends BaseLink
 {
+	public function __toString()
+	{
+		return sprintf($this->getDireccion());
+	}
 }

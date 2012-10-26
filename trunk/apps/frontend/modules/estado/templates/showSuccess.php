@@ -21,6 +21,6 @@
 
 <hr />
 
-<a href="<?php echo url_for('estado/edit?id='.$estado->getId()) ?>">Edit</a>
+<a href="<?php echo url_for('estado/edit?id='.$estado->getId()) ?>">Editar</a>
 &nbsp;
-<a href="<?php echo url_for('estado/index') ?>">List</a>
+<a href="<?php echo url_for('estado/index') ?>">Lista de Estados</a>

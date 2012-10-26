@@ -37,6 +37,6 @@
 
 <hr />
 
-<a href="<?php echo url_for('persona/edit?id='.$persona->getId()) ?>">Edit</a>
+<a href="<?php echo url_for('persona/edit?id='.$persona->getId()) ?>">Editar</a>
 &nbsp;
-<a href="<?php echo url_for('persona/index') ?>">List</a>
+<a href="<?php echo url_for('persona/index') ?>">Listado de Miembros del Proyecto</a>

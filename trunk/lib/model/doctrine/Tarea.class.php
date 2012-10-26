@@ -12,4 +12,8 @@
  */
 class Tarea extends BaseTarea
 {
+	public function __toString()
+	{
+		return sprintf($this->getNombre());
+	}
 }

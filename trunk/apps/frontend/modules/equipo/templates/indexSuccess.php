@@ -1,6 +1,6 @@
+<?php use_stylesheet('main.css');?>
 <h1>Miembros del equipo</h1>
-
-<table>
+<table class="tablas">
   <thead>
     <tr>
       <th>Nombre</th>
