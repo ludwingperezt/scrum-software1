@@ -1,4 +1,4 @@
-<h1>Equipos List</h1>
+<h1>Miembros del equipo</h1>
 
 <table>
   <thead>
@@ -23,4 +23,4 @@
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('equipo/new') ?>">New</a>
+  <a href="<?php echo url_for('equipo/new') ?>">Agregar miembro</a>
