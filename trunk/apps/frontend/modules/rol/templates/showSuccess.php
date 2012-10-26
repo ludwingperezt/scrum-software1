@@ -1,9 +1,6 @@
 <table>
   <tbody>
-    <tr>
-      <th>Id:</th>
-      <td><?php echo $rol->getId() ?></td>
-    </tr>
+    
     <tr>
       <th>Nombre:</th>
       <td><?php echo $rol->getNombre() ?></td>
@@ -12,16 +9,13 @@
       <th>Descripcion:</th>
       <td><?php echo $rol->getDescripcion() ?></td>
     </tr>
+    
     <tr>
-      <th>Is activated:</th>
-      <td><?php echo $rol->getIsActivated() ?></td>
-    </tr>
-    <tr>
-      <th>Created at:</th>
+      <th>Fecha de creación:</th>
       <td><?php echo $rol->getCreatedAt() ?></td>
     </tr>
     <tr>
-      <th>Updated at:</th>
+      <th>Ultima modificación:</th>
       <td><?php echo $rol->getUpdatedAt() ?></td>
     </tr>
   </tbody>

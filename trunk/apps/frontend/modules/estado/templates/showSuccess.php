@@ -1,10 +1,6 @@
 <table>
   <tbody>
     <tr>
-      <th>Id:</th>
-      <td><?php echo $estado->getId() ?></td>
-    </tr>
-    <tr>
       <th>Nombre:</th>
       <td><?php echo $estado->getNombre() ?></td>
     </tr>
@@ -13,11 +9,11 @@
       <td><?php echo $estado->getDescripcion() ?></td>
     </tr>
     <tr>
-      <th>Created at:</th>
+      <th>Fecha de creación:</th>
       <td><?php echo $estado->getCreatedAt() ?></td>
     </tr>
     <tr>
-      <th>Updated at:</th>
+      <th>Ultima modificación:</th>
       <td><?php echo $estado->getUpdatedAt() ?></td>
     </tr>
   </tbody>
