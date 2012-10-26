@@ -1,0 +1,45 @@
+PROYECTO
+created_at
+updated_at
+expires_at
+is_activated
+cambiar nombre en la etiqueta "persona_id" a Responsable
+
+EQUIPO
+is_activated
+
+ROL
+is_activated
+
+REUNION
+is_activated
+cambiar nombre en la etiqueta "persona_id" a Responsable
+
+LINK
+-
+
+CAMBIO
+-
+
+HISTORIALCHAT
+is_activated
+created_at
+
+PERSONA
+is_activated
+
+TAREA
+-
+
+SPRINT
+cambiar nombre en la etiqueta "persona_id" a Responsable
+
+
+PRODUCTBACKLOG
+is_activated
+
+ESTADO
+-
+
+SPRINTPRODUCTBACKLOG
+cambiar nombre en la etiqueta "persona_id" a Responsable
