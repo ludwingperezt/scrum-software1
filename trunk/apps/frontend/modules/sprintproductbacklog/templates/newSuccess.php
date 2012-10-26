@@ -1,3 +1,3 @@
-<h1>New Sprintproductbacklog</h1>
+<h1>Nuevo Sprint backlog</h1>
 
 <?php include_partial('form', array('form' => $form)) ?>

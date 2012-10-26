@@ -1,25 +1,21 @@
-<h1>Sprintproductbacklogs List</h1>
+<h1>Lista de Sprint backlogs</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Id</th>
-      <th>Persona</th>
       <th>Sprint</th>
-      <th>Productbacklog</th>
+      <th>Caracteristica (backlog)</th>
       <th>Anotaciones</th>
-      <th>Created at</th>
-      <th>Updated at</th>
+      <th>Fecha de creacion</th>
+      <th>Fecha de modificacion</th>
     </tr>
   </thead>
   <tbody>
     <?php foreach ($sprintproductbacklogs as $sprintproductbacklog): ?>
     <tr>
-      <td><a href="<?php echo url_for('sprintproductbacklog/show?id='.$sprintproductbacklog->getId()) ?>"><?php echo $sprintproductbacklog->getId() ?></a></td>
-      <td><?php echo $sprintproductbacklog->getPersonaId() ?></td>
-      <td><?php echo $sprintproductbacklog->getSprintId() ?></td>
-      <td><?php echo $sprintproductbacklog->getProductbacklogId() ?></td>
-      <td><?php echo $sprintproductbacklog->getAnotaciones() ?></td>
+      <td><a href="<?php echo url_for('sprint/show?id='.$sprintproductbacklog->getSprint()->getId()) ?>"><?php echo $sprintproductbacklog->getSprint()->getNombre() ?></a></td>
+      <td><a href="<?php echo url_for('productbacklog/show?id='.$sprintproductbacklog->getProductbacklog()->getId()) ?>"><?php echo $sprintproductbacklog->getProductbacklog()->getNombre() ?></a></td>
+      <td><a href="<?php echo url_for('sprintproductbacklog/show?id='.$sprintproductbacklog->getId()) ?>"><?php echo $sprintproductbacklog->getAnotaciones() ?></a></td>
       <td><?php echo $sprintproductbacklog->getCreatedAt() ?></td>
       <td><?php echo $sprintproductbacklog->getUpdatedAt() ?></td>
     </tr>
@@ -27,4 +23,4 @@
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('sprintproductbacklog/new') ?>">New</a>
+  <a href="<?php echo url_for('sprintproductbacklog/new') ?>">Nuevo Sprint backlog</a>
