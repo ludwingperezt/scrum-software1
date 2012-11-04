@@ -28,6 +28,20 @@ body
   background-color: #828f95;
 }
 
+h2
+{
+  font-size: 115%;
+  font-weight: bold;
+  color:#08088A;
+}
+
+h3
+{
+  font-size: 110%;
+  color:#0A2A12;  
+  font-style:italic;
+}
+
 table.tablas
 {
   border:2px solid #ccc;
@@ -40,6 +54,13 @@ background: #fff;
 text-align: left;
 padding: 5px;
 border-top: 1px dotted #eee;
+}
+
+.Lista
+{
+	list-style-type: square;
+	position: relative;
+	margin: 20px;
 }
 
 #container
@@ -145,7 +166,7 @@ border-top: 1px dotted #eee;
 {
   background: url(../images/bg-subheader.gif) bottom;
   width: 783px;
-  height: 128px;
+  height: 65px;
   margin: 0 auto;
 }
 

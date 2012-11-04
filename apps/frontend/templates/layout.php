@@ -1,8 +1,7 @@
 <!-- apps/frontend/templates/layout.php -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<html>
   <head>
     <title>SCRUM Manager</title>
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -38,10 +37,11 @@
 							<li id="Perfil" class="notification-menu-item"><a href="<?php echo url_for('@default?module=persona')?>" >Perfil</a></li>
 							<li id="Salir" class="notification-menu-item last-item"><a href="<?php echo url_for('@default?module=Inicial')?>">Salir</a></li>
 						</ul><?php
+						$this->redirect('@default?module=Acceso');
 					}else{?>
 					 <ul class="ttw-notification-menu">
-						<li id="Home" class="notification-menu-item first-item"><a href="<?php echo url_for('@default?module=Acceso')?>">Registrar</a></li>
-						<li id="Salir" class="notification-menu-item last-item"><a href="<?php echo url_for('@default?module=Inicial')?>">Iniciar Sesion</a></li>
+						<li id="Home" class="notification-menu-item first-item"><a href="IR A PAGINA DE REGISTRO">Registrar</a></li>
+						<li id="Salir" class="notification-menu-item last-item"><a href="MOSTRAR LOGIN">Iniciar Sesion</a></li>
 					</ul>
 					<?php }?>
             </div>

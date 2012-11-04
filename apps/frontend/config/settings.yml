@@ -24,12 +24,12 @@ test:
 
 all:
   .settings:
+    charset:				utf-8
     # Form security secret (CSRF protection)
     csrf_secret:            97853f2f621e6cd8a9a644588868b93d25373c1b
 
     # Output escaping settings
-    escaping_strategy:      true
-    escaping_method:        ESC_SPECIALCHARS
-
+    escaping_strategy:      false
+    escaping_method:        ESC_SPECIALCHARS	
     # Enable the database manager
     use_database:           true
