@@ -6,8 +6,13 @@
   <head>
     <title>SCRUM Manager</title>
     <link rel="shortcut icon" href="/favicon.ico" />
-    <?php include_javascripts() ?>
-    <?php include_stylesheets() ?>
+    <?php
+	use_stylesheet('style_light.css');
+	use_javascript('jquery.tools.js');
+	use_javascript('jquery-ui-1.8.14.custom.min.js');
+	use_javascript('ttw-notification-menu.min.js');
+	include_javascripts();
+    include_stylesheets() ?>
   </head>
   <body>
     <div id="container">
@@ -15,33 +20,40 @@
         <div class="content">
           <h1><a href="<?php echo url_for('@default?module=Inicial') ?>">
             <img src="/images/logo.png" alt="SCRUM Manager..." />
-          </a></h1>
- 
+          </a>
+		  </h1>		  
           <div id="sub_header">
             <div class="post">
-              <h2>Login</h2>
+              <!--<h2>Login</h2>
               <div>
                 <a href="http://www.scrum.260mb.org">Login</a>
-              </div>
-            </div>
- 
-            <div class="search">
-              <h2>Buscar un Proyecto</h2>
-              <form action="" method="get">
-                <input type="text" name="keywords"
-                  id="search_keywords" />
-                <input type="submit" value="" />
-                <div class="help">
-                  Enter some keywords (city, country, position, ...)
-                </div>
-              </form>
+              </div>-->
+			 
+					<?php
+					if ($sf_user->isAuthenticated()){
+						echo "Cambiar de usuario";?>
+						<ul class="ttw-notification-menu">
+							<li id="Inicio" class="notification-menu-item first-item"><a href="<?php echo url_for('@default?module=Acceso')?>">Inicio</a></li>
+							<li id="Proyectos" class="notification-menu-item"><a href="<?php echo url_for('@default?module=proyecto')?>">Proyectos</a></li>
+							<li id="Perfil" class="notification-menu-item"><a href="<?php echo url_for('@default?module=persona')?>" >Perfil</a></li>
+							<li id="Salir" class="notification-menu-item last-item"><a href="<?php echo url_for('@default?module=Inicial')?>">Salir</a></li>
+						</ul><?php
+					}else{?>
+					 <ul class="ttw-notification-menu">
+						<li id="Home" class="notification-menu-item first-item"><a href="<?php echo url_for('@default?module=Acceso')?>">Registrar</a></li>
+						<li id="Salir" class="notification-menu-item last-item"><a href="<?php echo url_for('@default?module=Inicial')?>">Iniciar Sesion</a></li>
+					</ul>
+					<?php }?>
             </div>
           </div>
         </div>
       </div>
  
       <div id="content">
-        <?php if ($sf_user->hasFlash('notice')): ?>
+        <div class="content">
+          <?php echo $sf_content ?>
+        </div>
+		<?php if ($sf_user->hasFlash('notice')): ?>
           <div class="flash_notice">
             <?php echo $sf_user->getFlash('notice') ?>
           </div>
@@ -52,10 +64,6 @@
             <?php echo $sf_user->getFlash('error') ?>
           </div>
         <?php endif; ?>
- 
-        <div class="content">
-          <?php echo $sf_content ?>
-        </div>
       </div>
  
       <div id="footer">
