@@ -35,13 +35,13 @@
 							<li id="Inicio" class="notification-menu-item first-item"><a href="<?php echo url_for('@default?module=Acceso')?>">Inicio</a></li>
 							<li id="Proyectos" class="notification-menu-item"><a href="<?php echo url_for('@default?module=proyecto')?>">Proyectos</a></li>
 							<li id="Perfil" class="notification-menu-item"><a href="<?php echo url_for('@default?module=persona')?>" >Perfil</a></li>
-							<li id="Salir" class="notification-menu-item last-item"><a href="<?php echo url_for('@default?module=Inicial')?>">Salir</a></li>
+							<li id="Salir" class="notification-menu-item last-item"><a href="<?php echo url_for('@sf_guard_signout?module=sfGuardAuth&action=signout')?>">Salir</a></li>
 						</ul><?php
-						$this->redirect('@default?module=Acceso');
+						//$this->redirect('@default?module=Acceso');
 					}else{?>
 					 <ul class="ttw-notification-menu">
 						<li id="Home" class="notification-menu-item first-item"><a href="IR A PAGINA DE REGISTRO">Registrar</a></li>
-						<li id="Salir" class="notification-menu-item last-item"><a href="MOSTRAR LOGIN">Iniciar Sesion</a></li>
+						<li id="Salir" class="notification-menu-item last-item"><a href="<?php echo url_for('@sf_guard_signin?module=sfGuardAuth&action=signin')?>">Iniciar Sesion</a></li>
 					</ul>
 					<?php }?>
             </div>

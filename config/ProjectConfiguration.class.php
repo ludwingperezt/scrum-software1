@@ -7,7 +7,12 @@ class ProjectConfiguration extends sfProjectConfiguration
 {
   public function setup()
   {
-    $this->enablePlugins('sfDoctrinePlugin');
+    //$this->enablePlugins('sfDoctrinePlugin');
+    //$this->enablePlugins('sfDoctrineGuardPlugin');
+	$this->enablePlugins(array(
+	'sfDoctrinePlugin',
+	'sfDoctrineGuardPlugin'
+	));
   }
   
   public function configureDoctrine(Doctrine_Manager $manager)
