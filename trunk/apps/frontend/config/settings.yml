@@ -24,6 +24,12 @@ test:
 
 all:
   .settings:
+    #ludwing: habilitando el módulo para login
+    enabled_modules:      [default, sfGuardAuth]
+    login_module:           sfGuardAuth
+    login_action:           signin
+    secure_module:          sfGuardAuth
+    secure_action:          secure
     charset:				utf-8
     # Form security secret (CSRF protection)
     csrf_secret:            97853f2f621e6cd8a9a644588868b93d25373c1b
