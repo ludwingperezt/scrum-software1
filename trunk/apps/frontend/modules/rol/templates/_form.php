@@ -11,7 +11,7 @@
         <td colspan="2">
           &nbsp;<a href="<?php echo url_for('rol/index') ?>">Volver al listado</a>
           <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo link_to('Eliminar', 'rol/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Esta seguro?')) ?>
+            &nbsp;<?php echo link_to('Eliminar', 'rol/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar este Rol?')) ?>
           <?php endif; ?>
           <input type="submit" value="Guardar" />
         </td>

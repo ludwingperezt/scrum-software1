@@ -16,9 +16,12 @@
       <td><?php echo $estado->getDescripcion() ?></td>
       <td><?php echo $estado->getCreatedAt() ?></td>
       <td><?php echo $estado->getUpdatedAt() ?></td>
+	  <td>
+			&nbsp;<?php echo link_to('Eliminar', 'estado/delete?id='.$estado->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar el Estado?')) ?>	  
+	  </td>
     </tr>
     <?php endforeach; ?>
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('estado/new') ?>">New</a>
+  <a href="<?php echo url_for('estado/new') ?>">Nuevo Estado</a>

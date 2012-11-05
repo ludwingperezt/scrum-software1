@@ -18,6 +18,9 @@
       <td><a href="<?php echo url_for('sprintproductbacklog/show?id='.$sprintproductbacklog->getId()) ?>"><?php echo $sprintproductbacklog->getAnotaciones() ?></a></td>
       <td><?php echo $sprintproductbacklog->getCreatedAt() ?></td>
       <td><?php echo $sprintproductbacklog->getUpdatedAt() ?></td>
+	  <td>
+			&nbsp;<?php echo link_to('Eliminar', 'sprintproductbacklog/delete?id='.$sprintproductbacklog->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar este SprintProductBacklog?')) ?>
+	  </td>
     </tr>
     <?php endforeach; ?>
   </tbody>

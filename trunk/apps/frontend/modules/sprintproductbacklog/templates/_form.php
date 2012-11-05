@@ -11,7 +11,7 @@
         <td colspan="2">
           &nbsp;<a href="<?php echo url_for('sprintproductbacklog/index') ?>">Volver a lista</a>
           <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo link_to('Eliminar', 'sprintproductbacklog/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Esta seguro?')) ?>
+            &nbsp;<?php echo link_to('Eliminar', 'sprintproductbacklog/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar este SprintProductBacklog?')) ?>
           <?php endif; ?>
           <input type="submit" value="Guardar" />
         </td>

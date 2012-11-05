@@ -34,7 +34,7 @@ class reunionActions extends sfActions
 
     $this->form = new reunionForm();
 
-    $this->processForm($request, $this->form);
+    $this->processCreatedForm($request, $this->form);
 
     $this->setTemplate('new');
   }
@@ -58,7 +58,7 @@ class reunionActions extends sfActions
 
   public function executeDelete(sfWebRequest $request)
   {
-    $request->checkCSRFProtection();
+    //$request->checkCSRFProtection();
 
     $this->forward404Unless($reunion = Doctrine_Core::getTable('reunion')->find(array($request->getParameter('id'))), sprintf('Object reunion does not exist (%s).', $request->getParameter('id')));
     $reunion->delete();
@@ -74,6 +74,17 @@ class reunionActions extends sfActions
       $reunion = $form->save();
 
       $this->redirect('reunion/edit?id='.$reunion->getId());
+    }
+  }
+  
+  protected function processCreatedForm(sfWebRequest $request, sfForm $form)
+  {
+    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    if ($form->isValid())
+    {
+      $reunion = $form->save();
+
+      $this->redirect('reunion/index');
     }
   }
 }

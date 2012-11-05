@@ -34,7 +34,7 @@ class rolActions extends sfActions
 
     $this->form = new rolForm();
 
-    $this->processForm($request, $this->form);
+    $this->processCreatedForm($request, $this->form);
 
     $this->setTemplate('new');
   }
@@ -74,6 +74,17 @@ class rolActions extends sfActions
       $rol = $form->save();
 
       $this->redirect('rol/edit?id='.$rol->getId());
+    }
+  }
+  
+  protected function processCreatedForm(sfWebRequest $request, sfForm $form)
+  {
+    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    if ($form->isValid())
+    {
+      $rol = $form->save();
+
+      $this->redirect('rol/index');
     }
   }
 }

@@ -34,7 +34,7 @@ class proyectoActions extends sfActions
 
     $this->form = new proyectoForm();
 
-    $this->processForm($request, $this->form);
+    $this->processCreatedForm($request, $this->form);
 
     $this->setTemplate('new');
   }
@@ -58,7 +58,7 @@ class proyectoActions extends sfActions
 
   public function executeDelete(sfWebRequest $request)
   {
-    $request->checkCSRFProtection();
+    //$request->checkCSRFProtection();
 
     $this->forward404Unless($proyecto = Doctrine_Core::getTable('proyecto')->find(array($request->getParameter('id'))), sprintf('Object proyecto does not exist (%s).', $request->getParameter('id')));
     $proyecto->delete();
@@ -74,6 +74,17 @@ class proyectoActions extends sfActions
       $proyecto = $form->save();
 
       $this->redirect('proyecto/edit?id='.$proyecto->getId());
+    }
+  }
+  
+  protected function processCreatedForm(sfWebRequest $request, sfForm $form)
+  {
+    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    if ($form->isValid())
+    {
+      $proyecto = $form->save();
+
+      $this->redirect('proyecto/index');
     }
   }
 }
