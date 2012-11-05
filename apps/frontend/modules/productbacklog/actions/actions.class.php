@@ -34,7 +34,7 @@ class productbacklogActions extends sfActions
 
     $this->form = new productbacklogForm();
 
-    $this->processForm($request, $this->form);
+    $this->processCreatedForm($request, $this->form);
 
     $this->setTemplate('new');
   }
@@ -58,7 +58,7 @@ class productbacklogActions extends sfActions
 
   public function executeDelete(sfWebRequest $request)
   {
-    $request->checkCSRFProtection();
+    //$request->checkCSRFProtection();
 
     $this->forward404Unless($productbacklog = Doctrine_Core::getTable('productbacklog')->find(array($request->getParameter('id'))), sprintf('Object productbacklog does not exist (%s).', $request->getParameter('id')));
     $productbacklog->delete();
@@ -74,6 +74,17 @@ class productbacklogActions extends sfActions
       $productbacklog = $form->save();
 
       $this->redirect('productbacklog/edit?id='.$productbacklog->getId());
+    }
+  }
+  
+  protected function processCreatedForm(sfWebRequest $request, sfForm $form)
+  {
+    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    if ($form->isValid())
+    {
+      $productbacklog = $form->save();
+
+      $this->redirect('productbacklog/index');
     }
   }
 }

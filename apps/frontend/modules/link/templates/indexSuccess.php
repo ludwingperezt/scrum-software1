@@ -22,6 +22,9 @@
       <td><?php echo $link->getDescripcion() ?></td>
       <td><?php echo $link->getCreatedAt() ?></td>
       <td><?php echo $link->getUpdatedAt() ?></td>
+	  <td>
+			&nbsp;<?php echo link_to('Eliminar', 'link/delete?id='.$link->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar este Link?')) ?>
+	  </td>
     </tr>
     <?php endforeach; ?>
   </tbody>

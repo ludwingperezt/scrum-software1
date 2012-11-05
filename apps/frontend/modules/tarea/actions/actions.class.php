@@ -34,7 +34,7 @@ class tareaActions extends sfActions
 
     $this->form = new tareaForm();
 
-    $this->processForm($request, $this->form);
+    $this->processCreatedForm($request, $this->form);
 
     $this->setTemplate('new');
   }
@@ -58,7 +58,7 @@ class tareaActions extends sfActions
 
   public function executeDelete(sfWebRequest $request)
   {
-    $request->checkCSRFProtection();
+    //$request->checkCSRFProtection();
 
     $this->forward404Unless($tarea = Doctrine_Core::getTable('tarea')->find(array($request->getParameter('id'))), sprintf('Object tarea does not exist (%s).', $request->getParameter('id')));
     $tarea->delete();
@@ -74,6 +74,17 @@ class tareaActions extends sfActions
       $tarea = $form->save();
 
       $this->redirect('tarea/edit?id='.$tarea->getId());
+    }
+  }
+  
+  protected function processCreatedForm(sfWebRequest $request, sfForm $form)
+  {
+    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    if ($form->isValid())
+    {
+      $tarea = $form->save();
+
+      $this->redirect('tarea/index');
     }
   }
 }

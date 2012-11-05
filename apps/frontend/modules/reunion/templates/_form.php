@@ -11,7 +11,8 @@
         <td colspan="2">
           &nbsp;<a href="<?php echo url_for('reunion/index') ?>">Lista de reuniones del proyecto</a>
           <?php if (!$form->getObject()->isNew()): ?>		  
-            &nbsp;<?php echo link_to('Borrar', 'reunion/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => '¿Está seguro de borrar?')) ?>
+            &nbsp;
+			<?php echo link_to('Eliminar', 'reunion/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => '¿Está seguro de eliminar esta Reunion?')) ?>
           <?php endif; ?>
           <input type="submit" value="Guardar" />
         </td>

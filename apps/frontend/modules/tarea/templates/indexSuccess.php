@@ -26,6 +26,9 @@
       <td><?php echo $tarea->getTiempoEstimado() ?></td>
       <td><?php echo $tarea->getCreatedAt() ?></td>
       <td><?php echo $tarea->getUpdatedAt() ?></td>
+	  <td>
+			&nbsp;<?php echo link_to('Eliminar', 'tarea/delete?id='.$tarea->getId(), array('method' => 'delete', 'confirm' => '¿Esta Seguro de eliminar esta Tarea?')) ?>
+	  </td>
     </tr>
     <?php endforeach; ?>
   </tbody>

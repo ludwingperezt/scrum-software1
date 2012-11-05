@@ -34,7 +34,7 @@ class estadoActions extends sfActions
 
     $this->form = new estadoForm();
 
-    $this->processForm($request, $this->form);
+    $this->processCreatedForm($request, $this->form);
 
     $this->setTemplate('new');
   }
@@ -74,6 +74,17 @@ class estadoActions extends sfActions
       $estado = $form->save();
 
       $this->redirect('estado/edit?id='.$estado->getId());
+    }
+  }
+  
+  protected function processCreatedForm(sfWebRequest $request, sfForm $form)
+  {
+    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    if ($form->isValid())
+    {
+      $estado = $form->save();
+
+      $this->redirect('estado/index');
     }
   }
 }

@@ -8,6 +8,7 @@
       <th>Anotación</th>
       <th>Fecha de agregación al proyecto</th>
       <th>Fecha de última modificación</th>
+	  <th>     </th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +19,9 @@
       <td><?php echo $equipo->getNombre() ?></td>
       <td><?php echo $equipo->getCreatedAt() ?></td>
       <td><?php echo $equipo->getUpdatedAt() ?></td>
+	  <td>
+			&nbsp;<?php echo link_to('Eliminar', 'equipo/delete?id='.$equipo->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar el Equipo?')) ?>	
+	  </td>
     </tr>
     <?php endforeach; ?>
   </tbody>

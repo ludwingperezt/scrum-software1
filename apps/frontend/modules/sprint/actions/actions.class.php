@@ -34,7 +34,7 @@ class sprintActions extends sfActions
 
     $this->form = new sprintForm();
 
-    $this->processForm($request, $this->form);
+    $this->processCreatedForm($request, $this->form);
 
     $this->setTemplate('new');
   }
@@ -58,7 +58,7 @@ class sprintActions extends sfActions
 
   public function executeDelete(sfWebRequest $request)
   {
-    $request->checkCSRFProtection();
+    //$request->checkCSRFProtection();
 
     $this->forward404Unless($sprint = Doctrine_Core::getTable('sprint')->find(array($request->getParameter('id'))), sprintf('Object sprint does not exist (%s).', $request->getParameter('id')));
     $sprint->delete();
@@ -74,6 +74,17 @@ class sprintActions extends sfActions
       $sprint = $form->save();
 
       $this->redirect('sprint/edit?id='.$sprint->getId());
+    }
+  }
+  
+  protected function processCreatedForm(sfWebRequest $request, sfForm $form)
+  {
+    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    if ($form->isValid())
+    {
+      $sprint = $form->save();
+
+      $this->redirect('sprint/index');
     }
   }
 }

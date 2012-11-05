@@ -24,6 +24,9 @@
       <td><//?php echo $proyecto->getUpdatedAt() ?></td>
       <td><//?php echo $proyecto->getExpiresAt() ?></td>
       <td><//?php echo $proyecto->getIsActivated() ?></td>-->
+	  <td> 
+			&nbsp;<?php echo link_to('Eliminar', 'proyecto/delete?id='.$proyecto->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar este Proyecto?')) ?>
+	  </td>
     </tr>
     <?php endforeach; ?>
   </tbody>

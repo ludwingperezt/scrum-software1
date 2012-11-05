@@ -24,6 +24,9 @@
       <td><?php echo $persona->getIsActivated() ?></td>
       <td><?php echo $persona->getCreatedAt() ?></td>
       <td><?php echo $persona->getUpdatedAt() ?></td>
+	  <td>
+			<?php echo link_to('Eliminar', 'persona/delete?id='.$persona->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar a esta Persona?')) ?>
+	  </td>
     </tr>
     <?php endforeach; ?>
   </tbody>

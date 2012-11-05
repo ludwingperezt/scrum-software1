@@ -30,6 +30,9 @@
       <!--<td><//?php echo $reunion->getIsActivated() ?></td>
       <td><//?php echo $reunion->getCreatedAt() ?></td>
       <td><//?php echo $reunion->getUpdatedAt() ?></td>-->
+	  <td> 
+			&nbsp;<?php echo link_to('Eliminar', 'reunion/delete?id='.$reunion->getId(), array('method' => 'delete', 'confirm' => '¿Está seguro de eliminar esta Reunion?')) ?>
+	  </td>
     </tr>
     <?php endforeach; ?>
   </tbody>

@@ -34,7 +34,7 @@ class personaActions extends sfActions
 
     $this->form = new personaForm();
 
-    $this->processForm($request, $this->form);
+    $this->processCreatedForm($request, $this->form);
 
     $this->setTemplate('new');
   }
@@ -58,7 +58,7 @@ class personaActions extends sfActions
 
   public function executeDelete(sfWebRequest $request)
   {
-    $request->checkCSRFProtection();
+    //$request->checkCSRFProtection();
 
     $this->forward404Unless($persona = Doctrine_Core::getTable('persona')->find(array($request->getParameter('id'))), sprintf('Object persona does not exist (%s).', $request->getParameter('id')));
     $persona->delete();
@@ -74,6 +74,17 @@ class personaActions extends sfActions
       $persona = $form->save();
 
       $this->redirect('persona/edit?id='.$persona->getId());
+    }
+  }
+  
+  protected function processCreatedForm(sfWebRequest $request, sfForm $form)
+  {
+    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    if ($form->isValid())
+    {
+      $persona = $form->save();
+
+      $this->redirect('persona/index');
     }
   }
 }

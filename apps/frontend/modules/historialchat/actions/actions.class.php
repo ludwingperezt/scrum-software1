@@ -34,7 +34,7 @@ class historialchatActions extends sfActions
 
     $this->form = new historialchatForm();
 
-    $this->processForm($request, $this->form);
+    $this->processCreatedForm($request, $this->form);
 
     $this->setTemplate('new');
   }
@@ -58,7 +58,7 @@ class historialchatActions extends sfActions
 
   public function executeDelete(sfWebRequest $request)
   {
-    $request->checkCSRFProtection();
+    //$request->checkCSRFProtection();
 
     $this->forward404Unless($historialchat = Doctrine_Core::getTable('historialchat')->find(array($request->getParameter('id'))), sprintf('Object historialchat does not exist (%s).', $request->getParameter('id')));
     $historialchat->delete();
@@ -74,6 +74,17 @@ class historialchatActions extends sfActions
       $historialchat = $form->save();
 
       $this->redirect('historialchat/edit?id='.$historialchat->getId());
+    }
+  }
+  
+  protected function processCreatedForm(sfWebRequest $request, sfForm $form)
+  {
+    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    if ($form->isValid())
+    {
+      $historialchat = $form->save();
+
+      $this->redirect('historialchat/index');
     }
   }
 }

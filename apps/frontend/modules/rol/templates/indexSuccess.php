@@ -16,6 +16,9 @@
       <td><?php echo $rol->getDescripcion() ?></td>
       <td><?php echo $rol->getCreatedAt() ?></td>
       <td><?php echo $rol->getUpdatedAt() ?></td>
+	  <td> 
+			&nbsp;<?php echo link_to('Eliminar', 'rol/delete?id='.$rol->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar este Rol?')) ?> 
+	  </td>
     </tr>
     <?php endforeach; ?>
   </tbody>

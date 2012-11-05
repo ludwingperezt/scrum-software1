@@ -34,7 +34,7 @@ class equipoActions extends sfActions
 
     $this->form = new equipoForm();
 
-    $this->processForm($request, $this->form);
+    $this->processCreatedForm($request, $this->form);
 
     $this->setTemplate('new');
   }
@@ -74,6 +74,17 @@ class equipoActions extends sfActions
       $equipo = $form->save();
 
       $this->redirect('equipo/edit?id='.$equipo->getId());
+    }
+  }
+  
+  protected function processCreatedForm(sfWebRequest $request, sfForm $form)
+  {
+    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    if ($form->isValid())
+    {
+      $equipo = $form->save();
+
+      $this->redirect('equipo/index');
     }
   }
 }

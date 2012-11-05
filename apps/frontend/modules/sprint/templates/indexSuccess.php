@@ -28,6 +28,9 @@
       <td><?php echo $sprint->getDiasDisponibles() ?></td>
       <!--<td><//?php echo $sprint->getCreatedAt() ?></td>
       <td><//?php echo $sprint->getUpdatedAt() ?></td>-->
+	  <td>
+			&nbsp;<?php echo link_to('Eliminar', 'sprint/delete?id='.$sprint->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar este Sprint?')) ?>
+	  </td>
     </tr>
     <?php endforeach; ?>
   </tbody>

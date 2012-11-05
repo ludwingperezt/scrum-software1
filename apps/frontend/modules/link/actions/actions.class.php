@@ -34,7 +34,7 @@ class linkActions extends sfActions
 
     $this->form = new linkForm();
 
-    $this->processForm($request, $this->form);
+    $this->processCreatedForm($request, $this->form);
 
     $this->setTemplate('new');
   }
@@ -74,6 +74,17 @@ class linkActions extends sfActions
       $link = $form->save();
 
       $this->redirect('link/edit?id='.$link->getId());
+    }
+  }
+  
+  protected function processCreatedForm(sfWebRequest $request, sfForm $form)
+  {
+    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    if ($form->isValid())
+    {
+      $link = $form->save();
+
+      $this->redirect('link/index');
     }
   }
 }
