@@ -4,6 +4,6 @@
 
 <p><?php echo sfContext::getInstance()->getRequest()->getUri() ?></p>
 
-<h3><?php echo __('Login below to gain access', null, 'sf_guard') ?></h3>
+<h3><?php echo __('Sigue el acceso inferior para acceder', null, 'sf_guard') ?></h3>
 
 <?php echo get_component('sfGuardAuth', 'signin_form') ?>
