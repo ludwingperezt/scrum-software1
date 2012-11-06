@@ -4,4 +4,4 @@ all:
     param:
       dsn: 'mysql:host=localhost;dbname=scrum'
       username: root
-      password: root
+      password: 
