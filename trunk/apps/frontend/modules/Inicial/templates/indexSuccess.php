@@ -24,12 +24,10 @@ Algunas herramientas para la gestión de todo el proceso se listan:
 <li class="Lista">PANGO SCRUM. Otra de las herramientas Scrum online, con una interfaz sencilla y amigable que permite escribir, estimar y priorizar la pila de producto. Facilita en gran medida la planificación de Sprints y las reuniones.</li>
 </ul>
 <h1> ESTO NO SE MOSTRARA, DEBE ESTAR EN ACCESO</h1>
-	<a href="<?php echo url_for('@default?module=rol')?>">Roles</a><br>
 	<a href="<?php echo url_for('@default?module=persona')?>">Personas</a><br>
 	<a href="<?php echo url_for('@default?module=proyecto')?>">Proyectos</a><br>
 	<a href="<?php echo url_for('@default?module=reunion')?>">Reuniones</a><br>
 	<a href="<?php echo url_for('@default?module=equipo')?>">Equipos</a><br>
-	<a href="<?php echo url_for('@default?module=estado')?>">Estados</a><br>
 	<a href="<?php echo url_for('@default?module=historialchat')?>">Chat</a><br>
 	<a href="<?php echo url_for('@default?module=link')?>">Links</a><br>
 	<a href="<?php echo url_for('@default?module=productbacklog')?>">Product Backlog</a><br>
