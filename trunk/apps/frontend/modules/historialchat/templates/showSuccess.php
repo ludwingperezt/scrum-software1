@@ -17,15 +17,15 @@
       <td><?php echo $historialchat->getMensaje() ?></td>
     </tr>
     <tr>
-      <th>Created at:</th>
+      <th>Creado:</th>
       <td><?php echo $historialchat->getCreatedAt() ?></td>
     </tr>
     <tr>
-      <th>Is activated:</th>
+      <th>Activo:</th>
       <td><?php echo $historialchat->getIsActivated() ?></td>
     </tr>
     <tr>
-      <th>Updated at:</th>
+      <th>Actualizado:</th>
       <td><?php echo $historialchat->getUpdatedAt() ?></td>
     </tr>
   </tbody>

@@ -8,9 +8,9 @@
       <th>Nombre</th>
       <th>Email</th>
       <th>Telefono</th>
-      <th>Is activated</th>
+      <th>Activo</th>
       <th>Creado</th>
-      <th>Ultima Actualizacion</th>
+      <th>Actualizado</th>
 	  <th>Opciones</th>
     </tr>
   </thead>

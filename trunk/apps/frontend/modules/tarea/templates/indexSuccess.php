@@ -27,10 +27,10 @@
       <td><?php echo $tarea->getCreatedAt() ?></td>
       <td><?php echo $tarea->getUpdatedAt() ?></td>
 	  <td>
-			<a href="<?php echo url_for('tarea/edit?id='.$tarea->getId()) ?>">Editar</a>
+			&nbsp;<a href="<?php echo url_for('tarea/edit?id='.$tarea->getId()) ?>">Editar</a>&nbsp;
 	  </td>
 	  <td>
-			&nbsp;<?php echo link_to('Eliminar', 'tarea/delete?id='.$tarea->getId(), array('method' => 'delete', 'confirm' => '¿Esta Seguro de eliminar esta Tarea?')) ?>
+			&nbsp;<?php echo link_to('Eliminar', 'tarea/delete?id='.$tarea->getId(), array('method' => 'delete', 'confirm' => '¿Esta Seguro de eliminar esta Tarea?')) ?>&nbsp;
 	  </td>
     </tr>
     <?php endforeach; ?>

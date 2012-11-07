@@ -9,9 +9,9 @@
     <tfoot>
       <tr>
         <td colspan="2">
-          &nbsp;<a href="<?php echo url_for('link/index') ?>">Volver al Listado</a>
+          &nbsp;<a href="<?php echo url_for('link/index') ?>">Volver al Listado de Links</a>&nbsp;
           <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo link_to('Eliminar', 'link/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar este Link?')) ?>
+            &nbsp;<?php echo link_to('Eliminar', 'link/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar este Link?')) ?>&nbsp;
           <?php endif; ?>
           <input type="submit" value="Guardar" />
         </td>

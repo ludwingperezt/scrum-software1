@@ -9,9 +9,9 @@
     <tfoot>
       <tr>
         <td colspan="2">
-          &nbsp;<a href="<?php echo url_for('productbacklog/index') ?>">Lista de Product Backlog del Proyecto</a>
+          &nbsp;<a href="<?php echo url_for('productbacklog/index') ?>">Lista de Product Backlog del Proyecto</a>&nbsp;
           <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo link_to('Eliminar', 'productbacklog/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar este ProductBacklog?')) ?>
+            &nbsp;<?php echo link_to('Eliminar', 'productbacklog/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar este ProductBacklog?')) ?>&nbsp;
           <?php endif; ?>
           <input type="submit" value="Guardar" />
         </td>

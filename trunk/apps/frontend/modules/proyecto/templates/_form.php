@@ -9,7 +9,7 @@
     <tfoot>
       <tr>
         <td colspan="2">
-          &nbsp;<a href="<?php echo url_for('proyecto/index') ?>">Lista de Proyectos del Equipo</a>
+          &nbsp;<a href="<?php echo url_for('proyecto/index') ?>">Volver al Listado de Proyectos</a>
           <?php if (!$form->getObject()->isNew()): ?>
             &nbsp;<?php echo link_to('Eliminar', 'proyecto/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar este Proyecto?')) ?>
           <?php endif; ?>

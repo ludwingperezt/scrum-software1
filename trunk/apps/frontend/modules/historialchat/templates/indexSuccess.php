@@ -7,9 +7,9 @@
       <th>Proyecto</th>
       <th>Persona</th>
       <th>Mensaje</th>
-      <th>Created at</th>
-      <th>Is activated</th>
-      <th>Updated at</th>
+      <th>Creado</th>
+      <th>Activo</th>
+      <th>Actualizado</th>
 	  <th>Opciones</th>
     </tr>
   </thead>
@@ -24,10 +24,10 @@
       <td><?php echo $historialchat->getIsActivated() ?></td>
       <td><?php echo $historialchat->getUpdatedAt() ?></td>
 	  <td>
-			<a href="<?php echo url_for('historialchat/edit?id='.$historialchat->getId()) ?>">Editar</a>
+			&nbsp;<a href="<?php echo url_for('historialchat/edit?id='.$historialchat->getId()) ?>">Editar</a>&nbsp;
 	  </td>
 	  <td>
-			&nbsp;<?php echo link_to('Eliminar', 'historialchat/delete?id='.$historialchat->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar el registro de Chat?')) ?>	  
+			&nbsp;<?php echo link_to('Eliminar', 'historialchat/delete?id='.$historialchat->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar el registro de Chat?')) ?>&nbsp;
 	  </td>
     </tr>
     <?php endforeach; ?>

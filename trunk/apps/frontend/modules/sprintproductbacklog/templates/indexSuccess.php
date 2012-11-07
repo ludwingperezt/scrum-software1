@@ -19,10 +19,10 @@
       <td><?php echo $sprintproductbacklog->getCreatedAt() ?></td>
       <td><?php echo $sprintproductbacklog->getUpdatedAt() ?></td>
 	  <td>
-			<a href="<?php echo url_for('sprintproductbacklog/edit?id='.$sprintproductbacklog->getId()) ?>">Editar</a>
+			&nbsp;<a href="<?php echo url_for('sprintproductbacklog/edit?id='.$sprintproductbacklog->getId()) ?>">Editar</a>&nbsp;
 	  </td>
 	  <td>
-			&nbsp;<?php echo link_to('Eliminar', 'sprintproductbacklog/delete?id='.$sprintproductbacklog->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar este SprintProductBacklog?')) ?>
+			&nbsp;<?php echo link_to('Eliminar', 'sprintproductbacklog/delete?id='.$sprintproductbacklog->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar este SprintProductBacklog?')) ?>&nbsp;
 	  </td>
     </tr>
     <?php endforeach; ?>

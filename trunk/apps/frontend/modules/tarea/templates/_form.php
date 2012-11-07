@@ -9,7 +9,7 @@
     <tfoot>
       <tr>
         <td colspan="2">
-          &nbsp;<a href="<?php echo url_for('tarea/index') ?>">Listado de Tareas</a>
+          &nbsp;<a href="<?php echo url_for('tarea/index') ?>">Volver al Listado de Tareas</a>
           <?php if (!$form->getObject()->isNew()): ?>
             &nbsp;<?php echo link_to('Eliminar', 'tarea/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => '¿Esta Seguro de eliminar esta Tarea?')) ?>
           <?php endif; ?>

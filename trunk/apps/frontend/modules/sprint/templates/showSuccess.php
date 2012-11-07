@@ -37,11 +37,11 @@
       <td><?php echo $sprint->getDiasDisponibles() ?></td>
     </tr>
     <tr>
-      <th>Created at:</th>
+      <th>Creado:</th>
       <td><?php echo $sprint->getCreatedAt() ?></td>
     </tr>
     <tr>
-      <th>Updated at:</th>
+      <th>Actualizado:</th>
       <td><?php echo $sprint->getUpdatedAt() ?></td>
     </tr>
   </tbody>

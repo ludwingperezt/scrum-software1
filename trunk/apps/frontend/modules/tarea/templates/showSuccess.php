@@ -29,11 +29,11 @@
       <td><?php echo $tarea->getTiempoEstimado() ?></td>
     </tr>
     <tr>
-      <th>Created at:</th>
+      <th>Creado:</th>
       <td><?php echo $tarea->getCreatedAt() ?></td>
     </tr>
     <tr>
-      <th>Updated at:</th>
+      <th>Actualizado:</th>
       <td><?php echo $tarea->getUpdatedAt() ?></td>
     </tr>
   </tbody>

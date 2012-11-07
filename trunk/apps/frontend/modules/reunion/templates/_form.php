@@ -9,7 +9,7 @@
     <tfoot>
       <tr>
         <td colspan="2">
-          &nbsp;<a href="<?php echo url_for('reunion/index') ?>">Lista de reuniones del proyecto</a>
+          &nbsp;<a href="<?php echo url_for('reunion/index') ?>">Listado de Reuniones</a>
           <?php if (!$form->getObject()->isNew()): ?>		  
             &nbsp;
 			<?php echo link_to('Eliminar', 'reunion/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => '¿Está seguro de eliminar esta Reunion?')) ?>
