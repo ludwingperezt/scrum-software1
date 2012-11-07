@@ -19,41 +19,69 @@
 		  </h1>		  
           <div id="sub_header">
             <div class="post">
-              <!--<h2>Login</h2>
-              <div>
-                <a href="http://www.scrum.260mb.org">Login</a>
-              </div>-->
-			 
-					<?php
-					if ($sf_user->isAuthenticated()){
-					?>
-						<ul class="ttw-notification-menu">
-							<li id="Inicio" class="notification-menu-item first-item"><a href="<?php echo url_for('@default?module=Acceso')?>">Inicio</a></li>
-							<li id="Proyectos" class="notification-menu-item"><a href="<?php echo url_for('@default?module=proyecto')?>">Proyectos</a></li>
-							<?php 
-								if ($sf_user->getAttribute('proyecto')!=NULL){
-									echo "";
-							?>
-									<li id="Equipo" class="notification-menu-item"><a href="<?php echo url_for('@default?module=equipo')?>">Equipo</a></li>
-									<li id="ProductBacklog" class="notification-menu-item"> <a href="<?php echo url_for('@default?module=productbacklog')?>">Product Backlog</a> </li>
-									<li id="Tareas" class="notification-menu-item"> <a href="<?php echo url_for('@default?module=tarea')?>">Tareas</a> </li>
-									<li id="Sprints" class="notification-menu-item"> <a href="<?php echo url_for('@default?module=sprint')?>">Sprints</a> </li>
-									<li id="SprintBacklog" class="notification-menu-item"> <a href="<?php echo url_for('@default?module=sprintproductbacklog')?>">Sprint Backlog</a> </li>
-									<li id="Reuniones" class="notification-menu-item"> <a href="<?php echo url_for('@default?module=reunion')?>">Reuniones</a> </li>
-									<li id="Mensajes" class="notification-menu-item"> <a href="<?php echo url_for('@default?module=historialchat')?>">Mensajes</a> </li>
-									<li id="Links" class="notification-menu-item"> <a href="<?php echo url_for('@default?module=link')?>">Links</a> </li>
-									<li id="Historial" class="notification-menu-item"> <a href="<?php echo url_for('@default?module=cambio')?>">Historial</a> </li>
-							<?php } ?>
-							<li id="Perfil" class="notification-menu-item"><a href="<?php echo url_for('@default?module=persona')?>" >Perfil</a></li>
-							<li id="Salir" class="notification-menu-item last-item"><a href="<?php echo url_for('@sf_guard_signout?module=sfGuardAuth&action=signout')?>">Salir</a></li>
-						</ul><?php
-						//$this->redirect('@acceso');
-					}else{?>
-					 <ul class="ttw-notification-menu">
-						<li id="Home" class="notification-menu-item first-item"><a href="IR A PAGINA DE REGISTRO">Registrar</a></li>
-						<li id="Salir" class="notification-menu-item last-item"><a href="<?php echo url_for('@sf_guard_signin?module=sfGuardAuth&action=signin')?>">Iniciar Sesion</a></li>
-					</ul>
+				<span class="preload1"></span>
+				<span class="preload2"></span>				
+				<ul id="nav">
+				<?php
+				if ($sf_user->isAuthenticated()){
+				//$sf_user->
+				?>
+					<li class="top"><a href="<?php echo url_for('@default?module=Acceso')?>" class="top_link"><span>Inicio</span></a></li>
+					<li class="top"><a id="Herramientas" class="top_link"><span class="down">Herramientas</span></a>
+						<ul class="sub">
+							<li><b>Proyectos</b></li>
+							<li><a href="#nogo3" class="fly">Predeterminar</a>
+									<ul>
+										<li><a href="<?php echo url_for('@default?module=proyecto?action=executePredeterminar')?>">Proyecto 1</a></li>
+										<li><a href="#nogo5">Proyecto 2</a></li>
+										<li><a href="#nogo6">...</a></li>
+									</ul>
+									<?php 
+										if ($sf_user->getAttribute('proyecto')!=NULL){
+									?>
+									<li><a href="<?php echo url_for('@default?module=link')?>">Links</a></li>
+									<li><a href="<?php echo url_for('@default?module=reunion')?>">Reuniones</a></li>
+									<li><a href="<?php echo url_for('@default?module=equipo')?>">Equipo</a></li>
+									<li><a href="<?php echo url_for('@default?module=sprint')?>">Sprints</a></li>
+									<li><a href="<?php echo url_for('@default?module=productbacklog')?>">Product Backlog</a></li>
+									<li><a href="<?php echo url_for('@default?module=tarea')?>">Tareas</a></li>
+									<li><a href="<?php echo url_for('@default?module=sprintproductbacklog')?>">Tablero</a></li>
+									<?php } ?>
+							</li>
+							<li><b>Configuraciones</b></li>
+							<li><a href="<?php echo url_for('@default?module=persona')?>">Personas</a></li>
+							<li><a href="#nogo15">Roles</a></li>
+							<li><a href="<?php echo url_for('@default?module=cambio')?>">Historial</a></li>
+							<li><a href="<?php echo url_for('@default?module=historialchat')?>">Mensajes</a></li>			
+						</ul>
+					</li>
+					<li class="top"><a href="#Mi Perfil" class="top_link"><span>Perfil</span></a></li>
+					<li class="top"><a href="<?php echo url_for('@sf_guard_signout?module=sfGuardAuth&action=signout')?>" class="top_link"><span>Cerrar Sesion</span></a></li>
+					<li class="top"><a id="Ayuda" class="top_link"><span class="down">Ayuda</span></a>
+						<ul class="sub">
+							<li><a href="#">Manual de Usuario</a></li>
+							<li><a href="#">Video</a></li>
+							<li><a href="#">Contacto</a></li>
+							<li><a href="#">Acerca de...</a></li>
+						</ul>
+					</li>
+				</ul>
+				<?php
+					//$this->redirect('@acceso');
+				}else{?>
+					<li class="top"><a href="<?php echo url_for('@default?module=Acceso')?>" class="top_link"><span>Inicio</span></a></li>
+					<li class="top"><a href="<?php echo url_for('@sf_guard_signin?module=sfGuardAuth&action=signin')?>" class="top_link"><span>Iniciar Sesion</span></a></li>
+					<li class="top"><a href="#MODULOREGISTRO" class="top_link"><span>Registrar</span></a></li>
+					<li class="top"><a id="Ayuda" class="top_link"><span class="down">Ayuda</span></a>
+						<ul class="sub">
+							<li><a href="#">Manual de Usuario</a></li>
+							<li><a href="#">Video</a></li>
+							<li><a href="#">Contacto</a></li>
+							<li><a href="#">Acerca de...</a></li>
+						</ul>
+					</li>
 					<?php }?>
+				</ul>
             </div>
           </div>
         </div>

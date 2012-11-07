@@ -12,9 +12,9 @@ default:
     #language:     en
     #robots:       index, follow
 
-  stylesheets:    [main.css,jTPS.css,style_light.css]
+  stylesheets:    [main.css,jTPS.css,style_light.css,pro_dropdown_3.css]
 
-  javascripts:    [jquery.js,jTPS.js,jquery-ui-1.8.14.custom.min.js,ttw-notification-menu.min.js,tablaLista.js]
+  javascripts:    [jquery.js,jTPS.js,jquery-ui-1.8.14.custom.min.js,ttw-notification-menu.min.js,tablaLista.js,stuHover.js]
 
   has_layout:     true
   layout:         layout
