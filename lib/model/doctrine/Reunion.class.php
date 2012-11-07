@@ -16,4 +16,10 @@ class Reunion extends BaseReunion
 	{
 		return sprintf($this->getTitulo());
 	}	
+	
+	public function delete(Doctrine_Connection $conn = NULL)
+	{
+		$this->setIsActivated(false);
+		return parent::save($conn);
+	}
 }
