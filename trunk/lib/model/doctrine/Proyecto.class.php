@@ -16,4 +16,10 @@ class Proyecto extends BaseProyecto
 	{
 		return sprintf($this->getNombre());
 	}
+	
+	public function delete(Doctrine_Connection $conn = NULL)
+	{
+		$this->setIsActivated(false);
+		return parent::save($conn);
+	}
 }

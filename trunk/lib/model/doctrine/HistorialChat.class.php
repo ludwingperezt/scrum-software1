@@ -16,4 +16,10 @@ class HistorialChat extends BaseHistorialChat
 	{
 		return sprintf($this->getMensaje());
 	}
+	
+	public function delete(Doctrine_Connection $conn = NULL)
+	{
+		$this->setIsActivated(false);
+		return parent::save($conn);
+	}
 }
