@@ -58,7 +58,7 @@ class productbacklogActions extends sfActions
 
   public function executeDelete(sfWebRequest $request)
   {
-    //$request->checkCSRFProtection();
+    $request->checkCSRFProtection();
 
     $this->forward404Unless($productbacklog = Doctrine_Core::getTable('productbacklog')->find(array($request->getParameter('id'))), sprintf('Object productbacklog does not exist (%s).', $request->getParameter('id')));
     $productbacklog->delete();

@@ -31,6 +31,9 @@
       <td><//?php echo $reunion->getCreatedAt() ?></td>
       <td><//?php echo $reunion->getUpdatedAt() ?></td>-->
 	  <td> 
+			<a href="<?php echo url_for('reunion/edit?id='.$reunion->getId()) ?>">Editar</a>
+	  </td>
+	  <td> 
 			&nbsp;<?php echo link_to('Eliminar', 'reunion/delete?id='.$reunion->getId(), array('method' => 'delete', 'confirm' => '¿Está seguro de eliminar esta Reunion?')) ?>
 	  </td>
     </tr>

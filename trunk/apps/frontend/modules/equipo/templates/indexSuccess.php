@@ -20,6 +20,9 @@
       <td><?php echo $equipo->getCreatedAt() ?></td>
       <td><?php echo $equipo->getUpdatedAt() ?></td>
 	  <td>
+			<a href="<?php echo url_for('equipo/edit?id='.$equipo->getId()) ?>">Editar</a>
+	  </td>
+	  <td>
 			&nbsp;<?php echo link_to('Eliminar', 'equipo/delete?id='.$equipo->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar el Equipo?')) ?>	
 	  </td>
     </tr>

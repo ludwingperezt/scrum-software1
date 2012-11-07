@@ -9,8 +9,9 @@
       <th>Email</th>
       <th>Telefono</th>
       <th>Is activated</th>
-      <th>Created at</th>
-      <th>Updated at</th>
+      <th>Creado</th>
+      <th>Ultima Actualizacion</th>
+	  <th>Opciones</th>
     </tr>
   </thead>
   <tbody>
@@ -24,8 +25,11 @@
       <td><?php echo $persona->getIsActivated() ?></td>
       <td><?php echo $persona->getCreatedAt() ?></td>
       <td><?php echo $persona->getUpdatedAt() ?></td>
+	  <td> 
+			<a href="<?php echo url_for('persona/edit?id='.$persona->getId()) ?>">Editar</a>&nbsp;
+	  </td>
 	  <td>
-			<?php echo link_to('Eliminar', 'persona/delete?id='.$persona->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar a esta Persona?')) ?>
+			<?php echo link_to('Eliminar', 'persona/delete?id='.$persona->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro?')) ?>
 	  </td>
     </tr>
     <?php endforeach; ?>
