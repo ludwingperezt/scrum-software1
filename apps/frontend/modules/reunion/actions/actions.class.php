@@ -58,7 +58,7 @@ class reunionActions extends sfActions
 
   public function executeDelete(sfWebRequest $request)
   {
-    //$request->checkCSRFProtection();
+    $request->checkCSRFProtection();
 
     $this->forward404Unless($reunion = Doctrine_Core::getTable('reunion')->find(array($request->getParameter('id'))), sprintf('Object reunion does not exist (%s).', $request->getParameter('id')));
     $reunion->delete();

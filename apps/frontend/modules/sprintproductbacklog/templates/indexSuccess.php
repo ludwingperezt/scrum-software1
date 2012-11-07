@@ -19,6 +19,9 @@
       <td><?php echo $sprintproductbacklog->getCreatedAt() ?></td>
       <td><?php echo $sprintproductbacklog->getUpdatedAt() ?></td>
 	  <td>
+			<a href="<?php echo url_for('sprintproductbacklog/edit?id='.$sprintproductbacklog->getId()) ?>">Editar</a>
+	  </td>
+	  <td>
 			&nbsp;<?php echo link_to('Eliminar', 'sprintproductbacklog/delete?id='.$sprintproductbacklog->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar este SprintProductBacklog?')) ?>
 	  </td>
     </tr>

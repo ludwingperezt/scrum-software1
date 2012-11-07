@@ -58,7 +58,7 @@ class sprintActions extends sfActions
 
   public function executeDelete(sfWebRequest $request)
   {
-    //$request->checkCSRFProtection();
+    $request->checkCSRFProtection();
 
     $this->forward404Unless($sprint = Doctrine_Core::getTable('sprint')->find(array($request->getParameter('id'))), sprintf('Object sprint does not exist (%s).', $request->getParameter('id')));
     $sprint->delete();

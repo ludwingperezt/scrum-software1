@@ -25,6 +25,9 @@
       <td><//?php echo $proyecto->getExpiresAt() ?></td>
       <td><//?php echo $proyecto->getIsActivated() ?></td>-->
 	  <td> 
+			<a href="<?php echo url_for('proyecto/edit?id='.$proyecto->getId()) ?>">Editar</a>
+	  </td>
+	  <td> 
 			&nbsp;<?php echo link_to('Eliminar', 'proyecto/delete?id='.$proyecto->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar este Proyecto?')) ?>
 	  </td>
     </tr>

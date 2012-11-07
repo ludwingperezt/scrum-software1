@@ -10,7 +10,7 @@
       <th>Created at</th>
       <th>Is activated</th>
       <th>Updated at</th>
-	  <th>      </th>
+	  <th>Opciones</th>
     </tr>
   </thead>
   <tbody>
@@ -23,6 +23,9 @@
       <td><?php echo $historialchat->getCreatedAt() ?></td>
       <td><?php echo $historialchat->getIsActivated() ?></td>
       <td><?php echo $historialchat->getUpdatedAt() ?></td>
+	  <td>
+			<a href="<?php echo url_for('historialchat/edit?id='.$historialchat->getId()) ?>">Editar</a>
+	  </td>
 	  <td>
 			&nbsp;<?php echo link_to('Eliminar', 'historialchat/delete?id='.$historialchat->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar el registro de Chat?')) ?>	  
 	  </td>

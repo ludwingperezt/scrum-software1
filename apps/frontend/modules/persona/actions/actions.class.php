@@ -58,7 +58,7 @@ class personaActions extends sfActions
 
   public function executeDelete(sfWebRequest $request)
   {
-    //$request->checkCSRFProtection();
+    $request->checkCSRFProtection();
 
     $this->forward404Unless($persona = Doctrine_Core::getTable('persona')->find(array($request->getParameter('id'))), sprintf('Object persona does not exist (%s).', $request->getParameter('id')));
     $persona->delete();

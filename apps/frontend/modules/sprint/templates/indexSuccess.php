@@ -29,6 +29,9 @@
       <!--<td><//?php echo $sprint->getCreatedAt() ?></td>
       <td><//?php echo $sprint->getUpdatedAt() ?></td>-->
 	  <td>
+			<a href="<?php echo url_for('sprint/edit?id='.$sprint->getId()) ?>">Editar</a>
+	  </td>
+	  <td>
 			&nbsp;<?php echo link_to('Eliminar', 'sprint/delete?id='.$sprint->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar este Sprint?')) ?>
 	  </td>
     </tr>

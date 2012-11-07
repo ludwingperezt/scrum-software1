@@ -23,6 +23,9 @@
       <td><?php echo $link->getCreatedAt() ?></td>
       <td><?php echo $link->getUpdatedAt() ?></td>
 	  <td>
+			<a href="<?php echo url_for('link/edit?id='.$link->getId()) ?>">Editar</a>
+	  </td>
+	  <td>
 			&nbsp;<?php echo link_to('Eliminar', 'link/delete?id='.$link->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar este Link?')) ?>
 	  </td>
     </tr>

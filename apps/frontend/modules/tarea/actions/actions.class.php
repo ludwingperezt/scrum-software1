@@ -58,7 +58,7 @@ class tareaActions extends sfActions
 
   public function executeDelete(sfWebRequest $request)
   {
-    //$request->checkCSRFProtection();
+    $request->checkCSRFProtection();
 
     $this->forward404Unless($tarea = Doctrine_Core::getTable('tarea')->find(array($request->getParameter('id'))), sprintf('Object tarea does not exist (%s).', $request->getParameter('id')));
     $tarea->delete();

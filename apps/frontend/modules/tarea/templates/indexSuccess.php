@@ -27,6 +27,9 @@
       <td><?php echo $tarea->getCreatedAt() ?></td>
       <td><?php echo $tarea->getUpdatedAt() ?></td>
 	  <td>
+			<a href="<?php echo url_for('tarea/edit?id='.$tarea->getId()) ?>">Editar</a>
+	  </td>
+	  <td>
 			&nbsp;<?php echo link_to('Eliminar', 'tarea/delete?id='.$tarea->getId(), array('method' => 'delete', 'confirm' => '¿Esta Seguro de eliminar esta Tarea?')) ?>
 	  </td>
     </tr>
