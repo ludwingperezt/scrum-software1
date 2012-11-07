@@ -20,4 +20,4 @@
 </table>
 <hr />
 &nbsp;
-<a href="<?php echo url_for('cambio/index') ?>">Volver a lista</a>
+<a href="<?php echo url_for('cambio/index') ?>">Volver a la lista de sucesos</a>
