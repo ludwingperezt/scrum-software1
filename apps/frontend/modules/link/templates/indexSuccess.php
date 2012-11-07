@@ -8,8 +8,9 @@
       <th>Persona</th>
       <th>Direccion</th>
       <th>Descripcion</th>
-      <th>Created at</th>
-      <th>Updated at</th>
+      <th>Creado</th>
+      <th>Actualizado</th>
+	  <th>Opciones</th>
     </tr>
   </thead>
   <tbody>
@@ -23,10 +24,10 @@
       <td><?php echo $link->getCreatedAt() ?></td>
       <td><?php echo $link->getUpdatedAt() ?></td>
 	  <td>
-			<a href="<?php echo url_for('link/edit?id='.$link->getId()) ?>">Editar</a>
+			&nbsp;<a href="<?php echo url_for('link/edit?id='.$link->getId()) ?>">Editar</a>&nbsp;
 	  </td>
 	  <td>
-			&nbsp;<?php echo link_to('Eliminar', 'link/delete?id='.$link->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar este Link?')) ?>
+			&nbsp;<?php echo link_to('Eliminar', 'link/delete?id='.$link->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar este Link?')) ?>&nbsp;
 	  </td>
     </tr>
     <?php endforeach; ?>

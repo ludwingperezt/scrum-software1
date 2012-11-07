@@ -27,10 +27,10 @@
       <td><//?php echo $productbacklog->getCreatedAt() ?></td>
       <td><//?php echo $productbacklog->getUpdatedAt() ?></td>-->
 	  <td>
-			<a href="<?php echo url_for('productbacklog/edit?id='.$productbacklog->getId()) ?>">Editar</a>
+			&nbsp;<a href="<?php echo url_for('productbacklog/edit?id='.$productbacklog->getId()) ?>">Editar</a>&nbsp;
 	  </td>
 	  <td>
-			&nbsp;<?php echo link_to('Eliminar', 'productbacklog/delete?id='.$productbacklog->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar este ProductBacklog?')) ?>
+			&nbsp;<?php echo link_to('Eliminar', 'productbacklog/delete?id='.$productbacklog->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar este ProductBacklog?')) ?>&nbsp;
 	  </td>
     </tr>
     <?php endforeach; ?>

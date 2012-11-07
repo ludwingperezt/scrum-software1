@@ -9,9 +9,9 @@
     <tfoot>
       <tr>
         <td colspan="2">
-          &nbsp;<a href="<?php echo url_for('historialchat/index') ?>">Volver al Listado</a>
+          &nbsp;<a href="<?php echo url_for('historialchat/index') ?>">Volver al Listado de Chat</a>&nbsp;
           <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo link_to('Eliminar', 'historialchat/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar el registro de Chat?')) ?>
+            &nbsp;<?php echo link_to('Eliminar', 'historialchat/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar el registro de Chat?')) ?>&nbsp;
           <?php endif; ?>
           <input type="submit" value="Guardar" />
         </td>

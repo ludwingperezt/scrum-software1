@@ -27,4 +27,4 @@
 
 <a href="<?php echo url_for('equipo/edit?id='.$equipo->getId()) ?>">Editar</a>
 &nbsp;
-<a href="<?php echo url_for('equipo/index') ?>">Volver al listado</a>
+<a href="<?php echo url_for('equipo/index') ?>">Volver al listado del Equipo</a>

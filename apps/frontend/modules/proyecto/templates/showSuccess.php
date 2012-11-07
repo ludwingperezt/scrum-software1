@@ -21,19 +21,19 @@
       <td><?php echo $proyecto->getComentarios() ?></td>
     </tr>
     <tr>
-      <th>Created at:</th>
+      <th>Creado:</th>
       <td><?php echo $proyecto->getCreatedAt() ?></td>
     </tr>
     <tr>
-      <th>Updated at:</th>
+      <th>Actualizado:</th>
       <td><?php echo $proyecto->getUpdatedAt() ?></td>
     </tr>
     <tr>
-      <th>Expires at:</th>
+      <th>Expira:</th>
       <td><?php echo $proyecto->getExpiresAt() ?></td>
     </tr>
     <tr>
-      <th>Is activated:</th>
+      <th>Activo:</th>
       <td><?php echo $proyecto->getIsActivated() ?></td>
     </tr>
   </tbody>

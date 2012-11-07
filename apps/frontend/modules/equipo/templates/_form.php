@@ -9,7 +9,7 @@
     <tfoot>
       <tr>
         <td colspan="2">
-          &nbsp;<a href="<?php echo url_for('equipo/index') ?>">Volver al listado</a>
+          &nbsp;<a href="<?php echo url_for('equipo/index') ?>">Volver al Listado de Equipos</a>
           <?php if (!$form->getObject()->isNew()): ?>
             &nbsp;<?php echo link_to('Eliminar', 'equipo/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar el Equipo?')) ?>
           <?php endif; ?>

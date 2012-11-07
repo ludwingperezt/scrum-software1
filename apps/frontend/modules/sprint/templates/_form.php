@@ -9,7 +9,7 @@
     <tfoot>
       <tr>
         <td colspan="2">
-          &nbsp;<a href="<?php echo url_for('sprint/index') ?>">Lista de Sprints del Proyecto</a>
+          &nbsp;<a href="<?php echo url_for('sprint/index') ?>">Volver al Listado de Sprints</a>
           <?php if (!$form->getObject()->isNew()): ?>
             &nbsp;<?php echo link_to('Eliminar', 'sprint/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar este Sprint?')) ?>
           <?php endif; ?>

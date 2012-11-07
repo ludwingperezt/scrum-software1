@@ -21,15 +21,15 @@
       <td><?php echo $persona->getTelefono() ?></td>
     </tr>
     <tr>
-      <th>Is activated:</th>
+      <th>Activo:</th>
       <td><?php echo $persona->getIsActivated() ?></td>
     </tr>
     <tr>
-      <th>Created at:</th>
+      <th>Creado:</th>
       <td><?php echo $persona->getCreatedAt() ?></td>
     </tr>
     <tr>
-      <th>Updated at:</th>
+      <th>Actualizado:</th>
       <td><?php echo $persona->getUpdatedAt() ?></td>
     </tr>
   </tbody>
