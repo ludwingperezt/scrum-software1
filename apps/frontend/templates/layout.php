@@ -6,12 +6,8 @@
     <title>SCRUM Manager</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php
-	use_stylesheet('style_light.css');
-	use_javascript('jquery.tools.js');
-	use_javascript('jquery-ui-1.8.14.custom.min.js');
-	use_javascript('ttw-notification-menu.min.js');
 	include_javascripts();
-    include_stylesheets() ?>
+    include_stylesheets(); ?>	
   </head>
   <body>
     <div id="container">
@@ -30,7 +26,7 @@
 			 
 					<?php
 					if ($sf_user->isAuthenticated()){
-						echo "Cambiar de usuario";?>
+					?>
 						<ul class="ttw-notification-menu">
 							<li id="Inicio" class="notification-menu-item first-item"><a href="<?php echo url_for('@default?module=Acceso')?>">Inicio</a></li>
 							<li id="Proyectos" class="notification-menu-item"><a href="<?php echo url_for('@default?module=proyecto')?>">Proyectos</a></li>

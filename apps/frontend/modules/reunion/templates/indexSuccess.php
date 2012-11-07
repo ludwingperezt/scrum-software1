@@ -1,16 +1,18 @@
 <h1>Listado de reuniones del proyecto</h1>
 
-<table>
+<table id="demoTable" style="border: 1px solid #ccc;" cellspacing="0" width="800" align="center">
   <thead>
     <tr>
-      <th>Titulo</th>
-      <th>Proyecto</th>
-      <th>Persona</th>
+      <th sort="Titulo">Titulo</th>
+      <th sort="Proyecto">Proyecto</th>
+      <th sort="Persona">Persona</th>
       <!--<th>Titulo</th>-->
-      <th>Descripcion</th>
-      <th>Anotaciones</th>
-      <th>Fecha</th>
-      <th>Duracion (hrs)</th>
+      <th sort="Descripcion">Descripcion</th>
+      <th sort="Anotaciones">Anotaciones</th>
+      <th sort="Fecha">Fecha</th>
+      <th sort="Duracion">Duracion (hrs)</th>
+	  <th>Acciones</th>
+	  <th></th>
       <!--<th>Is activated</th>
       <th>Created at</th>
       <th>Updated at</th>-->
@@ -39,6 +41,16 @@
     </tr>
     <?php endforeach; ?>
   </tbody>
+  <tfoot class="nav">
+		<tr>
+			<td colspan=7>
+				<div class="pagination"></div>
+				<div class="paginationTitle">Pagina</div>
+				<div class="selectPerPage"></div>
+				<div class="status"></div>
+			</td>
+		</tr>
+	</tfoot>
 </table>
-
-  <a href="<?php echo url_for('reunion/new') ?>">Crear Reunion</a>
+<br>
+<a href="<?php echo url_for('reunion/new') ?>">Crear Reunion</a>

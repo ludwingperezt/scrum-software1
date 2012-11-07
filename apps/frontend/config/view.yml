@@ -12,9 +12,9 @@ default:
     #language:     en
     #robots:       index, follow
 
-  stylesheets:    [main.css]
+  stylesheets:    [main.css,jTPS.css,style_light.css]
 
-  javascripts:    []
+  javascripts:    [jquery.js,jTPS.js,jquery-ui-1.8.14.custom.min.js,ttw-notification-menu.min.js,tablaLista.js]
 
   has_layout:     true
   layout:         layout
