@@ -16,4 +16,12 @@ class PersonaTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Persona');
     }
+	
+	public static function getUsuarioLogueado($idSfUser)
+	{
+		$q=Doctrine_Query::create()
+			->from('Persona p')
+			->where ('p.sf_guard_user_id='.$idSfUser);
+		return $q->execute();
+	}
 }
