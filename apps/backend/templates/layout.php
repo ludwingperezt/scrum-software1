@@ -10,5 +10,6 @@
   </head>
   <body>
     <?php echo $sf_content ?>
+	<li><?php echo link_to('Logout', 'sf_guard_signout') ?></li>
   </body>
 </html>
