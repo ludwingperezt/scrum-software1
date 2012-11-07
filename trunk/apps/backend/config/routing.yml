@@ -1,3 +1,15 @@
+sf_guard_signin:
+  url:   /signin
+  param: { module: sfGuardAuth, action: signin }
+
+sf_guard_signout:
+  url:   /signout
+  param: { module: sfGuardAuth, action: signout }
+
+sf_guard_password:
+  url:   /recovery-password
+  param: { module: sfGuardAuth, action: password }
+
 estado:
   class: sfDoctrineRouteCollection
   options:
