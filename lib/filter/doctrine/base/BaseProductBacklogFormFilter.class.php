@@ -1,14 +1,14 @@
 <?php
 
 /**
- * ProductBacklog filter form base class.
+ * Productbacklog filter form base class.
  *
  * @package    scrum
  * @subpackage filter
  * @author     Your name here
  * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
  */
-abstract class BaseProductBacklogFormFilter extends BaseFormFilterDoctrine
+abstract class BaseProductbacklogFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
@@ -36,7 +36,7 @@ abstract class BaseProductBacklogFormFilter extends BaseFormFilterDoctrine
       'updated_at'   => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
     ));
 
-    $this->widgetSchema->setNameFormat('product_backlog_filters[%s]');
+    $this->widgetSchema->setNameFormat('productbacklog_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
 
@@ -47,7 +47,7 @@ abstract class BaseProductBacklogFormFilter extends BaseFormFilterDoctrine
 
   public function getModelName()
   {
-    return 'ProductBacklog';
+    return 'Productbacklog';
   }
 
   public function getFields()
