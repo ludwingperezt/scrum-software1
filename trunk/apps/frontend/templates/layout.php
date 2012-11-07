@@ -26,9 +26,10 @@
 				if ($sf_user->isAuthenticated()){
 				// Primero se obtiene el id sfUser para luego buscarlo en la tabla de usuarios y devolver una coleccion con posibles resultados
 				$sf_user->setAttribute('personaLogueada',PersonaTable::getUsuarioLogueado($sf_user->getGuardUser()->getId()));
-				foreach ($sf_user->getAttribute('personaLogueada') as $p){ 
+				echo $sf_user->getAttribute('personaLogueada')->getNombre();
+				/*foreach ($sf_user->getAttribute('personaLogueada') as $p){ 
 					echo $p->getNombre();
-				}
+				}*/
 				?>
 					<li class="top"><a href="<?php echo url_for('@default?module=Acceso')?>" class="top_link"><span>Inicio</span></a></li>
 					<li class="top"><a id="Herramientas" class="top_link"><span class="down">Herramientas</span></a>
