@@ -11,6 +11,8 @@
  * @property string $Email
  * @property string $Telefono
  * @property boolean $is_activated
+ * @property integer $sf_guard_user_id
+ * @property sfGuardUser $sfGuardUser
  * @property Doctrine_Collection $Tareas
  * @property Doctrine_Collection $Sprints
  * @property Doctrine_Collection $Productbacklogs
@@ -28,6 +30,8 @@
  * @method string              getEmail()                 Returns the current record's "Email" value
  * @method string              getTelefono()              Returns the current record's "Telefono" value
  * @method boolean             getIsActivated()           Returns the current record's "is_activated" value
+ * @method integer             getSfGuardUserId()         Returns the current record's "sf_guard_user_id" value
+ * @method sfGuardUser         getSfGuardUser()           Returns the current record's "sfGuardUser" value
  * @method Doctrine_Collection getTareas()                Returns the current record's "Tareas" collection
  * @method Doctrine_Collection getSprints()               Returns the current record's "Sprints" collection
  * @method Doctrine_Collection getProductbacklogs()       Returns the current record's "Productbacklogs" collection
@@ -44,6 +48,8 @@
  * @method Persona             setEmail()                 Sets the current record's "Email" value
  * @method Persona             setTelefono()              Sets the current record's "Telefono" value
  * @method Persona             setIsActivated()           Sets the current record's "is_activated" value
+ * @method Persona             setSfGuardUserId()         Sets the current record's "sf_guard_user_id" value
+ * @method Persona             setSfGuardUser()           Sets the current record's "sfGuardUser" value
  * @method Persona             setTareas()                Sets the current record's "Tareas" collection
  * @method Persona             setSprints()               Sets the current record's "Sprints" collection
  * @method Persona             setProductbacklogs()       Sets the current record's "Productbacklogs" collection
@@ -78,7 +84,6 @@ abstract class BasePersona extends sfDoctrineRecord
              ));
         $this->hasColumn('Nombre', 'string', 100, array(
              'type' => 'string',
-             'notnull' => true,
              'length' => 100,
              ));
         $this->hasColumn('Email', 'string', 45, array(
@@ -95,7 +100,19 @@ abstract class BasePersona extends sfDoctrineRecord
              'notnull' => true,
              'default' => 1,
              ));
+        $this->hasColumn('sf_guard_user_id', 'integer', 8, array(
+             'type' => 'integer',
+             'notnull' => true,
+             'length' => 8,
+             ));
 
+
+        $this->index('fk_persona_sf_guard_user1', array(
+             'fields' => 
+             array(
+              0 => 'sf_guard_user_id',
+             ),
+             ));
         $this->option('collate', 'latin1_spanish_ci');
         $this->option('charset', 'latin1');
         $this->option('type', 'InnoDB');
@@ -104,6 +121,10 @@ abstract class BasePersona extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
+        $this->hasOne('sfGuardUser', array(
+             'local' => 'sf_guard_user_id',
+             'foreign' => 'id'));
+
         $this->hasMany('Tarea as Tareas', array(
              'local' => 'id',
              'foreign' => 'Persona_id'));
