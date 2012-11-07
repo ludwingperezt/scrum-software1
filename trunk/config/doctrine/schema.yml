@@ -215,7 +215,6 @@ Persona:
       fixed: true
     Nombre:
       type: string(100)
-      notnull: true
     Email:
       type: string(45)
     Telefono:
@@ -225,6 +224,18 @@ Persona:
       type: boolean
       notnull: true
       default: 1
+    sf_guard_user_id:
+      type: integer(8)
+      notnull: true
+  relations:
+    sfGuardUser:
+      class: sfGuardUser
+      local: sf_guard_user_id
+      foreign: id
+      foreignAlias: personas
+  indexes:
+    fk_persona_sf_guard_user1:
+      fields: [sf_guard_user_id]
 
 Rol:
   actAs: { Timestampable: ~ }
