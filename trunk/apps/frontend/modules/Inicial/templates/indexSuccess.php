@@ -23,18 +23,5 @@ Algunas herramientas para la gestión de todo el proceso se listan:
 <li class="Lista">ICESCRUM. Herramienta Scrum y Kanban. Ofrece las opciones de operación, consulta y estimación de historias de usuario. Permite añadir historias de usuario a la pila de producto, dividir el tiempo en Sprints y mover estas historias de la pila de producto a cada uno de los Sprint. Posee la técnica de Planning Poker para la estimación y paneles virtuales.</li>
 <li class="Lista">PANGO SCRUM. Otra de las herramientas Scrum online, con una interfaz sencilla y amigable que permite escribir, estimar y priorizar la pila de producto. Facilita en gran medida la planificación de Sprints y las reuniones.</li>
 </ul>
-<h1> ESTO NO SE MOSTRARA, DEBE ESTAR EN ACCESO</h1>
-	<a href="<?php echo url_for('@default?module=persona')?>">Personas</a><br>
-	<a href="<?php echo url_for('@default?module=proyecto')?>">Proyectos</a><br>
-	<a href="<?php echo url_for('@default?module=reunion')?>">Reuniones</a><br>
-	<a href="<?php echo url_for('@default?module=equipo')?>">Equipos</a><br>
-	<a href="<?php echo url_for('@default?module=historialchat')?>">Chat</a><br>
-	<a href="<?php echo url_for('@default?module=link')?>">Links</a><br>
-	<a href="<?php echo url_for('@default?module=productbacklog')?>">Product Backlog</a><br>
-	<a href="<?php echo url_for('@default?module=sprint')?>">Sprints</a><br>
-	<a href="<?php echo url_for('@default?module=sprintproductbacklog')?>">Sprint Backlog</a><br>
-	<a href="<?php echo url_for('@default?module=tarea')?>">Tareas</a><br>
-	<a href="<?php echo url_for('@default?module=cambio')?>">Cambios</a><br>
-
 </body>
 </html>

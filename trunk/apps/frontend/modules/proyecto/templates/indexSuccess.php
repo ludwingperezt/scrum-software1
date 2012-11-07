@@ -3,8 +3,9 @@
 <table>
   <thead>
     <tr>
+      <th></th>
       <th>Nombre</th>
-	  <th>Persona</th>      
+      <th>Persona</th>      
       <th>Descripcion</th>
       <th>Comentarios</th>
       <!--<th>Created at</th>
@@ -16,6 +17,7 @@
   <tbody>
     <?php foreach ($proyectos as $proyecto): ?>
     <tr>
+      <td><a href="<?php echo url_for('proyecto/predeterminar?id='.$proyecto->getId()) ?>">Predeterminar</a></td>
       <td><a href="<?php echo url_for('proyecto/show?id='.$proyecto->getId()) ?>"><?php echo $proyecto->getNombre() ?></a></td>
       <td><?php echo $proyecto->getPersona() ?></td>
       <td><?php echo $proyecto->getDescripcion() ?></td>

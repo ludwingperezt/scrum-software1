@@ -87,4 +87,13 @@ class proyectoActions extends sfActions
       $this->redirect('proyecto/index');
     }
   }
+
+  public function executePredeterminar(sfWebRequest $request)
+  {
+	$this->forward404Unless($proyecto = Doctrine_Core::getTable('proyecto')->find(array($request->getParameter('id'))), sprintf('Object proyecto does not exist (%s).', $request->getParameter('id')));
+      $this->getUser()->setAttribute('proyecto', $proyecto->getId());
+      $this->redirect('proyecto/index');
+  }
+
+
 }
