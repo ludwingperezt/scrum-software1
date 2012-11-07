@@ -22,6 +22,6 @@ class PersonaTable extends Doctrine_Table
 		$q=Doctrine_Query::create()
 			->from('Persona p')
 			->where ('p.sf_guard_user_id='.$idSfUser);
-		return $q->execute();
+		return $q->fetchOne();
 	}
 }
