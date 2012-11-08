@@ -47,4 +47,4 @@
 	</tfoot>
 </table>
 <br>
-  <a href="<?php echo url_for('productbacklog/new') ?>">Añadir Product Backlog</a>
+  <a href="<?php echo url_for('productbacklog/new') ?>">Agregar Product Backlog</a>
