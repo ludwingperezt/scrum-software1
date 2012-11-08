@@ -19,8 +19,11 @@ class ReunionTable extends Doctrine_Table
 	
 	public function getReunionesProyecto($idProyecto)
 	{
+		if ($idProyecto == null){
+			$idProyecto = 0;
+		}
 		$q=$this->createQuery('r')
-		->where('r.Proyecto_id ='.$idProyecto.' and r.is_activated=1');
+			->where('r.Proyecto_id ='.$idProyecto.' and r.is_activated=1');
 		return $q->execute();
 	}
 	

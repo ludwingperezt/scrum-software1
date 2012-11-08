@@ -17,6 +17,14 @@ class HistorialChatTable extends Doctrine_Table
         return Doctrine_Core::getTable('HistorialChat');
     }
 	
+	public function getMensajes($idproyecto)
+	{
+		$q=Doctrine_Query::create()
+			->from('historialchat h')
+			->where ('h.is_activated = 1 and h.proyecto_id = '.$idproyecto);
+		return $q->execute();
+	}
+
 	public static function getUltimosMensajes()
 	{
 		$q=Doctrine_Query::create()

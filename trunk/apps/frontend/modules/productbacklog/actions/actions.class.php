@@ -12,9 +12,10 @@ class productbacklogActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->productbacklogs = Doctrine_Core::getTable('productbacklog')
+    /*$this->productbacklogs = Doctrine_Core::getTable('productbacklog')
       ->createQuery('a')
-      ->execute();
+      ->execute();*/
+	$this->productbacklogs = Doctrine_Core::getTable('productbacklog')->getProductBacklog($this->getUser()->getAttribute('proyecto'));
   }
 
   public function executeShow(sfWebRequest $request)

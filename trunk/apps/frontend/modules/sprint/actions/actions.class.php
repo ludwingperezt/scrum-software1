@@ -12,9 +12,10 @@ class sprintActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->sprints = Doctrine_Core::getTable('sprint')
+    /*$this->sprints = Doctrine_Core::getTable('sprint')
       ->createQuery('a')
-      ->execute();
+      ->execute();*/
+	$this->sprints = Doctrine_Core::getTable('sprint')->getSprints($this->getUser()->getAttribute('proyecto'));
   }
 
   public function executeShow(sfWebRequest $request)

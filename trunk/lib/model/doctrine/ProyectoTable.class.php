@@ -21,7 +21,14 @@ class ProyectoTable extends Doctrine_Table
 	{
 		$q=Doctrine_Query::create()
 			->from('Proyecto p')
-			->where ('p.id IN (SELECT e.Proyecto_Id FROM Equipo e WHERE e.Persona_Id='.$idSfUser.') OR p.persona_id='.$idSfUser);
+			->where ('p.is_activated = 1 and (p.id IN (SELECT e.Proyecto_Id FROM Equipo e WHERE e.Persona_Id='.$idSfUser.') OR p.persona_id='.$idSfUser.')');
+		return $q->execute();
+	}
+	public function getProyectosUsuario($idPersona)
+	{
+		$q=Doctrine_Query::create()
+			->from('Proyecto p')
+			->where ('p.is_activated = 1 and (p.id IN (SELECT e.Proyecto_Id FROM Equipo e WHERE e.Persona_Id='.$idPersona.') OR p.persona_id='.$idPersona.')');
 		return $q->execute();
 	}
 }

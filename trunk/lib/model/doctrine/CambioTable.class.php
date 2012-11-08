@@ -16,6 +16,21 @@ class CambioTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Cambio');
     }
+
+	public function getHistorialCambios($idproyecto, $idpersona)
+	{
+		$q=Doctrine_Query::create()
+			->from('cambio c')
+			->where ('c.proyecto_id = '.$idproyecto.' and c.persona_id = '.$idpersona);
+		return $q->execute();
+	}
+	public function getHistorialCambiosPersona()
+	{
+		$q=Doctrine_Query::create()
+			->from('cambio c')
+			->where ('c.persona_id = '.$idpersona);
+		return $q->execute();
+	}
 	
 	public static function getUltimosCambios()
 	{
