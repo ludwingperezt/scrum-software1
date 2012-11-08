@@ -24,4 +24,12 @@ class PersonaTable extends Doctrine_Table
 			->where ('p.sf_guard_user_id='.$idSfUser);
 		return $q->fetchOne();
 	}
+	
+	public static function getPersona($idPersona)
+	{
+		$q=Doctrine_Query::create()
+			->from('Persona p')
+			->where ('p.id='.$idPersona);
+		return $q->fetchOne();
+	}
 }

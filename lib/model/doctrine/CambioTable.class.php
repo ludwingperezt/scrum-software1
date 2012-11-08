@@ -16,4 +16,13 @@ class CambioTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Cambio');
     }
+	
+	public static function getUltimosCambios()
+	{
+		$q=Doctrine_Query::create()
+			->from('cambio c')
+			->orderBy('c.created_At')
+			->limit(5);
+		return $q->execute();
+	}
 }

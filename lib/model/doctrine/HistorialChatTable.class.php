@@ -16,4 +16,13 @@ class HistorialChatTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('HistorialChat');
     }
+	
+	public static function getUltimosMensajes()
+	{
+		$q=Doctrine_Query::create()
+			->from('historialchat hc')
+			->orderBy('hc.created_At')
+			->limit(5);
+		return $q->execute();
+	}
 }
