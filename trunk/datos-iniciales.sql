@@ -3,11 +3,11 @@
 -- Volcar la base de datos para la tabla `rol`
 --
 
-INSERT INTO `rol` (`nombre`, `descripcion`, `is_activated`, `created_at`, `updated_at`) VALUES
-( 'Product Owner', 'product owner', 1, '2012-11-05 16:47:15', '2012-11-05 16:47:15'),
-( 'Scrum master', 'Scrum master', 1, '2012-11-05 16:47:26', '2012-11-05 16:47:26'),
-( 'Stakeholder', 'Stakeholder', 1, '2012-11-05 16:47:36', '2012-11-05 16:47:36'),
-( 'Team', 'Team', 1, '2012-11-05 16:47:44', '2012-11-05 16:47:44');
+INSERT INTO `rol` (`nombre`, `descripcion`, `is_activated`) VALUES
+( 'Scrum master', 'Scrum master', 1),
+( 'Product Owner', 'product owner', 1),
+( 'Stakeholder', 'Stakeholder', 1),
+( 'Team', 'Team', 1);
 --
 -- Volcar la base de datos para la tabla `estado`
 --

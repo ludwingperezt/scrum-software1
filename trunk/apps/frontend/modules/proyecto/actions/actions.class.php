@@ -69,7 +69,14 @@ class proyectoActions extends sfActions
     $request->checkCSRFProtection();
 
     $this->forward404Unless($proyecto = Doctrine_Core::getTable('proyecto')->find(array($request->getParameter('id'))), sprintf('Object proyecto does not exist (%s).', $request->getParameter('id')));
-    $proyecto->delete();
+    
+	$cambio = new Cambio();
+	$cambio->setProyectoId($proyecto->getId());
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion('Proyecto '.$proyecto.' ha sido eliminado');
+	$cambio->save();
+
+	$proyecto->delete();
 
     $this->redirect('proyecto/index');
   }
@@ -81,17 +88,36 @@ class proyectoActions extends sfActions
     {
       $proyecto = $form->save();
 
+	$cambio = new Cambio();
+	$cambio->setProyectoId($proyecto->getId());
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion('Proyecto '.$proyecto.' ha sido modificado');
+	$cambio->save();
+
       $this->redirect('proyecto/edit?id='.$proyecto->getId());
     }
   }
   
   protected function processCreatedForm(sfWebRequest $request, sfForm $form)
   {
+	//acciones tomadas luego de procesar el formulario de nuevo proyecto
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
     if ($form->isValid())
     {
       $proyecto = $form->save();
-
+	$cambio = new Cambio();
+	$cambio->setProyectoId($proyecto->getId());
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion('Proyecto '.$proyecto.' creado');
+	$cambio->save();
+	
+	$equipo = new Equipo();
+	$equipo->setProyectoId($proyecto->getId());
+	$equipo->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$equipo->setRolId(1); //scrum master por defecto
+	$equipo->setNombre('Administrador de proyecto');
+	$equipo->setIsActivated(1);
+	$equipo->save();
       $this->redirect('proyecto/index');
     }
   }
@@ -100,7 +126,7 @@ class proyectoActions extends sfActions
   {
 	$this->forward404Unless($proyecto = Doctrine_Core::getTable('proyecto')->find(array($request->getParameter('id'))), sprintf('Object proyecto does not exist (%s).', $request->getParameter('id')));
 	$this->getUser()->setAttribute('proyecto', $proyecto->getId());
-    $this->redirect('Acceso/index');
+    	$this->redirect('Acceso/index');
   }
 
 
