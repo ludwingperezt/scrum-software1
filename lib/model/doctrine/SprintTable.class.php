@@ -18,7 +18,7 @@ class SprintTable extends Doctrine_Table
     }
 	public function getSprints($idproyecto)
 	{
-		if  ($idproyecto != null){
+		if  ($idproyecto == null){
 			$idproyecto = 0;
 		}
 			$q=Doctrine_Query::create()
