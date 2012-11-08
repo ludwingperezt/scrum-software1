@@ -12,9 +12,15 @@ class proyectoActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->proyectos = Doctrine_Core::getTable('proyecto')
+    /*$this->proyectos = Doctrine_Core::getTable('proyecto')
       ->createQuery('a')
       ->execute();
+	  */
+	  $idPersona=$this->getUser()->getAttribute('personaLogueada')->getId();
+	  $q=Doctrine_Query::create()
+			->from('Proyecto p')
+			->where ('p.id IN (SELECT e.Proyecto_Id FROM Equipo e WHERE e.Persona_Id='.$idPersona.')');
+		$this->proyectos=$q->execute();
   }
 
   public function executeShow(sfWebRequest $request)
