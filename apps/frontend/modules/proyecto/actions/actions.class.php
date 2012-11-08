@@ -16,10 +16,10 @@ class proyectoActions extends sfActions
       ->createQuery('a')
       ->execute();
 	  */
-	  $idPersona=$this->getUser()->getAttribute('personaLogueada')->getId();
+	  $idPersona=$this->getUser()->getAttribute('personaLogueada');
 	  $q=Doctrine_Query::create()
 			->from('Proyecto p')
-			->where ('p.id IN (SELECT e.Proyecto_Id FROM Equipo e WHERE e.Persona_Id='.$idPersona.')');
+			->where ('p.id IN (SELECT e.Proyecto_Id FROM Equipo e WHERE e.Persona_Id='.$idPersona.') OR p.persona_id='.$idPersona);
 		$this->proyectos=$q->execute();
   }
 
@@ -97,8 +97,8 @@ class proyectoActions extends sfActions
   public function executePredeterminar(sfWebRequest $request)
   {
 	$this->forward404Unless($proyecto = Doctrine_Core::getTable('proyecto')->find(array($request->getParameter('id'))), sprintf('Object proyecto does not exist (%s).', $request->getParameter('id')));
-      $this->getUser()->setAttribute('proyecto', $proyecto->getId());
-      $this->redirect('proyecto/index');
+	$this->getUser()->setAttribute('proyecto', $proyecto->getId());
+    $this->redirect('Acceso/index');
   }
 
 

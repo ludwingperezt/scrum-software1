@@ -17,4 +17,11 @@ class ProyectoTable extends Doctrine_Table
         return Doctrine_Core::getTable('Proyecto');
     }
 	
+	public static function getProyectos($idSfUser)
+	{
+		$q=Doctrine_Query::create()
+			->from('Proyecto p')
+			->where ('p.id IN (SELECT e.Proyecto_Id FROM Equipo e WHERE e.Persona_Id='.$idSfUser.') OR p.persona_id='.$idSfUser);
+		return $q->execute();
+	}
 }

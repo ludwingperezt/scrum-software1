@@ -35,11 +35,20 @@
 					<li class="top"><a id="Herramientas" class="top_link"><span class="down">Herramientas</span></a>
 						<ul class="sub">
 							<li><b>Proyectos</b></li>
-							<li><a href="#nogo3" class="fly">Predeterminar</a>
+							<li><a class="fly">Predeterminar</a>
 									<ul>
-										<li><a href="<?php echo url_for('@default?module=proyecto?action=executePredeterminar')?>">Proyecto 1</a></li>
-										<li><a href="#nogo5">Proyecto 2</a></li>
-										<li><a href="#nogo6">...</a></li>
+									<?php
+									$misProyectos=ProyectoTable::getProyectos($idPersona=$sf_user->getAttribute('personaLogueada'));
+									foreach ($misProyectos as $miProyecto){
+									?>
+										<li><a href="<?php echo url_for('proyecto/predeterminar?id='.$miProyecto->getId()).'">';
+										if ($sf_user->getAttribute('proyecto')==$miProyecto->getId())
+											echo '<b>'.$miProyecto->getNombre().'</b>';
+										else
+											echo $miProyecto->getNombre();
+										
+										?></a></li>
+										<?php } ?>
 									</ul>
 									<?php 
 										if ($sf_user->getAttribute('proyecto')!=NULL){
@@ -74,7 +83,7 @@
 				<?php
 					//$this->redirect('@acceso');
 				}else{?>
-					<li class="top"><a href="<?php echo url_for('@default?module=Acceso')?>" class="top_link"><span>Inicio</span></a></li>
+					<li class="top"><a href="<?php echo url_for('@default?module=Inicial')?>" class="top_link"><span>Inicio</span></a></li>
 					<li class="top"><a href="<?php echo url_for('@sf_guard_signin?module=sfGuardAuth&action=signin')?>" class="top_link"><span>Iniciar Sesion</span></a></li>
 					<li class="top"><a href="#MODULOREGISTRO" class="top_link"><span>Registrar</span></a></li>
 					<li class="top"><a id="Ayuda" class="top_link"><span class="down">Ayuda</span></a>
