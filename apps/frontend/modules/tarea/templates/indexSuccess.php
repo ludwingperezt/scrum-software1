@@ -1,17 +1,17 @@
 <h1>Lista de Tareas</h1>
 
-<table>
+<table id="demoTable" style="border: 1px solid #ccc;" cellspacing="0" width="800" align="center">
   <thead>
     <tr>
       <th>Id</th>
-      <th>Persona</th>
-      <th>Product backlog</th>
-      <th>Estado</th>
-      <th>Nombre</th>
-      <th>Descripcion</th>
-      <th>Tiempo estimado</th>
-      <th>Fecha de creacion</th>
-      <th>Fecha de modificacion</th>
+      <th sort="Persona">Persona</th>
+      <th sort="Product backlog">Product backlog</th>
+      <th sort="Estado">Estado</th>
+      <th sort="Nombre">Nombre</th>
+      <th sort="Descripcion">Descripcion</th>
+      <th sort="Tiempo estimado">Tiempo estimado</th>
+      <th sort="Fecha de creacion">Fecha de creacion</th>
+      <th sort="Fecha de modificacion">Fecha de modificacion</th>
     </tr>
   </thead>
   <tbody>
@@ -35,6 +35,16 @@
     </tr>
     <?php endforeach; ?>
   </tbody>
+  <tfoot class="nav">
+		<tr>
+			<td colspan=7>
+				<div class="pagination"></div>
+				<div class="paginationTitle">Pagina</div>
+				<div class="selectPerPage"></div>
+				<div class="status"></div>
+			</td>
+		</tr>
+	</tfoot>
 </table>
-
+<br>
   <a href="<?php echo url_for('tarea/new') ?>">Crear Nuevo</a>
