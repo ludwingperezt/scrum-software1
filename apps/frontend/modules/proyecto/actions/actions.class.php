@@ -15,12 +15,12 @@ class proyectoActions extends sfActions
     /*$this->proyectos = Doctrine_Core::getTable('proyecto')
       ->createQuery('a')
       ->execute();
-	  */
+	  
 	  $idPersona=$this->getUser()->getAttribute('personaLogueada');
 	  $q=Doctrine_Query::create()
 			->from('Proyecto p')
-			->where ('p.id IN (SELECT e.Proyecto_Id FROM Equipo e WHERE e.Persona_Id='.$idPersona.') OR p.persona_id='.$idPersona);
-		$this->proyectos=$q->execute();
+			->where ('p.id IN (SELECT e.Proyecto_Id FROM Equipo e WHERE e.Persona_Id='.$idPersona.') OR p.persona_id='.$idPersona);*/
+		$this->proyectos=Doctrine_Core::getTable('proyecto')->getProyectosUsuario($this->getUser()->getAttribute('personaLogueada'));
   }
 
   public function executeShow(sfWebRequest $request)

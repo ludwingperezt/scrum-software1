@@ -12,9 +12,15 @@ class historialchatActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->historialchats = Doctrine_Core::getTable('historialchat')
+    /*$this->historialchats = Doctrine_Core::getTable('historialchat')
       ->createQuery('a')
-      ->execute();
+      ->execute();*/
+	if ($this->getUser()->getAttribute('proyecto')!=null)
+	{
+		$this->historialchats = Doctrine_Core::getTable('historialchat')->getMensajes($this->getUser()->getAttribute('proyecto'));
+	}
+	else
+		$this->historialchats = Doctrine_Core::getTable('historialchat')->getMensajes(0);
   }
 
   public function executeShow(sfWebRequest $request)

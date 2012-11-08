@@ -16,4 +16,14 @@ class ProductBacklogTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('ProductBacklog');
     }
+	public function getProductBacklog($idproyecto)
+	{
+		if  ($idproyecto == null){
+			$idproyecto = 0;
+		}
+		$q=Doctrine_Query::create()
+				->from('productbacklog p')
+				->where ('p.is_activated = 1 and p.proyecto_id = '.$idproyecto);
+		return $q->execute();
+	}
 }

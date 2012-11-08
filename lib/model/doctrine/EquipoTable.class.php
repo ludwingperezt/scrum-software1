@@ -16,4 +16,11 @@ class EquipoTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Equipo');
     }
+	public function getEquipos($idproyecto)
+	{
+		$q=Doctrine_Query::create()
+			->from('equipo e')
+			->where ('e.is_activated = 1 and e.proyecto_id = '.$idproyecto);
+		return $q->execute();
+	}
 }

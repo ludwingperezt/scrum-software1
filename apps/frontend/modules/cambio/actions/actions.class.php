@@ -12,9 +12,10 @@ class cambioActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->cambios = Doctrine_Core::getTable('cambio')
+    /*$this->cambios = Doctrine_Core::getTable('cambio')
       ->createQuery('a')
-      ->execute();
+      ->execute();*/
+	$this->cambios = Doctrine_Core::getTable('cambio')->getHistorialCambios($this->getUser()->getAttribute('proyecto'), $this->getUser()->getAttribute('personaLogueada'));
   }
 
   public function executeShow(sfWebRequest $request)

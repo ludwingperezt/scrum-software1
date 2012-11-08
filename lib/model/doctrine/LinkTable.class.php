@@ -16,4 +16,11 @@ class LinkTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Link');
     }
+	public function getLinksProyecto($idproyecto)
+	{
+		$q=Doctrine_Query::create()
+			->from('link l')
+			->where ('l.proyecto_id = '.$idproyecto);
+		return $q->execute();
+	}
 }

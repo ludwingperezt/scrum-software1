@@ -12,9 +12,14 @@ class linkActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->links = Doctrine_Core::getTable('link')
+    /*$this->links = Doctrine_Core::getTable('link')
       ->createQuery('a')
-      ->execute();
+      ->execute();*/
+	if ($this->getUser()->getAttribute('proyecto')!=null){
+		$this->links = Doctrine_Core::getTable('link')->getLinksProyecto($this->getUser()->getAttribute('proyecto'));
+	}
+	else
+		$this->links = Doctrine_Core::getTable('link')->getLinksProyecto(0);
   }
 
   public function executeShow(sfWebRequest $request)

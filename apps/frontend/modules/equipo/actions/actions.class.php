@@ -12,9 +12,15 @@ class equipoActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
+/*
     $this->equipos = Doctrine_Core::getTable('equipo')
       ->createQuery('a')
-      ->execute();
+      ->execute();*/
+	if ($this->getUser()->getAttribute('proyecto')!=null){
+	    $this->equipos = Doctrine_Core::getTable('equipo')->getEquipos($this->getUser()->getAttribute('proyecto'));
+	}
+	else
+		$this->equipos = Doctrine_Core::getTable('equipo')->getEquipos(0);
   }
 
   public function executeShow(sfWebRequest $request)
