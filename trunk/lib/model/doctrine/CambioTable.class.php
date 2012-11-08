@@ -36,7 +36,7 @@ class CambioTable extends Doctrine_Table
 	{
 		$q=Doctrine_Query::create()
 			->from('cambio c')
-			->orderBy('c.created_At')
+			->orderBy('c.created_At desc')
 			->limit(5);
 		return $q->execute();
 	}
