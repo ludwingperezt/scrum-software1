@@ -26,45 +26,50 @@ class cambioActions extends sfActions
 
   public function executeNew(sfWebRequest $request)
   {
-    $this->form = new cambioForm();
+    /*$this->form = new cambioForm();*/
+	$this->redirect('@homepage');
   }
 
   public function executeCreate(sfWebRequest $request)
   {
-    $this->forward404Unless($request->isMethod(sfRequest::POST));
+    /*$this->forward404Unless($request->isMethod(sfRequest::POST));
 
     $this->form = new cambioForm();
 
     $this->processForm($request, $this->form);
 
-    $this->setTemplate('new');
+    $this->setTemplate('new');*/
+	$this->redirect('@homepage');
   }
 
   public function executeEdit(sfWebRequest $request)
   {
-    $this->forward404Unless($cambio = Doctrine_Core::getTable('cambio')->find(array($request->getParameter('id'))), sprintf('Object cambio does not exist (%s).', $request->getParameter('id')));
-    $this->form = new cambioForm($cambio);
+    /*$this->forward404Unless($cambio = Doctrine_Core::getTable('cambio')->find(array($request->getParameter('id'))), sprintf('Object cambio does not exist (%s).', $request->getParameter('id')));
+    $this->form = new cambioForm($cambio);*/
+	$this->redirect('@homepage');
   }
 
   public function executeUpdate(sfWebRequest $request)
   {
-    $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
+    /*$this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
     $this->forward404Unless($cambio = Doctrine_Core::getTable('cambio')->find(array($request->getParameter('id'))), sprintf('Object cambio does not exist (%s).', $request->getParameter('id')));
     $this->form = new cambioForm($cambio);
 
     $this->processForm($request, $this->form);
 
-    $this->setTemplate('edit');
+    $this->setTemplate('edit');*/
+	$this->redirect('@homepage');
   }
 
   public function executeDelete(sfWebRequest $request)
   {
-    $request->checkCSRFProtection();
+    /*$request->checkCSRFProtection();
 
     $this->forward404Unless($cambio = Doctrine_Core::getTable('cambio')->find(array($request->getParameter('id'))), sprintf('Object cambio does not exist (%s).', $request->getParameter('id')));
     $cambio->delete();
 
-    $this->redirect('cambio/index');
+    $this->redirect('cambio/index');*/
+	$this->redirect('@homepage');
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)
