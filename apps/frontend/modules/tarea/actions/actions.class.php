@@ -19,11 +19,10 @@ class tareaActions extends sfActions
   
   public function executeIndexFiltradoSprint(sfWebRequest $request)
   {
-	$user = $this->getUser();
 	$q = Doctrine_Query::create()
 		->from('Tarea t')
-		->Where('t.productbacklog_id = ?', $request->getParameter('idPB'))
-		->andWhere('t.persona_id = ?', $request->getParameter('idP'));
+		->Where('t.productbacklog_id = ?', $request->getParameter('idPB'));
+		//->andWhere('t.persona_id = ?', $request->getParameter('idP'));
     $this->tareas = $q->execute();
   }
 

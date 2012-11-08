@@ -32,6 +32,9 @@
 	  <td>
 			&nbsp;<?php echo link_to('Eliminar', 'productbacklog/delete?id='.$productbacklog->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar este ProductBacklog?')) ?>&nbsp;
 	  </td>
+	  <td>
+			&nbsp;<a href="<?php echo url_for('tarea/indexFiltradoSprint?idPB='.$productbacklog->getId()) ?>">Tareas</a>&nbsp;
+	  </td>
     </tr>
     <?php endforeach; ?>
   </tbody>
