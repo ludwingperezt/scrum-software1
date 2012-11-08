@@ -46,4 +46,4 @@
 	</tfoot>
 </table>
 <br>
-  <a href="<?php echo url_for('persona/new') ?>">Añadir Persona</a>
+  <a href="<?php echo url_for('persona/new') ?>">Agregar Persona</a>
