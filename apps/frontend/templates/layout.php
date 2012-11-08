@@ -69,7 +69,7 @@
 							<li><a href="<?php echo url_for('@default?module=historialchat')?>">Mensajes</a></li>			
 						</ul>
 					</li>
-					<li class="top"><a href="#Mi Perfil" class="top_link"><span>Perfil</span></a></li>
+					<li class="top"><a href="<?php echo url_for('@default?module=persona&action=show&id='.$idPersona)?>" class="top_link"><span>Perfil</span></a></li>
 					<li class="top"><a href="<?php echo url_for('@sf_guard_signout?module=sfGuardAuth&action=signout')?>" class="top_link"><span>Cerrar Sesion</span></a></li>
 					<li class="top"><a id="Ayuda" class="top_link"><span class="down">Ayuda</span></a>
 						<ul class="sub">
