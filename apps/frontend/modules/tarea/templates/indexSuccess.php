@@ -1,4 +1,4 @@
-<h1>Tareas List</h1>
+<h1>Lista de Tareas</h1>
 
 <table>
   <thead>
