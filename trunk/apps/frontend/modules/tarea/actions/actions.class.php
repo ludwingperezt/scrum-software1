@@ -16,6 +16,16 @@ class tareaActions extends sfActions
       ->createQuery('a')
       ->execute();
   }
+  
+  public function executeIndexFiltradoSprint(sfWebRequest $request)
+  {
+	$user = $this->getUser();
+	$q = Doctrine_Query::create()
+		->from('Tarea t')
+		->Where('t.productbacklog_id = ?', $request->getParameter('idPB'))
+		->andWhere('t.persona_id = ?', $request->getParameter('idP'));
+    $this->tareas = $q->execute();
+  }
 
   public function executeShow(sfWebRequest $request)
   {
