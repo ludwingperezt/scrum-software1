@@ -14,7 +14,11 @@ class ProductBacklogTable extends Doctrine_Table
      */
     public static function getInstance()
     {
-        return Doctrine_Core::getTable('ProductBacklog');
+        return Doctrine_Core::getTable('ProductBacklog')
+			->createQuery('a')
+			->where('proyecto_id='.$this->getUser()->getAttribute('proyecto'))
+			->execute();
+				
     }
 	public function getProductBacklog($idproyecto)
 	{

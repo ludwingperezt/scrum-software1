@@ -14,7 +14,10 @@ class SprintTable extends Doctrine_Table
      */
     public static function getInstance()
     {
-        return Doctrine_Core::getTable('Sprint');
+        return Doctrine_Core::getTable('Sprint')
+			->createQuery('a')
+			->where('proyecto_id='.$this->getUser()->getAttribute('proyecto'))
+			->execute();
     }
 	public function getSprints($idproyecto)
 	{
