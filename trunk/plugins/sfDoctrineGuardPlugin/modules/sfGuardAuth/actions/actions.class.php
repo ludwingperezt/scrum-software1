@@ -78,7 +78,8 @@ public function executeSignin($request)
 		//$this->getUser()->setAttribute('usuario',1);
 	}
 
-        return $this->redirect('' != $signinUrl ? $signinUrl : '@homepage');
+        //return $this->redirect('' != $signinUrl ? $signinUrl : '@homepage');@default?module=Accion
+          return $this->redirect('@default?module=Acceso&action=index');
       }
     }
     else
