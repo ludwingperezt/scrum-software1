@@ -1,13 +1,13 @@
 <h1>Lista de Sprint backlogs</h1>
 
-<table>
+<table id="demoTable" style="border: 1px solid #ccc;" cellspacing="0" width="800" align="center">
   <thead>
     <tr>
-      <th>Sprint</th>
-      <th>Caracteristica (backlog)</th>
+      <th sort="Sprint">Sprint</th>
+      <th sort="Caracteristica (Backlog)">Caracteristica (backlog)</th>
       <th>Anotaciones</th>
-      <th>Fecha de creacion</th>
-      <th>Fecha de modificacion</th>
+      <th sort="Fecha de creacion">Fecha de creacion</th>
+      <th sort="Fecha de modificacion">Fecha de modificacion</th>
     </tr>
   </thead>
   <tbody>
@@ -27,6 +27,16 @@
     </tr>
     <?php endforeach; ?>
   </tbody>
+  <tfoot class="nav">
+		<tr>
+			<td colspan=7>
+				<div class="pagination"></div>
+				<div class="paginationTitle">Pagina</div>
+				<div class="selectPerPage"></div>
+				<div class="status"></div>
+			</td>
+		</tr>
+	</tfoot>
 </table>
-
+<br>
   <a href="<?php echo url_for('sprintproductbacklog/new') ?>">Nuevo Sprint backlog</a>
