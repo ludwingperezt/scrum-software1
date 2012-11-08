@@ -66,7 +66,7 @@ class equipoActions extends sfActions
 
   public function executeDelete(sfWebRequest $request)
   {
-    $request->checkCSRFProtection();
+    //$request->checkCSRFProtection();
 
     $this->forward404Unless($equipo = Doctrine_Core::getTable('equipo')->find(array($request->getParameter('id'))), sprintf('Object equipo does not exist (%s).', $request->getParameter('id')));
     $equipo->delete();

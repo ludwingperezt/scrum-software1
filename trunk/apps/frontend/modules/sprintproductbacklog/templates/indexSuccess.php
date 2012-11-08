@@ -9,7 +9,6 @@
       <th sort="Fecha de creacion">Fecha de creacion</th>
       <th sort="Fecha de modificacion">Fecha de modificacion</th>
 	  <th>Opciones</th>
-	  <th>Lista de</th>
     </tr>
   </thead>
   <tbody>
@@ -23,9 +22,6 @@
 	  <td>
 			&nbsp;<a href="<?php echo url_for('sprintproductbacklog/edit?id='.$sprintproductbacklog->getId()) ?>">Editar</a>&nbsp;
 			&nbsp;<?php echo link_to('Eliminar', 'sprintproductbacklog/delete?id='.$sprintproductbacklog->getId(), array('method' => 'delete', 'confirm' => '¿Esta seguro de eliminar este SprintProductBacklog?')) ?>&nbsp;
-	  </td>
-	  <td>
-			&nbsp;<a href="<?php echo url_for('tarea/indexFiltradoSprint?idPB='.$sprintproductbacklog->getId().'?idP'.$sf_user->getGuardUser()->getId()) ?>">Tareas</a>&nbsp;
 	  </td>
     </tr>
     <?php endforeach; ?>
