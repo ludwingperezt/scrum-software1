@@ -43,4 +43,4 @@
 	</tfoot>
 </table>
 <br>
-  <a href="<?php echo url_for('tarea/new') ?>">Crear Nuevo</a>
+  <a href="<?php echo url_for('productbacklog/index') ?>">Volver al Listado de ProductBacklogs</a>
