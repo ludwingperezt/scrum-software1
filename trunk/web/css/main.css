@@ -180,8 +180,8 @@ body {
 
 #sub_header
 {
-  background: url(../images/bg-subheader.gif) bottom;
-  width: 783px;
+  background: url(../images/azul_1.jpg) bottom;
+  width: 913px;
   height: 65px;
   margin: 0 auto;
 }
@@ -206,7 +206,7 @@ body {
 }
 
 #content .content {
-  width: 783px;
+  width: 913px;
   margin: 0 auto;
 }
 
@@ -217,7 +217,7 @@ body {
   padding: 0px 15px;
   font-size: 124%;
   text-transform: uppercase;
-  background: url(../images/bg-listheader.gif) no-repeat;
+  background: url(../images/azul_2.jpg) no-repeat;
   line-height: 32px;
   color: #fff;
 }
