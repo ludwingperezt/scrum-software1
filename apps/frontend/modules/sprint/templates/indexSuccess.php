@@ -1,16 +1,16 @@
 <h1>Lista de Sprints</h1>
 
-<table>
+<table id="demoTable" style="border: 1px solid #ccc;" cellspacing="0" width="800" align="center">
   <thead>
     <tr>
-      <th>Nombre </th>
-	  <th>Proyecto </th>
-      <th>Persona </th>
-      <th>Estado </th>      
-      <th>Descripcion </th>
-      <th>Fecha inicio </th>
-      <th>Fecha fin </th>
-      <th>Dias disponibles</th>
+      <th sort="Nombre">Nombre </th>
+	  <th sort="Proyecto">Proyecto </th>
+      <th sort="Persona">Persona </th>
+      <th sort="Estado">Estado </th>      
+      <th sort="Descripcion">Descripcion </th>
+      <th sort="Fecha inicio">Fecha inicio </th>
+      <th sort="Fecha fin">Fecha fin </th>
+      <th sort="Dias disponibles">Dias disponibles</th>
       <!--<th>Created at</th>
       <th>Updated at</th>-->
     </tr>
@@ -37,6 +37,16 @@
     </tr>
     <?php endforeach; ?>
   </tbody>
+  <tfoot class="nav">
+		<tr>
+			<td colspan=7>
+				<div class="pagination"></div>
+				<div class="paginationTitle">Pagina</div>
+				<div class="selectPerPage"></div>
+				<div class="status"></div>
+			</td>
+		</tr>
+	</tfoot>
 </table>
-
+<br>
   <a href="<?php echo url_for('sprint/new') ?>">Crear Sprint</a>
