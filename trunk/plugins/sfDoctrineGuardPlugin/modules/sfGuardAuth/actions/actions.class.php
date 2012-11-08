@@ -58,7 +58,25 @@ public function executeSignin($request)
         $signinUrl = sfConfig::get('app_sf_guard_plugin_success_signin_url', $user->getReferer($request->getReferer()));
 
 	//aqui se agrega el seteo de usuario por defecto
-	$this->getUser()->setAttribute('usuario',1);
+	if ($this->getUser()->isAuthenticated()){
+		// Primero se obtiene el id sfUser para luego buscarlo en la tabla de usuarios y devolver una coleccion con posibles resultados
+		$temp = PersonaTable::getUsuarioLogueado($this->getUser()->getGuardUser()->getId());
+		//verificación: si el usuario loggeado no tiene asigando un perfil "Persona", se crea el nuevo perfil en base a los datos del usuario sfGuardUser
+		if ($temp == false)	
+		{
+			$nPersona = new Persona();
+    			$nPersona->setNombre($this->getUser()->getGuardUser()->getFirstName());
+    			$nPersona->setIdFacebook('');
+    			$nPersona->setEmail($this->getUser()->getGuardUser()->getEmailAddress());
+			$nPersona->setTelefono('');
+			$nPersona->setIsActivated(true);
+			$nPersona->setSfGuardUserId($this->getUser()->getGuardUser()->getId());
+			$nPersona->save();
+		}
+		$this->getUser()->setAttribute('personaLogueada',PersonaTable::getUsuarioLogueado($this->getUser()->getGuardUser()->getId())->getId());	
+		//echo $sf_user->getAttribute('personaLogueada');
+		//$this->getUser()->setAttribute('usuario',1);
+	}
 
         return $this->redirect('' != $signinUrl ? $signinUrl : '@homepage');
       }
