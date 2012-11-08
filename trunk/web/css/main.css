@@ -46,7 +46,8 @@ h3
 table.tablas
 {
   border:2px solid #ccc;
-  
+  float:center;
+  margin: auto;
 }
 
 table.tablas tbody td {
