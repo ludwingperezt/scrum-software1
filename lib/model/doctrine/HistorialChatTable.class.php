@@ -30,7 +30,7 @@ class HistorialChatTable extends Doctrine_Table
 		$q=Doctrine_Query::create()
 			->from('historialchat hc')
 			->orderBy('hc.created_At desc')
-			->limit(5);
+			->limit(10);
 		return $q->execute();
 	}
 }
