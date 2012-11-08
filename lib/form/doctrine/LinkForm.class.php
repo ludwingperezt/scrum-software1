@@ -15,5 +15,7 @@ class LinkForm extends BaseLinkForm
   unset(
       $this['created_at'],$this['updated_at']
 	  );
+$this->widgetSchema['Proyecto_id']  = new sfWidgetFormInputHidden();
+$this->widgetSchema['Persona_id']  = new sfWidgetFormInputHidden();
   }
 }

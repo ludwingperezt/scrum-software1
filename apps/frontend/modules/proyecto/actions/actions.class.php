@@ -31,7 +31,9 @@ class proyectoActions extends sfActions
 
   public function executeNew(sfWebRequest $request)
   {
-    $this->form = new proyectoForm();
+	$project = new Proyecto();
+	$project->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+    	$this->form = new proyectoForm($project);
   }
 
   public function executeCreate(sfWebRequest $request)

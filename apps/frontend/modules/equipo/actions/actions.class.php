@@ -25,7 +25,9 @@ class equipoActions extends sfActions
 
   public function executeNew(sfWebRequest $request)
   {
-    $this->form = new equipoForm();
+	$temp = new Equipo();
+	$temp->setProyectoId($this->getUser()->getAttribute('proyecto'));
+    $this->form = new equipoForm($temp);
   }
 
   public function executeCreate(sfWebRequest $request)

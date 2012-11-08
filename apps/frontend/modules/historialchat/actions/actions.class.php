@@ -25,7 +25,10 @@ class historialchatActions extends sfActions
 
   public function executeNew(sfWebRequest $request)
   {
-    $this->form = new historialchatForm();
+	$temp = new HistorialChat();
+	$temp->setProyectoId($this->getUser()->getAttribute('proyecto'));
+	$temp->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+    $this->form = new historialchatForm($temp);
   }
 
   public function executeCreate(sfWebRequest $request)

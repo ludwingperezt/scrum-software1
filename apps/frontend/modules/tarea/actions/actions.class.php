@@ -25,7 +25,9 @@ class tareaActions extends sfActions
 
   public function executeNew(sfWebRequest $request)
   {
-    $this->form = new tareaForm();
+	$temp = new Tarea();
+	$temp->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+    $this->form = new tareaForm($temp);
   }
 
   public function executeCreate(sfWebRequest $request)

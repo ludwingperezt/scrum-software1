@@ -25,7 +25,10 @@ class reunionActions extends sfActions
 
   public function executeNew(sfWebRequest $request)
   {
-    $this->form = new reunionForm();
+	$temp = new Reunion();
+	$temp->setProyectoId($this->getUser()->getAttribute('proyecto'));
+	$temp->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+    $this->form = new reunionForm($temp);
   }
 
   public function executeCreate(sfWebRequest $request)
