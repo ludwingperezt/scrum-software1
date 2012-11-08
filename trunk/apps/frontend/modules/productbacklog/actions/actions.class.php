@@ -25,7 +25,10 @@ class productbacklogActions extends sfActions
 
   public function executeNew(sfWebRequest $request)
   {
-    $this->form = new productbacklogForm();
+	$temp = new Productbacklog();
+	$temp->setProyectoId($this->getUser()->getAttribute('proyecto'));
+	$temp->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+    $this->form = new productbacklogForm($temp);
   }
 
   public function executeCreate(sfWebRequest $request)

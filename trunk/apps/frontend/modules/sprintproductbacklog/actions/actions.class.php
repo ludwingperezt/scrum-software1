@@ -25,7 +25,9 @@ class sprintproductbacklogActions extends sfActions
 
   public function executeNew(sfWebRequest $request)
   {
-    $this->form = new sprintproductbacklogForm();
+	$temp = new SprintProductBacklog();
+	$temp->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+    $this->form = new sprintproductbacklogForm($temp);
   }
 
   public function executeCreate(sfWebRequest $request)

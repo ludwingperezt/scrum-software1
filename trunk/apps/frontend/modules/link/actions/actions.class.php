@@ -25,7 +25,10 @@ class linkActions extends sfActions
 
   public function executeNew(sfWebRequest $request)
   {
-    $this->form = new linkForm();
+	$temp = new Link();
+	$temp->setProyectoId($this->getUser()->getAttribute('proyecto'));
+	$temp->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+    $this->form = new linkForm($temp);
   }
 
   public function executeCreate(sfWebRequest $request)

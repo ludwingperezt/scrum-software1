@@ -19,5 +19,7 @@ class EquipoForm extends BaseEquipoForm
 	$this->widgetSchema->setLabels(array(
 		'Nombre'=>'Anotaciones'
 	));
+
+	$this->widgetSchema['Proyecto_id']  = new sfWidgetFormInputHidden();
   }
 }

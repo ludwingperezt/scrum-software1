@@ -17,5 +17,7 @@ class ProductBacklogForm extends BaseProductBacklogForm
   $this['updated_at'],
   $this['is_activated']
   );
+	$this->widgetSchema['Proyecto_id']  = new sfWidgetFormInputHidden();
+	$this->widgetSchema['Persona_id']  = new sfWidgetFormInputHidden();
   }
 }

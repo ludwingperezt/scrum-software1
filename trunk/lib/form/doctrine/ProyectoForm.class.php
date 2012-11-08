@@ -18,5 +18,6 @@ class ProyectoForm extends BaseProyectoForm
   $this['expires_at'],
   $this['is_activated']
   );
+	$this->widgetSchema['Persona_id']  = new sfWidgetFormInputHidden();
   }
 }
