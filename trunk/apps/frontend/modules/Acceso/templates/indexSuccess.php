@@ -15,7 +15,8 @@
 	$mensajes=HistorialChatTable::getUltimosMensajes();
 	foreach ($mensajes as $msg){
 	?>
-    <?php echo '<b><span style="color:blue">'.$msg->getCreatedAt().' hrs '.$msg->getPersona().' dice: </b><span style="color:green">'.$msg.'<br>'?>
+    <?php echo '<b><span style="color:blue">'.$msg->getCreatedAt().' hrs '.$msg->getPersona().' dice: </b><span style="color:green">'.$msg.
+	'<b><span style="color:red"> ('.$msg->getProyecto().')'.'</b><br>'?>
 	<?php }
 	echo '<br>'.link_to('Nuevo mensaje...','historialchat/new').' ';
 	echo link_to('Ver mas...','@default?module=historialchat');?>
@@ -27,7 +28,8 @@
 	$cambios=CambioTable::getUltimosCambios();
 	foreach ($cambios as $cambio){
 	?>
-    <?php echo '<b><span style="color:blue">'.$cambio->getCreatedAt().' hrs '.$cambio->getPersona().' hizo: </b><span style="color:green">'.$cambio.'<br>'?>
+    <?php echo '<b><span style="color:blue">'.$cambio->getCreatedAt().' hrs '.$cambio->getPersona().' hizo: </b><span style="color:green">'.$cambio.
+	'<b><span style="color:red"> ('.$cambio->getProyecto().')'.'</b><br>'?>
 	<?php }
 	echo '<br>'.link_to('Ver mas...','@default?module=cambio');?>
 	</p>
