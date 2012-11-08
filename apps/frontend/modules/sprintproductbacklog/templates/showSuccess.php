@@ -1,4 +1,4 @@
-<table>
+<table class="tablas">
   <tbody>
     <tr>
       <th>Creador:</th>
