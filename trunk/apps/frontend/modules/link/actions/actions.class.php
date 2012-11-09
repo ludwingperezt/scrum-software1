@@ -71,7 +71,14 @@ class linkActions extends sfActions
     $request->checkCSRFProtection();
 
     $this->forward404Unless($link = Doctrine_Core::getTable('link')->find(array($request->getParameter('id'))), sprintf('Object link does not exist (%s).', $request->getParameter('id')));
-    $link->delete();
+    
+	$cambio = new Cambio();
+	$cambio->setProyectoId($this->getUser()->getAttribute('proyecto'));
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion($this->getUser()->getGuardUser()->getUsername().' ha eliminado el enlace '.$link->getDireccion());
+	$cambio->save();
+
+	$link->delete();
 
     $this->redirect('link/index');
   }
@@ -83,6 +90,12 @@ class linkActions extends sfActions
     {
       $link = $form->save();
 
+	$cambio = new Cambio();
+	$cambio->setProyectoId($this->getUser()->getAttribute('proyecto'));
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion($this->getUser()->getGuardUser()->getUsername().' ha modificado el enlace '.$link->getDireccion());
+	$cambio->save();
+
       $this->redirect('link/edit?id='.$link->getId());
     }
   }
@@ -93,6 +106,12 @@ class linkActions extends sfActions
     if ($form->isValid())
     {
       $link = $form->save();
+
+	$cambio = new Cambio();
+	$cambio->setProyectoId($this->getUser()->getAttribute('proyecto'));
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion($this->getUser()->getGuardUser()->getUsername().' ha enviado el enlace '.$link->getDireccion());
+	$cambio->save();
 
       $this->redirect('link/index');
     }

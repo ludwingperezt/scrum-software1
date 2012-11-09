@@ -70,6 +70,13 @@ class historialchatActions extends sfActions
     //$request->checkCSRFProtection();
 
     $this->forward404Unless($historialchat = Doctrine_Core::getTable('historialchat')->find(array($request->getParameter('id'))), sprintf('Object historialchat does not exist (%s).', $request->getParameter('id')));
+
+	$cambio = new Cambio();
+	$cambio->setProyectoId($this->getUser()->getAttribute('proyecto'));
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion($this->getUser()->getGuardUser()->getUsername().' ha eliminado el mensaje: '.$historialchat->getMensaje());
+	$cambio->save();
+
     $historialchat->delete();
 
     $this->redirect('historialchat/index');
@@ -82,6 +89,12 @@ class historialchatActions extends sfActions
     {
       $historialchat = $form->save();
 
+	$cambio = new Cambio();
+	$cambio->setProyectoId($this->getUser()->getAttribute('proyecto'));
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion($this->getUser()->getGuardUser()->getUsername().' ha modificado el mensaje: '.$historialchat->getMensaje());
+	$cambio->save();
+
       $this->redirect('historialchat/edit?id='.$historialchat->getId());
     }
   }
@@ -92,6 +105,12 @@ class historialchatActions extends sfActions
     if ($form->isValid())
     {
       $historialchat = $form->save();
+
+	$cambio = new Cambio();
+	$cambio->setProyectoId($this->getUser()->getAttribute('proyecto'));
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion($this->getUser()->getGuardUser()->getUsername().'ha enviado el mensaje: '.$historialchat->getMensaje());
+	$cambio->save();
 
       $this->redirect('historialchat/index');
     }

@@ -65,7 +65,13 @@ class productbacklogActions extends sfActions
     //$request->checkCSRFProtection();
 
     $this->forward404Unless($productbacklog = Doctrine_Core::getTable('productbacklog')->find(array($request->getParameter('id'))), sprintf('Object productbacklog does not exist (%s).', $request->getParameter('id')));
-    $productbacklog->delete();
+    
+	$cambio = new Cambio();
+	$cambio->setProyectoId($this->getUser()->getAttribute('proyecto'));
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion($this->getUser()->getGuardUser()->getUsername().' ha eliminado el backlog '.$productbacklog->getNombre());
+	$cambio->save();
+	$productbacklog->delete();
 
     $this->redirect('productbacklog/index');
   }
@@ -77,6 +83,12 @@ class productbacklogActions extends sfActions
     {
       $productbacklog = $form->save();
 
+	$cambio = new Cambio();
+	$cambio->setProyectoId($this->getUser()->getAttribute('proyecto'));
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion($this->getUser()->getGuardUser()->getUsername().' ha modificado el backlog '.$productbacklog->getNombre());
+	$cambio->save();
+
       $this->redirect('productbacklog/edit?id='.$productbacklog->getId());
     }
   }
@@ -87,6 +99,12 @@ class productbacklogActions extends sfActions
     if ($form->isValid())
     {
       $productbacklog = $form->save();
+
+	$cambio = new Cambio();
+	$cambio->setProyectoId($this->getUser()->getAttribute('proyecto'));
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion($this->getUser()->getGuardUser()->getUsername().' ha creado el backlog '.$productbacklog->getNombre());
+	$cambio->save();
 
       $this->redirect('productbacklog/index');
     }
