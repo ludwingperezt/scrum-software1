@@ -66,7 +66,7 @@
 					<li class="top"><a href="<?php echo url_for('@sf_guard_signout?module=sfGuardAuth&action=signout')?>" class="top_link"><span>Cerrar Sesion</span></a></li>
 					<li class="top"><a id="Ayuda" class="top_link"><span class="down">Ayuda</span></a>
 						<ul class="sub">
-							<li><a href="">Manual de Usuario</a></li>
+							<li><a href="http://www.AyudaScrum.260mb.org/">Manual de Usuario</a></li>
 							<li><a href="#">Video</a></li>
 							<li><a href="<?php echo url_for('Acceso/contacto')?>">Contacto</a></li>
 							<li><a href="<?php echo url_for('Acceso/about')?>">Acerca de...</a></li>
@@ -81,10 +81,10 @@
 					<li class="top"><a href="#MODULOREGISTRO" class="top_link"><span>Registrar</span></a></li>
 					<li class="top"><a id="Ayuda" class="top_link"><span class="down">Ayuda</span></a>
 						<ul class="sub">
-							<li><a href="#">Manual de Usuario</a></li>
+							<li><a href="http://www.AyudaScrum.260mb.org/">Manual de Usuario</a></li>
 							<li><a href="#">Video</a></li>
-							<li><a href="#">Contacto</a></li>
-							<li><a href="#">Acerca de...</a></li>
+							<li><a href="<?php echo url_for('Acceso/contacto')?>">Contacto</a></li>
+							<li><a href="<?php echo url_for('Acceso/about')?>">Acerca de...</a></li>
 						</ul>
 					</li>
 					<?php }?>
