@@ -19,6 +19,7 @@ class tareaActions extends sfActions
   
   public function executeIndexFiltradoSprint(sfWebRequest $request)
   {
+	$this->idPB = $request->getParameter('idPB');
 	$q = Doctrine_Query::create()
 		->from('Tarea t')
 		->Where('t.productbacklog_id = ?', $request->getParameter('idPB'));
@@ -35,6 +36,7 @@ class tareaActions extends sfActions
   public function executeNew(sfWebRequest $request)
   {
 	$temp = new Tarea();
+	$temp->setProductbacklogId($request->getParameter('idPB'));
 	$temp->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
     $this->form = new tareaForm($temp);
   }
@@ -114,7 +116,7 @@ class tareaActions extends sfActions
 	$cambio->setDescripcion($this->getUser()->getGuardUser()->getUsername().' ha creado la tarea '.$tarea->getNombre());
 	$cambio->save();
 
-      $this->redirect('tarea/index');
+      $this->redirect('tarea/indexFiltradoSprint?idPB='.$tarea->getProductbacklogId());
     }
   }
 }
