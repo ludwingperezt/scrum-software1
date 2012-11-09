@@ -65,6 +65,13 @@ class sprintActions extends sfActions
     $request->checkCSRFProtection();
 
     $this->forward404Unless($sprint = Doctrine_Core::getTable('sprint')->find(array($request->getParameter('id'))), sprintf('Object sprint does not exist (%s).', $request->getParameter('id')));
+
+	$cambio = new Cambio();
+	$cambio->setProyectoId($this->getUser()->getAttribute('proyecto'));
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion($this->getUser()->getGuardUser()->getUsername().' ha eliminado el sprint '.$sprint->getNombre());
+	$cambio->save();
+
     $sprint->delete();
 
     $this->redirect('sprint/index');
@@ -77,6 +84,12 @@ class sprintActions extends sfActions
     {
       $sprint = $form->save();
 
+	$cambio = new Cambio();
+	$cambio->setProyectoId($this->getUser()->getAttribute('proyecto'));
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion($this->getUser()->getGuardUser()->getUsername().' ha modificado el sprint '.$sprint->getNombre());
+	$cambio->save();
+
       $this->redirect('sprint/edit?id='.$sprint->getId());
     }
   }
@@ -87,6 +100,12 @@ class sprintActions extends sfActions
     if ($form->isValid())
     {
       $sprint = $form->save();
+
+	$cambio = new Cambio();
+	$cambio->setProyectoId($this->getUser()->getAttribute('proyecto'));
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion($this->getUser()->getGuardUser()->getUsername().' ha agregado el sprint '.$sprint->getNombre());
+	$cambio->save();
 
       $this->redirect('sprint/index');
     }

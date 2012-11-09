@@ -65,6 +65,13 @@ class sprintproductbacklogActions extends sfActions
     $request->checkCSRFProtection();
 
     $this->forward404Unless($sprintproductbacklog = Doctrine_Core::getTable('sprintproductbacklog')->find(array($request->getParameter('id'))), sprintf('Object sprintproductbacklog does not exist (%s).', $request->getParameter('id')));
+
+	$cambio = new Cambio();
+	$cambio->setProyectoId($this->getUser()->getAttribute('proyecto'));
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion($this->getUser()->getGuardUser()->getUsername().' ha removido el product backlog '.$sprintproductbacklog->getProductbacklog()->getNombre().' del sprint '.$sprintproductbacklog->getSprint()->getNombre());
+	$cambio->save();
+
     $sprintproductbacklog->delete();
 
     $this->redirect('sprintproductbacklog/index');
@@ -77,6 +84,12 @@ class sprintproductbacklogActions extends sfActions
     {
       $sprintproductbacklog = $form->save();
 
+	$cambio = new Cambio();
+	$cambio->setProyectoId($this->getUser()->getAttribute('proyecto'));
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion($this->getUser()->getGuardUser()->getUsername().' ha comentado el sprint backlog '.$sprintproductbacklog->getSprint()->getNombre());
+	$cambio->save();
+
       $this->redirect('sprintproductbacklog/edit?id='.$sprintproductbacklog->getId());
     }
   }
@@ -87,6 +100,12 @@ class sprintproductbacklogActions extends sfActions
     if ($form->isValid())
     {
       $sprintproductbacklog = $form->save();
+
+	$cambio = new Cambio();
+	$cambio->setProyectoId($this->getUser()->getAttribute('proyecto'));
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion($this->getUser()->getGuardUser()->getUsername().' ha asignado el product backlog '.$sprintproductbacklog->getProductbacklog()->getNombre().' al sprint '.$sprintproductbacklog->getSprint()->getNombre());
+	$cambio->save();
 
       $this->redirect('sprintproductbacklog/index');
     }
@@ -99,12 +118,26 @@ class sprintproductbacklogActions extends sfActions
 
 	public function executeAsignar(sfWebRequest $request)
 	{
+
+		$productbacklog = Doctrine_Core::getTable('productbacklog')->find($request->getParameter('idproductbacklog'));
+		$this->forward404Unless($sprintproductbacklog);
+
+		$sprint = Doctrine_Core::getTable('sprint')->find($request->getParameter('idsprint'));
+    		$this->forward404Unless($sprint);
+
 		$sprintBacklog = new SprintProductBacklog();
 		$sprintBacklog->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
 		$sprintBacklog->setSprintId($request->getParameter('idsprint'));
 		$sprintBacklog->setProductbacklogId($request->getParameter('idproductbacklog'));
-		$sprintBacklog->setAnotaciones('');
+		$sprintBacklog->setAnotaciones('Se ha asignado el product backlog '.$productbacklog->getNombre().' al sprint '.$sprint->getNombre());
 		$sprintBacklog->save();
+
+		$cambio = new Cambio();
+		$cambio->setProyectoId($this->getUser()->getAttribute('proyecto'));
+		$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+		$cambio->setDescripcion($this->getUser()->getGuardUser()->getUsername().' ha asignado el product backlog '.$productbacklog->getNombre().' al sprint '.$sprint->getNombre());
+		$cambio->save();
+
 		$this->redirect('sprintproductbacklog/index');
 	}
 }

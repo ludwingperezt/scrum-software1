@@ -72,6 +72,13 @@ class tareaActions extends sfActions
     $request->checkCSRFProtection();
 
     $this->forward404Unless($tarea = Doctrine_Core::getTable('tarea')->find(array($request->getParameter('id'))), sprintf('Object tarea does not exist (%s).', $request->getParameter('id')));
+
+	$cambio = new Cambio();
+	$cambio->setProyectoId($this->getUser()->getAttribute('proyecto'));
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion($this->getUser()->getGuardUser()->getUsername().' ha eliminado la tarea '.$tarea->getNombre());
+	$cambio->save();
+
     $tarea->delete();
 
     $this->redirect('tarea/index');
@@ -84,6 +91,12 @@ class tareaActions extends sfActions
     {
       $tarea = $form->save();
 
+	$cambio = new Cambio();
+	$cambio->setProyectoId($this->getUser()->getAttribute('proyecto'));
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion($this->getUser()->getGuardUser()->getUsername().' ha modificado la tarea '.$tarea->getNombre());
+	$cambio->save();
+
       $this->redirect('tarea/edit?id='.$tarea->getId());
     }
   }
@@ -94,6 +107,12 @@ class tareaActions extends sfActions
     if ($form->isValid())
     {
       $tarea = $form->save();
+
+	$cambio = new Cambio();
+	$cambio->setProyectoId($this->getUser()->getAttribute('proyecto'));
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion($this->getUser()->getGuardUser()->getUsername().' ha creado la tarea '.$tarea->getNombre());
+	$cambio->save();
 
       $this->redirect('tarea/index');
     }

@@ -64,7 +64,14 @@ class reunionActions extends sfActions
     //$request->checkCSRFProtection();
 
     $this->forward404Unless($reunion = Doctrine_Core::getTable('reunion')->find(array($request->getParameter('id'))), sprintf('Object reunion does not exist (%s).', $request->getParameter('id')));
-    $reunion->delete();
+
+	$cambio = new Cambio();
+	$cambio->setProyectoId($this->getUser()->getAttribute('proyecto'));
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion($this->getUser()->getGuardUser()->getUsername().' ha eliminado la reunion '.$reunion->getTitulo());
+	$cambio->save();    
+
+	$reunion->delete();
 
     $this->redirect('reunion/index');
   }
@@ -76,6 +83,12 @@ class reunionActions extends sfActions
     {
       $reunion = $form->save();
 
+	$cambio = new Cambio();
+	$cambio->setProyectoId($this->getUser()->getAttribute('proyecto'));
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion($this->getUser()->getGuardUser()->getUsername().' ha modificado la reunion '.$reunion->getTitulo());
+	$cambio->save();
+
       $this->redirect('reunion/edit?id='.$reunion->getId());
     }
   }
@@ -86,6 +99,12 @@ class reunionActions extends sfActions
     if ($form->isValid())
     {
       $reunion = $form->save();
+
+	$cambio = new Cambio();
+	$cambio->setProyectoId($this->getUser()->getAttribute('proyecto'));
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion($this->getUser()->getGuardUser()->getUsername().' ha agregado la reunion '.$reunion->getTitulo());
+	$cambio->save();
 
       $this->redirect('reunion/index');
     }

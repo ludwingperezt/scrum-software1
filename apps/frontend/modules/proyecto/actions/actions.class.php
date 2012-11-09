@@ -118,6 +118,12 @@ class proyectoActions extends sfActions
 	$equipo->setNombre('Administrador de proyecto');
 	$equipo->setIsActivated(1);
 	$equipo->save();
+
+	$cambio1 = new Cambio();
+	$cambio1->setProyectoId($proyecto->getId());
+	$cambio1->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio1->setDescripcion($this->getUser()->getGuardUser()->getUsername().' es el administrador del proyecto');
+	$cambio1->save();
       $this->redirect('proyecto/index');
     }
   }
