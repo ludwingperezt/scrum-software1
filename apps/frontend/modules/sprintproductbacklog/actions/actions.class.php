@@ -12,14 +12,16 @@ class sprintproductbacklogActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->sprintproductbacklogs = Doctrine_Core::getTable('sprintproductbacklog')
+    /*$this->sprintproductbacklogs = Doctrine_Core::getTable('sprintproductbacklog')
       ->createQuery('a')
-      ->execute();
+      ->execute();*/
+	$this->sprintproductbacklogs = Doctrine_Core::getTable('sprintproductbacklog')->getSprintProductBacklog($this->getUser()->getAttribute('proyecto'));
   }
 
   public function executeShow(sfWebRequest $request)
   {
     $this->sprintproductbacklog = Doctrine_Core::getTable('sprintproductbacklog')->find(array($request->getParameter('id')));
+    $this->sprintproductbacklogs = Doctrine_Core::getTable('sprintproductbacklog')->getProductBacklogs($this->sprintproductbacklog->getSprint()->getId());
     $this->forward404Unless($this->sprintproductbacklog);
   }
 
@@ -89,4 +91,20 @@ class sprintproductbacklogActions extends sfActions
       $this->redirect('sprintproductbacklog/index');
     }
   }
+	public function executeListar(sfWebRequest $request)
+	{
+		$this->idsprint = $request->getParameter('idsprint');
+		$this->productbacklogs = Doctrine_Core::getTable('productbacklog')->getProductBacklogsSinAsignar($this->getUser()->getAttribute('proyecto'));
+	}
+
+	public function executeAsignar(sfWebRequest $request)
+	{
+		$sprintBacklog = new SprintProductBacklog();
+		$sprintBacklog->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+		$sprintBacklog->setSprintId($request->getParameter('idsprint'));
+		$sprintBacklog->setProductbacklogId($request->getParameter('idproductbacklog'));
+		$sprintBacklog->setAnotaciones('');
+		$sprintBacklog->save();
+		$this->redirect('sprintproductbacklog/index');
+	}
 }
