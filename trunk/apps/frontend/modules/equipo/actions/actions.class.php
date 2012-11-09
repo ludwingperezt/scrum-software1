@@ -69,7 +69,14 @@ class equipoActions extends sfActions
     //$request->checkCSRFProtection();
 
     $this->forward404Unless($equipo = Doctrine_Core::getTable('equipo')->find(array($request->getParameter('id'))), sprintf('Object equipo does not exist (%s).', $request->getParameter('id')));
-    $equipo->delete();
+    
+	$cambio = new Cambio();
+	$cambio->setProyectoId($proyecto->getId());
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion('Se elimino a'.$equipo->getPersona()->getNombre().' del proyecto');
+	$cambio->save();
+
+	$equipo->delete();
 
     $this->redirect('equipo/index');
   }
@@ -81,6 +88,12 @@ class equipoActions extends sfActions
     {
       $equipo = $form->save();
 
+	$cambio = new Cambio();
+	$cambio->setProyectoId($proyecto->getId());
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion('Se modifico el equipo de proyecto');
+	$cambio->save();
+
       $this->redirect('equipo/edit?id='.$equipo->getId());
     }
   }
@@ -91,6 +104,11 @@ class equipoActions extends sfActions
     if ($form->isValid())
     {
       $equipo = $form->save();
+	$cambio = new Cambio();
+	$cambio->setProyectoId($proyecto->getId());
+	$cambio->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$cambio->setDescripcion('Se agrego a '.$equipo->getPersona()->getNombre().' al proyecto');
+	$cambio->save();
 
       $this->redirect('equipo/index');
     }

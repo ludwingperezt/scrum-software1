@@ -65,7 +65,7 @@ public function executeSignin($request)
 		if ($temp == false)	
 		{
 			$nPersona = new Persona();
-    			$nPersona->setNombre($this->getUser()->getGuardUser()->getFirstName());
+    			$nPersona->setNombre($this->getUser()->getGuardUser()->getUsername());
     			$nPersona->setIdFacebook('');
     			$nPersona->setEmail($this->getUser()->getGuardUser()->getEmailAddress());
 			$nPersona->setTelefono('');

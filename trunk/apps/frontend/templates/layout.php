@@ -49,6 +49,7 @@
 										
 										?></a></li>
 										<?php } ?>
+										<li><a href="<?php echo url_for('@default?module=proyecto')?>">Gestionar proyectos</a></li>
 									</ul>
 									<?php 
 										if ($sf_user->getAttribute('proyecto')!=NULL){
@@ -58,13 +59,11 @@
 									<li><a href="<?php echo url_for('@default?module=equipo')?>">Equipo</a></li>
 									<li><a href="<?php echo url_for('@default?module=sprint')?>">Sprints</a></li>
 									<li><a href="<?php echo url_for('@default?module=productbacklog')?>">Product Backlog</a></li>
-									<li><a href="<?php echo url_for('@default?module=tarea')?>">Tareas</a></li>
 									<li><a href="<?php echo url_for('@default?module=sprintproductbacklog')?>">Tablero</a></li>
 									<?php } ?>
 							</li>
 							<li><b>Configuraciones</b></li>
 							<li><a href="<?php echo url_for('@default?module=persona')?>">Personas</a></li>
-							<li><a href="#nogo15">Roles</a></li>
 							<li><a href="<?php echo url_for('@default?module=cambio')?>">Historial</a></li>
 							<li><a href="<?php echo url_for('@default?module=historialchat')?>">Mensajes</a></li>			
 						</ul>
