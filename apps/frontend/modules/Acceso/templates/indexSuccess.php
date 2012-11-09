@@ -28,7 +28,7 @@
 	$cambios=CambioTable::getUltimosCambios();
 	foreach ($cambios as $cambio){
 	?>
-    <?php echo '<b><span style="color:blue">'.$cambio->getCreatedAt().' hrs '.$cambio->getPersona().' hizo: </b><span style="color:green">'.$cambio.
+    <?php echo '<b><span style="color:blue">'.$cambio->getCreatedAt().' hrs '.$cambio->getPersona().' hizo: </b><span style="color:green">'.$cambio->getDescripcion().
 	'<b><span style="color:red"> ('.$cambio->getProyecto().')'.'</b><br>'?>
 	<?php }
 	echo '<br>'.link_to('Ver mas...','@default?module=cambio');?>
