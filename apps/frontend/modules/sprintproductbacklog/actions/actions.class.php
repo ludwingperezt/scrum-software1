@@ -120,10 +120,10 @@ class sprintproductbacklogActions extends sfActions
 	{
 
 		$productbacklog = Doctrine_Core::getTable('productbacklog')->find($request->getParameter('idproductbacklog'));
-		$this->forward404Unless($sprintproductbacklog);
+		//$this->forward404Unless($sprintproductbacklog);
 
 		$sprint = Doctrine_Core::getTable('sprint')->find($request->getParameter('idsprint'));
-    		$this->forward404Unless($sprint);
+    		//$this->forward404Unless($sprint);
 
 		$sprintBacklog = new SprintProductBacklog();
 		$sprintBacklog->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
