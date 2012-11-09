@@ -43,4 +43,5 @@
 	</tfoot>
 </table>
 <br>
+  <a href="<?php echo url_for('tarea/new?idPB='.$idPB) ?>">Nueva tarea</a>
   <a href="<?php echo url_for('productbacklog/index') ?>">Volver al Listado de ProductBacklogs</a>
