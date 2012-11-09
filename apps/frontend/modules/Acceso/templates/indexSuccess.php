@@ -5,9 +5,9 @@
 <link rel="stylesheet" href="/resources/demos/style.css" />
     <script>
     $(function() {
-        $( "#Mensajes" ).dialog({ position: "right" , show: "slide"});
+        $( "#Mensajes" ).dialog({ position: "right" ,  show: { effect: 'drop', direction: "up" }});
 		$( "#Historial" ).dialog({ position: "center" , show: "slide"});
-		$( "#Temporal" ).dialog({ position: "left" , show: { effect: 'drop', direction: "up" }});
+		//$( "#Temporal" ).dialog({ position: "left" , show: { effect: 'drop', direction: "up" }});
     });
     </script>
 <div id="Mensajes" title="Ultimos Mensajes...">
@@ -35,7 +35,7 @@
 	</p>
 </div>
 
- <div id="Temporal" title="MENU TEMPORAL">
+ <!--<div id="Temporal" title="MENU TEMPORAL">
     <a href="<?php echo url_for('@default?module=persona')?>">Personas</a><br>
 	<a href="<?php echo url_for('@default?module=proyecto')?>">Proyectos</a><br>
 	<a href="<?php echo url_for('@default?module=reunion')?>">Reuniones</a><br>
@@ -48,6 +48,6 @@
 	<a href="<?php echo url_for('@default?module=tarea')?>">Tareas</a><br>
 	<a href="<?php echo url_for('@default?module=cambio')?>">Cambios</a><br>
 </div>
-
+-->
 <h1>Bienvenido <?php echo PersonaTable::getPersona($sf_user->getAttribute('personaLogueada'))->getNombre();?></h1>
 <br>
