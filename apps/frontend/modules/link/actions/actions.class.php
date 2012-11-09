@@ -33,6 +33,8 @@ class linkActions extends sfActions
 	$temp = new Link();
 	$temp->setProyectoId($this->getUser()->getAttribute('proyecto'));
 	$temp->setPersonaId($this->getUser()->getAttribute('personaLogueada'));
+	$temp->setDireccion('http://www.');
+	
     $this->form = new linkForm($temp);
   }
 

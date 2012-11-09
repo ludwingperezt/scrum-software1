@@ -19,7 +19,7 @@
       <td><a href="<?php echo url_for('link/show?id='.$link->getId()) ?>"><?php echo $link->getId() ?></a></td>
       <td><?php echo $link->getProyecto() ?></td>
       <td><?php echo $link->getPersona() ?></td>
-      <td><?php echo $link->getDireccion() ?></td>
+      <td><?php echo '<a href="'.$link->getDireccion().'" target="_blank">'.$link->getDireccion().'</a>'?></td>
       <td><?php echo $link->getDescripcion() ?></td>
       <td><?php echo $link->getCreatedAt() ?></td>
       <td><?php echo $link->getUpdatedAt() ?></td>
