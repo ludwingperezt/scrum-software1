@@ -4,7 +4,7 @@
 <html>
   <head>
     <title>SCRUM Manager</title>
-    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="shortcut icon"/>
     <?php
 	include_javascripts();
     include_stylesheets(); ?>	
@@ -117,7 +117,7 @@
         <?php endif; ?>
       </div>
  
-      <div id="footer">
+      <!--<div id="footer">
         <div class="content">
           <span class="symfony">
             <img src="/images/jobeet-mini.png" />
@@ -132,7 +132,7 @@
             <li class="last"><a href="">Affiliates</a></li>
           </ul>
         </div>
-      </div>
+      </div>-->
     </div>
   </body>
 </html>
