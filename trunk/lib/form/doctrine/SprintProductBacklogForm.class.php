@@ -16,5 +16,7 @@ class SprintProductBacklogForm extends BaseSprintProductBacklogForm
       $this['created_at'], $this['updated_at']
     );
 	$this->widgetSchema['Persona_id']  = new sfWidgetFormInputHidden();
+	$this->widgetSchema['Sprint_id']  = new sfWidgetFormInputHidden();
+	$this->widgetSchema['Productbacklog_id']  = new sfWidgetFormInputHidden();
   }
 }

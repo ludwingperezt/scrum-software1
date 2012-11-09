@@ -30,4 +30,14 @@ class ProductBacklogTable extends Doctrine_Table
 				->where ('p.is_activated = 1 and p.proyecto_id = '.$idproyecto);
 		return $q->execute();
 	}
+	public function getProductBacklogsSinAsignar($idproyecto)
+	{
+		if  ($idproyecto == null){
+			$idproyecto = 0;
+		}
+		$q=Doctrine_Query::create()
+				->from('productbacklog p')
+				->where ('p.is_activated = 1 and p.proyecto_id = '.$idproyecto.' and p.id not in (SELECT DISTINCT s.productbacklog_id FROM sprintproductbacklog s)');
+		return $q->execute();
+	}
 }

@@ -16,4 +16,22 @@ class SprintProductBacklogTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('SprintProductBacklog');
     }
+
+	public function getSprintProductBacklog($idproyecto)
+	{
+		if  ($idproyecto == null){
+			$idproyecto = 0;
+		}
+			$q=Doctrine_Query::create()
+				->from('SprintProductBacklog s')
+				->where('s.sprint_id in (SELECT t.id FROM sprint t WHERE t.proyecto_id = '.$idproyecto.')');
+		return $q->execute();
+	}
+	public function getProductBacklogs($idsprint)
+	{
+		$q=Doctrine_Query::create()
+				->from('SprintProductBacklog s')
+				->where('s.sprint_id = '.$idsprint);
+		return $q->execute();
+	}
 }

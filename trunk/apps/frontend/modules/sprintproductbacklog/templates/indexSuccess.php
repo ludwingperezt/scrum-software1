@@ -1,4 +1,4 @@
-<h1>Lista de Sprint backlogs</h1>
+<h1>Vista rapida de Sprint backlogs</h1>
 
 <table id="demoTable" style="border: 1px solid #ccc;" cellspacing="0" width="800" align="center">
   <thead>
@@ -14,9 +14,9 @@
   <tbody>
     <?php foreach ($sprintproductbacklogs as $sprintproductbacklog): ?>
     <tr>
-      <td><a href="<?php echo url_for('sprint/show?id='.$sprintproductbacklog->getSprint()->getId()) ?>"><?php echo $sprintproductbacklog->getSprint()->getNombre() ?></a></td>
+      <td><a href="<?php echo url_for('sprintproductbacklog/show?id='.$sprintproductbacklog->getId()) ?>"><?php echo $sprintproductbacklog->getSprint()->getNombre() ?></a></td>
       <td><a href="<?php echo url_for('productbacklog/show?id='.$sprintproductbacklog->getProductbacklog()->getId()) ?>"><?php echo $sprintproductbacklog->getProductbacklog()->getNombre() ?></a></td>
-      <td><a href="<?php echo url_for('sprintproductbacklog/show?id='.$sprintproductbacklog->getId()) ?>"><?php echo $sprintproductbacklog->getAnotaciones() ?></a></td>
+      <td><?php echo $sprintproductbacklog->getAnotaciones() ?></td>
       <td><?php echo $sprintproductbacklog->getCreatedAt() ?></td>
       <td><?php echo $sprintproductbacklog->getUpdatedAt() ?></td>
 	  <td>
@@ -38,4 +38,3 @@
 	</tfoot>
 </table>
 <br>
-  <a href="<?php echo url_for('sprintproductbacklog/new') ?>">Nuevo Sprint backlog</a>
