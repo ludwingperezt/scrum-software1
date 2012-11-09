@@ -19,4 +19,15 @@ class AccesoActions extends sfActions
   {
     //$this->forward('default', 'module');
   }
+  
+  public function executeContacto(sfWebRequest $request)
+  {
+  
+  }
+  
+  public function executeAbout(sfWebRequest $request)
+  {
+  
+  }
+  
 }
