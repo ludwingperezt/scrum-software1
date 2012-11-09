@@ -24,12 +24,6 @@
 				<ul id="nav">
 				<?php
 				if ($sf_user->isAuthenticated()){
-				// Primero se obtiene el id sfUser para luego buscarlo en la tabla de usuarios y devolver una coleccion con posibles resultados
-				//$sf_user->setAttribute('personaLogueada',PersonaTable::getUsuarioLogueado($sf_user->getGuardUser()->getId())->getId());
-				//echo $sf_user->getAttribute('personaLogueada');//->getNombre();
-				/*foreach ($sf_user->getAttribute('personaLogueada') as $p){ 
-					echo $p->getNombre();
-				}*/
 				?>
 					<li class="top"><a href="<?php echo url_for('@default?module=Acceso')?>" class="top_link"><span>Inicio</span></a></li>
 					<li class="top"><a id="Herramientas" class="top_link"><span class="down">Herramientas</span></a>
@@ -72,10 +66,10 @@
 					<li class="top"><a href="<?php echo url_for('@sf_guard_signout?module=sfGuardAuth&action=signout')?>" class="top_link"><span>Cerrar Sesion</span></a></li>
 					<li class="top"><a id="Ayuda" class="top_link"><span class="down">Ayuda</span></a>
 						<ul class="sub">
-							<li><a href="#">Manual de Usuario</a></li>
+							<li><a href="">Manual de Usuario</a></li>
 							<li><a href="#">Video</a></li>
-							<li><a href="#">Contacto</a></li>
-							<li><a href="#">Acerca de...</a></li>
+							<li><a href="<?php echo url_for('Acceso/contacto')?>">Contacto</a></li>
+							<li><a href="<?php echo url_for('Acceso/about')?>">Acerca de...</a></li>
 						</ul>
 					</li>
 				</ul>
